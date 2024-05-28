@@ -1,0 +1,35 @@
+---
+type RedSocial = {
+    img: string;
+    href: string;
+};
+
+const redesSociales: { [key: string]: RedSocial } = {
+  facebook: {
+    img: "/facebook.png",
+    href: "https://www.facebook.com/profile.php?id=100093019697677",
+  },
+
+  Instagram: {
+    img: "/instagram.png",
+    href: "https://www.instagram.com/soccerlife2017/",
+  },
+};
+---
+
+<div id="redes">
+    <p class="dark:text-white">Siguenos en nuestras redes sociales:</p>
+    {
+      //crear apartados automaticamente
+      Object.keys(redesSociales).map((red) => {
+        const { img, href } = redesSociales[red];
+        return (
+          <a
+            href={href}
+            class="">
+            <img src={img}></img>
+          </a>
+        );
+      })
+    }
+  </div>

@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import Social from '../components/Social.astro';
+
+const direccion: string =
+  "Calle Zaragoza #36. Col. Atemajac del Valle, Zapopan, Mexico, 45190";
+const telefono: string = "33 17 75 26 53";
+const correo: string = "17soccer.life@gmail.com";
+
+---
+
+<footer class="from-soccerblue to-soocerred dark:text-white p-4">
+  <p>Dirección:</p>
+  <address>{direccion}</address>
+
+  <p>Telefono:</p>
+  <a href={"tel:"+telefono}>{telefono}</a>
+
+  <p>Correo Electronico:</p>
+  <a href={"mailto:"+correo}>{correo}</a>
+
+  <Social></Social>
+</footer>

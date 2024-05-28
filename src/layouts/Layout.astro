@@ -1,0 +1,28 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title?: string;
+}
+const { title } = Astro.props;
+const fixedTitle = Astro.request.url.replace('.astro', '').split('/');
+
+---
+
+<!doctype html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title? title : fixedTitle[fixedTitle.length - 1].replace('/', '')}</title>
+	</head>
+	<body class="dark:bg-black">
+		<Navbar></Navbar>
+		<slot />
+		<Footer></Footer>
+	</body>
+</html>
