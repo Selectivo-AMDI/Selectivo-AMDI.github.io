@@ -9,6 +9,8 @@
 
 - [ ] Ver un host
 
+- [ ] Pedir correo
+
 # Dev
 
 - [ ] Hacer responsive todos los diseños

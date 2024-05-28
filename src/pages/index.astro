@@ -1,56 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import Partidos from "./partidos.astro";
 import BtnDonar from "../components/BtnDonar.astro";
-
-const testimonios = {
-  id: 1,
-  nombre: "Kevinsito",
-  img: "/kevin.png",
-  mensaje: "desde que estoy inscrito saquí",
-  edad: 21,
-  recomenacion: 5, //estrellas
-}
 ---
 
 <Layout title="Proyecto AMDI">
   <main class="dark:text-white">
-    <div class="">
-      <p></p>
-    </div>
     <div
       id="presentacion"
       class="relative bg-cover bg-center h-screen bg-[url('/equipo.jpg')] text-center grid items-center"
     >
-      <div class="absolute inset-0 bg-black opacity-60"></div>
-      <div class="relative z-10 text-white p-8">
-        <h1 class="text-6xl font-bold">Selectivo AMDI</h1>
-        <p>
-          Academia 100% formativa, en la cual el niño y la niña aprendan del
-          fútbol jugando con disciplina.
+      <div class="absolute inset-0 bg-black opacity-70"></div>
+      <div class="relative z-10 p-8">
+        <h1 class="text-6xl font-bold">Selección AMDI Jalisco</h1>
+        <p class="p-2">
+          Asociación que se preocupa por darle actividades de alto nivel a cada
+          uno de sus integrantes en sus diferentes disciplinas.
         </p>
       </div>
     </div>
-    <div id="partidos_recientes" class="p-2 h-screen text-center">
-      <h2 class="text-2xl">
-        ¡Partidos proximos!
-        <Partidos />
-      </h2>
+    <div id="quienes" class="p-2 m-4 h-screen text-center font-medium">
+      <h2 class="text-6xl">#DejandoHuella</h2>
 
-      <a href="/partidos" class="bg-red-700 font-bold p-2 rounded"
-        >Ver todos nuestros partidos</a
-      >
+      <p>
+        Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
+        de la Copa America AIFI. de diversas categorias infantiles, como 2012 o
+        2008.
+      </p>
     </div>
 
-    <div
-      id="CTA">
-        <p>
-          Si quieres apoynarnos para que nuestro equipo pueda crecen y alcanzar
-          las grandes ligas, considera donar en el botón de <strong>donar</strong>:
-        </p>
-        <BtnDonar />
+    <div id="testimonios">
+      <p>Esto dice la gente de nosotros:</p>
+      <div>
+        <!-- testimonios -->
       </div>
+    </div>
+
+    <div id="CTA">
+      <p>
+        Si quieres apoynarnos para que nuestro equipo pueda crecen y alcanzar
+        las grandes ligas, considera donar en el botón de <strong>donar</strong
+        >:
+      </p>
+      <BtnDonar />
     </div>
   </main>
 </Layout>
