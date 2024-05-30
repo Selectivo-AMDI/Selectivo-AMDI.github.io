@@ -1,5 +1,5 @@
 ---
-import Navbar from '../components/Navbar.astro';
+// import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -21,7 +21,7 @@ const fixedTitle = Astro.request.url.replace('.astro', '').split('/');
 		<title>{title? title : fixedTitle[fixedTitle.length - 1].replace('/', '')}</title>
 	</head>
 	<body class="dark:bg-black">
-		<Navbar></Navbar>
+		<!--<Navbar />-->
 		<slot />
 		<Footer></Footer>
 	</body>

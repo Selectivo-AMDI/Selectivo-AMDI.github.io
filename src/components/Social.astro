@@ -7,18 +7,24 @@ type RedSocial = {
 const redesSociales: { [key: string]: RedSocial } = {
   facebook: {
     img: "/facebook.png",
-    href: "https://www.facebook.com/profile.php?id=100093019697677",
+    href: "https://www.facebook.com/profile.php?id=100066694115005",
   },
 
   Instagram: {
     img: "/instagram.png",
-    href: "https://www.instagram.com/soccerlife2017/",
+    href: "https://www.instagram.com/seleccionamdi22",
   },
+
+  TikTok: {
+    img: "/tiktok.png",
+    href: "https://www.tiktok.com/@selectivoamdi_jalisco"
+  }
 };
 ---
 
 <div id="redes">
-    <p class="dark:text-white">Siguenos en nuestras redes sociales:</p>
+    <p class="dark:text-white inline-flex ">Siguenos en nuestras redes sociales:</p>
+
     {
       //crear apartados automaticamente
       Object.keys(redesSociales).map((red) => {
@@ -26,8 +32,9 @@ const redesSociales: { [key: string]: RedSocial } = {
         return (
           <a
             href={href}
-            class="">
-            <img src={img}></img>
+            target="_blank"
+            class="inline-flex m-1">
+            <img src={img} />
           </a>
         );
       })
