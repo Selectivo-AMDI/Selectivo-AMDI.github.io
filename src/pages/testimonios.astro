@@ -1,0 +1,89 @@
+---
+import { TRANSITION_AFTER_PREPARATION } from "astro:transitions/client";
+import Layout from "../layouts/Layout.astro"
+
+type Testimonio = {
+    img: string;
+    edad: number;
+    mensaje: string;
+    fechaEntrada: number;
+    alt: string;
+};
+
+const testimonios: { [key: string]: Testimonio } = {
+  angela: {
+    img: "/partidos.webp",
+    edad: 12,
+    mensaje: "no me gusto AMDI",
+    fechaEntrada: 2020,
+    alt: "Niña rubia, alta, sosteniendo un titulo"
+  },
+  pedro: {
+    img: "/juego.jpg",
+    edad: 14,
+    mensaje: "Me encantó jugar en el equipo, aprendí mucho.",
+    fechaEntrada: 2018,
+    alt: "Niño de tez morena, gordito, sosteniendo un trofeo de primer lugar",
+  },
+  maria: {
+    img: "/equipo3.png",
+    edad: 13,
+    mensaje: "Los entrenadores son muy amables y pacientes.",
+    fechaEntrada: 2019,
+    alt: "",
+  },
+  juan: {
+    img: "/equipo2.webp",
+    edad: 15,
+    mensaje: "Hice muchos amigos nuevos y mejoré mi habilidad en el futbol.",
+    fechaEntrada: 2017,
+    alt: "",
+  },
+  carla: {
+    img: "/equipo.webp",
+    edad: 11,
+    mensaje: "Las actividades son muy divertidas y educativas.",
+    fechaEntrada: 2021,
+    alt: "",
+  },
+};
+
+---
+
+<Layout>
+    <div class="dark:text-white content-center flex p-4 ">
+        {
+            Object.keys(testimonios).map((testimonio) => {
+                const nombre = testimonio;
+                const { img, edad, mensaje, fechaEntrada, alt } = testimonios[testimonio];
+                return (
+                    <div class="p-4 bg-slate-600 m-4 rounded border flex-auto justify-center items-center">
+                        <img src={img} alt={alt} class="rounded w-48 h-48 m-4"></img>
+                        <ul>
+                            <li>
+                                <p>
+                                    Nombre: {nombre}.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Edad: {edad} años.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Estudiante desde: {fechaEntrada}.
+                                </p>
+                            </li>
+                            <li>
+                                <q>
+                                    {mensaje}
+                                </q>
+                            </li>
+                        </ul>
+                    </div>
+                );
+            })
+        }
+        </div>
+</Layout>
