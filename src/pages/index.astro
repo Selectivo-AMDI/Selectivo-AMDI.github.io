@@ -6,7 +6,6 @@ import BtnDonar from "../components/BtnDonar.astro";
 
 <Layout title="Proyecto AMDI">
   <main class="dark:text-white text-center">
-
     <div
       id="presentacion"
       class="relative bg-cover bg-center h-screen bg-[url('/equipo.jpg')] grid items-center"
@@ -14,7 +13,7 @@ import BtnDonar from "../components/BtnDonar.astro";
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
         <h1 class="text-6xl font-bold">Selección AMDI Jalisco</h1>
-        <p class="p-2">
+        <p class="p-2 text-lg">
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
         </p>
@@ -27,16 +26,14 @@ import BtnDonar from "../components/BtnDonar.astro";
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
-        <h1 class="text-6xl font-bold">Partidos</h1>
-        <p class="p-2">
-          Proximos partidos:
-        </p>
+        <h1 class="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-3xl font-bold">Partidos</h1>
+        <p class="p-2 text-lg">Proximos partidos:</p>
       </div>
     </div>
 
     <div id="quienes" class="p-2 font-medium">
-      <h2 class="text-6xl md:text-2xl sm:text-xl">#DejandoHuella</h2>
-      <p>
+      <h2 class="text-4xl md:text-6xl sm:text-6xl p-4">#DejandoHuella</h2>
+      <p class="text-balance text-lg">
         Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
         de la Copa America AIFI. de diversas categorias infantiles, como 2012 o
         2008.
@@ -144,6 +141,7 @@ import BtnDonar from "../components/BtnDonar.astro";
           </div>
         </div>
       </div>
+      <a href="/testimonios" class="rounded bg-red-600 p-3 font-medium m-4">Ver testimonios</a>
     </div>
 
     <p class="text-balance">
@@ -153,11 +151,4 @@ import BtnDonar from "../components/BtnDonar.astro";
       cancha.
     </p>
   </main>
-  <div id="CTA">
-    <p>
-      Si quieres apoyarnos para que nuestro equipo pueda crecen y alcanzar las
-      grandes ligas, considera donar en el botón de <strong>donar</strong>:
-    </p>
-    <BtnDonar />
-  </div>
 </Layout>
