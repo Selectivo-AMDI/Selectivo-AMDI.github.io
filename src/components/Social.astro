@@ -1,23 +1,30 @@
 ---
+
+import { Image } from "astro:assets";
+
 type RedSocial = {
     img: string;
     href: string;
+    alt: string;
 };
 
 const redesSociales: { [key: string]: RedSocial } = {
   facebook: {
-    img: "/facebook.png",
+    img: "facebook.png",
     href: "https://www.facebook.com/profile.php?id=100066694115005",
+    alt: "Facebook",
   },
 
   Instagram: {
-    img: "/instagram.png",
+    img: "instagram.png",
     href: "https://www.instagram.com/seleccionamdi22",
+    alt: "Instagram",
   },
 
   TikTok: {
-    img: "/tiktok.png",
-    href: "https://www.tiktok.com/@selectivoamdi_jalisco"
+    img: "tiktok.png",
+    href: "https://www.tiktok.com/@selectivoamdi_jalisco",
+    alt: "TikTok",
   }
 };
 ---
@@ -28,13 +35,17 @@ const redesSociales: { [key: string]: RedSocial } = {
     {
       //crear apartados automaticamente
       Object.keys(redesSociales).map((red) => {
-        const { img, href } = redesSociales[red];
+        const { img, href, alt } = redesSociales[red];
         return (
           <a
             href={href}
             target="_blank"
             class="inline-flex m-1">
-            <img src={img} />
+            <Image src={"/images/"+img} 
+              alt={alt}
+              height="32"
+              width="32"
+            />
           </a>
         );
       })
