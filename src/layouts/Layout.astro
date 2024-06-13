@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
 	title: string;
@@ -18,8 +19,9 @@ const { title, content } = Astro.props;
 		<link rel="icon" type="image" href="/images/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
+		<ViewTransitions></ViewTransitions>
 	</head>
-	<body class="dark:bg-black">
+	<body class="bg-black">
 		<slot />
 		<Footer></Footer>
 	</body>

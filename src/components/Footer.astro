@@ -4,7 +4,7 @@ import Social from "../components/Social.astro";
 import { DIRECCION, TELEFONO, CORREO } from "../constants";
 ---
 
-<footer class="bg-gray-700 dark:text-white p-4 text-center flex *:p-4 center-items justify-center">
+<footer class="bg-gray-700 text-white p-4 text-center flex *:p-4 center-items justify-center">
   <address id="contacto">
     <p class="p-2">¡Contactanos!</p>
     <p>Dirección: {DIRECCION}</p>
@@ -15,7 +15,7 @@ import { DIRECCION, TELEFONO, CORREO } from "../constants";
   </address>
   <div id="paginas">
     <p class="p-2">Explorar:</p>
-    <ul>
+    <ul class="">
       <li><a class="hover:underline" href="/">Inicio</a></li>
       <li><a class="hover:underline" href="apoyanos">¡Dona aquí!</a></li>
       <li><a class="hover:underline" href="partidos">Partidos</a></li>

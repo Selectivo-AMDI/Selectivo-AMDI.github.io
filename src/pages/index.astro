@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
@@ -7,7 +7,7 @@ import { NOMBRE } from "../constants";
 ---
 
 <Layout title="Proyecto AMDI">
-  <main class="dark:text-white text-center">
+  <main class="text-white text-center">
     <div
       id="presentacion"
       class="relative bg-cover bg-center h-screen bg-[url('/images/equipo.jpg')] grid items-center"
@@ -58,8 +58,9 @@ import { NOMBRE } from "../constants";
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <Image
-                src='/images/equipo.webp'
-                width="50" height="50"
+                src="/images/equipo.webp"
+                width="50"
+                height="50"
                 alt="Entrenador enseñando al equipo de niños"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
@@ -81,7 +82,8 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo2.webp"
-                width="50" height="50"
+                width="50"
+                height="50"
                 alt="Photo by Magicle"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
@@ -103,7 +105,8 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo.jpg"
-                width="50" height="50"
+                width="50"
+                height="50"
                 alt="Photo by Martin Sanchez"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
@@ -125,7 +128,8 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo3.png"
-                width="50" height="50"={true}
+                width="50"
+                height="50"
                 alt="Photo by Lorenzo Herrera"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
@@ -144,49 +148,174 @@ import { NOMBRE } from "../constants";
           </div>
         </div>
       </div>
-      <a href="/testimonios" class="rounded bg-red-600 p-4 font-medium m-4">Ver testimonios</a>
+      <a href="/testimonios" class="rounded bg-red-600 p-4 font-medium m-4"
+        >Ver testimonios</a
+      >
     </div>
 
     <div id="historia" class="m-4 p-4 justify-center items-center">
-      <h2 class="text-4xl p-4 font-medium">Historia:</h2>
+      <h2 class="text-4xl font-medium">Historia:</h2>
+      <hr
+        class="w-64 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
+      />
+
       <h3 class="text-2xl font-medium">2018, Jalisco</h3>
       <p class="text-4xl font-medium">↓</p>
-      
+
       <div id="inicios" class="p-4 lg:flex items-center">
-        <p >Nació un sueño bajo el nombre de "Academia Mexicana de Desarrollo Infantil". Con un claro y ambicioso objetivo: llevar a los niños jalisciences talentosos y apasionados a explotar todo su potencial y transformarlos en jugadores competitivos de la talla de grandes ligas.</p>
-
+        <p>
+          Nació un sueño bajo el nombre de "Academia Mexicana de Desarrollo
+          Infantil". Con un claro y ambicioso objetivo: llevar a los niños
+          jalisciences talentosos y apasionados a explotar todo su potencial y
+          transformarlos en jugadores competitivos de la talla de grandes ligas.
+        </p>
         <div class="lg:flex-shrink-0">
-          <Image src='/images/inicios.jpg'
-            width="500" height="500"
+          <img
+            src="/images/inicios.jpg"
             alt="Niño parando un balón"
-            class="p-4 m-4 rounded-lg"
-          ></Image>
-          
-        </div> 
+            class="p-4 m-4 h-96 w-auto"
+          />
+        </div>
       </div>
-      
-      <div id="mision" class="p-4">
-        <h3 class="text-2xl font-medium">Misión</h3>
+
+      <!-- TORNEO PERÚ ENTRADA -->
+
+      <div id="torneoperu" class="p-4">
+        <h3 class="text-2xl font-medium">11 de octubre de 2022</h3>
         <p class="text-4xl font-medium">↓</p>
-        <div class="lg:flex items-center">
+        <div class="lg:flex items-center justify-center">
           <div class="lg:flex-shrink-0">
-              <img class="p-4 h-48 w-48 object-cover rounded-lg" src="/images/arturo_coronado_preciado.jpeg" alt="Sample Image">
+            <img
+              class="py-4 object-fill h-96 w-auto"
+              src="/images/torneo_peru.jpeg"
+              alt="Sample Image"
+            />
           </div>
-          <div class="ml-4">
-              <quote class="mt-2">
-                "AMDI fue fundada con la misión de llevar a los niños a alcanzar todo su potencial y transformarlos en jugadores competitivos capaces de destacar en las mejores ligas del país. AMDI se dedica a proporcionar una plataforma donde el talento y la pasión de los jóvenes jaliscienses puedan brillar, a través de un enfoque integral que abarca el desarrollo físico, emocional y mental."
-              </quote>
-              <p>- Manuel Arturo Coronado Preciado, entrenador de AMDI
-              </p>
+          <p class="p-4">
+            Integrada por talentosos niños de entre 13 y 14 años, la selección
+            de Jalisco se enfrentó a Perú en un emocionante partido el pasado
+            domingo 9 de octubre en Tingo María, Huánuco. Después de un empate
+            en el tiempo reglamentario, la final se decidió en una intensa tanda
+            de penales, en la que los jaliscienses emergieron victoriosos,
+            demostrando su increíble habilidad y determinación. Estos jóvenes
+            atletas, originarios de Jalisco y provenientes de prestigiosas
+            escuelas de fútbol como Chivas, Atlas y Pumas, fueron seleccionados
+            mediante visorías de la AMDI (Asociación Mexicana de Desarrollo
+            Motriz Infantil).
+            <a
+              class="text-white p-1 font-medium rounded bg-blue-700 underline"
+              target="_blank"
+              href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
+              >Nota completa</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <!-- TORNEO PERÚ SALIDA -->
+
+      <!-- COPA BRASIL ENTRADA -->
+
+      <div id="copabrasil" class="p-4">
+        <h3 class="text-2xl font-medium">16 de febrero de 2023</h3>
+        <p class="text-4xl font-medium">↓</p>
+        <div class="lg:flex items-center justify-center">
+          <p class="p-4">
+            La selección de fútbol AMDI Jalisco sigue haciendo historia y
+            demostrando su excelencia en el deporte. Conformada por talentosos
+            niños de la categoría 2012, este equipo mexicano logró una
+            impresionante medalla de bronce en la Copa América AIFI en Brasil,
+            celebrada del 4 al 11 de febrero de 2023. Gracias a una
+            sobresaliente participación, México aseguró el tercer lugar con una
+            victoria de 2-1 sobre Bolivia, en una competencia donde Uruguay se
+            coronó campeón.
+            <a
+              class="text-white p-1 rounded font-medium bg-blue-700 underline"
+              target="_blank"
+              href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
+              >Nota completa</a
+            >
+            <div class="lg:flex-shrink-0">
+              <img
+                class="py-4 object-fill h-96 w-auto"
+                src="/images/copa_brasil.jpg"
+                alt="Sample Image"
+              />
+            </div>
+          </p>
+        </div>
+      </div>
+
+      <!-- COPA BRASIL SALIDA -->
+
+      <!-- RECONOCIMIENTO ALFARO ENTRADA -->
+
+      <div class="reconocimientoalfaro">
+        <h3 class="text-2xl font-medium">26 de enero de 2024</h3>
+        <p class="text-4xl font-medium">↓</p>
+        <div class="lg:flex items-center justify-center">
+          <div class="lg:flex-shrink-0">
+            <img
+              class="py-4 object-fill h-96 w-auto"
+              src="/images/reconocimiento_alfaro.jpeg"
+              alt="Sample Image"
+            />
           </div>
+          <p class="p-4">
+            "Con mucho orgullo, recibí a las niñas y niños de los equipos de
+            futbol de la Asociación Mexicana de Desarrollo Motriz Infantil,
+            AMDI, 45 pequeñas y pequeños que, con todo su talento y entusiasmo,
+            competirán en la Copa Infantil América que este año será en
+            Argentina." - Enrique Alfaro, gobernador de Jalisco
+            <a
+              class="text-white p-1 font-medium rounded bg-blue-700 underline"
+              target="_blank"
+              href="https://twitter.com/EnriqueAlfaroR/status/1751064108818891158"
+              >Nota completa</a
+            >
+          </p>
+        </div>
       </div>
-      </div>
 
-
-      <h3 class="text-2xl font-medium">Visión</h3>
-      <p class="text-4xl font-medium">↓</p>
-
+      <!-- RECONOCIMIENTO ALFARO SALIDA -->
     </div>
 
+    <div id="somos" class="grid grid-cols-2 gap-2">
+      <h2 class="text-4xl font-medium p-4 col-span-2">Lo que nos define:</h2>
+    
+      <div class="lg:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4">
+        <div class="relative rounded-2xl overflow-hidden flex-1">
+          <img src="/images/equipo2.webp" alt="Background Misión" class="absolute inset-0 w-full h-full object-cover opacity-20">
+          <div class="relative bg-red-700 bg-opacity-50 rounded-2xl p-4">
+            <h3 class="text-2xl p-2">Misión</h3>
+            <p class="p-4">
+              "AMDI fue fundada con la misión de llevar a los niños a alcanzar
+              todo su potencial y transformarlos en jugadores competitivos capaces
+              de destacar en las mejores ligas del país. {NOMBRE} se dedica a
+              proporcionar una plataforma donde el talento y la pasión de los
+              jóvenes jaliscienses puedan brillar, a través de un enfoque integral
+              que abarca el desarrollo físico, emocional y mental."
+            </p>
+          </div>
+        </div>
+    
+        <div class="relative rounded-2xl overflow-hidden flex-1">
+          <img src="/images/equipo.jpg" alt="Background Visión" class="absolute inset-0 w-full h-full object-cover opacity-20">
+          <div class="relative bg-blue-700 bg-opacity-50 rounded-2xl p-4">
+            <h3 class="text-2xl p-2">Visión</h3>
+            <p class="p-4">
+              "La visión de AMDI es crear una comunidad de apoyo que fomente el
+              compañerismo y la disciplina, preparando a los jóvenes no solo para
+              el deporte, sino también para la vida. AMDI aspira a ser reconocida
+              como un semillero de campeones que no solo logran victorias en el
+              campo, sino que también llevan consigo valores sólidos y un profundo
+              amor por el juego, impactando positivamente la vida de sus miembros
+              y sus comunidades."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </main>
 </Layout>
