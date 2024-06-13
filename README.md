@@ -14,6 +14,7 @@ Esta página fue creada con Astro ya que su enfoque es en ser estatico, rapido y
 ## Dependencias
 
 1. Tailwind CSS
+2. Astro
 
 ## Cómo configurar:
 
@@ -21,6 +22,13 @@ Esta página fue creada con Astro ya que su enfoque es en ser estatico, rapido y
 2. Ejecutar ```git pull origin main``` para no tener conflictos con nuevos cambios
 3. Ejecutar ```npm i``` para instalar las dependencias correspondientes
 4. Ejecutar ```npm run dev``` para correr el proyecto
+5. En ```localhost:4321``` se verá la previsualización
+
+## Scripts
+
+Para automatizar mejor el tema de las páginas, he creado este script:
+```npm run page -- el nombre de la pagina que quieras crear```
+Lo que hará esto es crearte una nueva page con un template.
 
 ### Ramas:
 

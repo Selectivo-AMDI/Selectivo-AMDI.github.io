@@ -1,23 +1,26 @@
 ---
 import "../styles/global.css";
-import Social from '../components/Social.astro';
-
-const direccion: string =
-  "Guadalajara, Mexico, 44100";
-const telefono: string = "33 17 75 26 53";
-const correo: string = "17soccer.life@gmail.com";
-
+import Social from "../components/Social.astro";
+import { DIRECCION, TELEFONO, CORREO } from "../constants";
 ---
 
-<footer class="from-soccerblue to-soocerred dark:text-white p-4">
-  <p>Dirección:</p>
-  <address>{direccion}</address>
+<footer class="bg-gray-700 dark:text-white p-4 text-center flex *:p-4 center-items justify-center">
+  <address id="contacto">
+    <p class="p-2">¡Contactanos!</p>
+    <p>Dirección: {DIRECCION}</p>
+    <a href={"tel:" + TELEFONO}>Celular: {TELEFONO}</a>
+    <br/>
+    <a href={"mailto:" + CORREO}>Email: {CORREO}</a>
+    <Social />
+  </address>
+  <div id="paginas">
+    <p class="p-2">Explorar:</p>
+    <ul>
+      <li><a class="hover:underline" href="/">Inicio</a></li>
+      <li><a class="hover:underline" href="apoyanos">¡Dona aquí!</a></li>
+      <li><a class="hover:underline" href="partidos">Partidos</a></li>
+      <li><a class="hover:underline" href="testimonios">Testimonios</a></li>  
+    </ul>
+  </div>
 
-  <p>Telefono:</p>
-  <a href={"tel:"+telefono}>{telefono}</a>
-
-  <p>Correo Electronico:</p>
-  <a href={"mailto:"+correo}>{correo}</a>
-
-  <Social></Social>
 </footer>

@@ -1,48 +1,157 @@
 ---
+import { Image } from 'astro:assets';
+
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-import BtnDonar from "../components/BtnDonar.astro";
+import { NOMBRE } from "../constants";
 ---
 
 <Layout title="Proyecto AMDI">
-  <main class="dark:text-white">
+  <main class="dark:text-white text-center">
     <div
       id="presentacion"
-      class="relative bg-cover bg-center h-screen bg-[url('/equipo.jpg')] text-center grid items-center"
+      class="relative bg-cover bg-center h-screen bg-[url('/images/equipo.jpg')] grid items-center"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
-        <h1 class="text-6xl font-bold">Selección AMDI Jalisco</h1>
-        <p class="p-2">
+        <h1 class="text-6xl font-bold">{NOMBRE}</h1>
+        <p class="p-2 text-lg">
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
         </p>
       </div>
     </div>
-    <div id="quienes" class="p-2 m-4 h-screen text-center font-medium">
-      <h2 class="text-6xl">#DejandoHuella</h2>
 
-      <p>
+    <div
+      id="partidos"
+      class="relative bg-cover bg-center h-screen bg-[url('/partidos.webp')] items-center"
+    >
+      <div class="absolute inset-0 bg-black opacity-70"></div>
+      <div class="relative z-10 p-8">
+        <h1
+          class="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-3xl font-bold"
+        >
+          Partidos
+        </h1>
+        <p class="p-2 text-lg">Proximos partidos:</p>
+      </div>
+    </div>
+
+    <div id="quienes" class="p-2 font-medium">
+      <h2 class="text-4xl md:text-6xl sm:text-6xl p-4">#DejandoHuella</h2>
+      <p class="text-balance text-lg">
         Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
         de la Copa America AIFI. de diversas categorias infantiles, como 2012 o
         2008.
       </p>
-    </div>
 
-    <div id="testimonios">
-      <p>Esto dice la gente de nosotros:</p>
-      <div>
-        <!-- testimonios -->
+      <div class="h-full py-6 sm:py-8 lg:py-12">
+        <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div
+            class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12"
+          >
+          </div>
+
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+            <!-- image - start -->
+            <a
+              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
+            >
+              <Image
+                src='/images/equipo.webp'
+                width="50" height="50"
+                alt="Entrenador enseñando al equipo de niños src=/images/equipo.webp"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg"
+                >Esfuerzo</span
+              >
+            </a>
+            <!-- image - end -->
+            <!-- image - start -->
+            <a
+              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
+            >
+              <Image
+                src="/images/equipo2.webp"
+                width="50" height="50"
+                alt="Photo by Magicle"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg"
+                >Aprendizaje</span
+              >
+            </a>
+            <!-- image - end -->
+            <!-- image - start -->
+            <a
+              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
+            >
+              <Image
+                src="/images/equipo.jpg"
+                width="50" height="50"
+                alt="Photo by Martin Sanchez"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg"
+                >Hermandad</span
+              >
+            </a>
+            <!-- image - end -->
+            <!-- image - start -->
+            <a
+              class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
+            >
+              <Image
+                src="/images/equipo3.png"
+                width="50" height="50"={true}
+                alt="Photo by Lorenzo Herrera"
+                class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div
+                class="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"
+              >
+              </div>
+
+              <span
+                class="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg"
+                >Ganar</span
+              >
+            </a>
+            <!-- image - end -->
+          </div>
+        </div>
       </div>
+      <a href="/testimonios" class="rounded bg-red-600 p-3 font-medium m-4">Ver testimonios</a>
     </div>
 
-    <div id="CTA">
-      <p>
-        Si quieres apoynarnos para que nuestro equipo pueda crecen y alcanzar
-        las grandes ligas, considera donar en el botón de <strong>donar</strong
-        >:
-      </p>
-      <BtnDonar />
-    </div>
+    <p class="text-balance">
+      Nos dedicamos arduamente a crear profesionales del deporte, por medio de
+      juegos, de teoria y practica. Llegamos nosotros a crear todo un espacio
+      seguro donde los niños pueden aprender y demostrar sus capacidades en la
+      cancha.
+    </p>
   </main>
 </Layout>

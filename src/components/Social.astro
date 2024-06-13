@@ -1,33 +1,48 @@
 ---
+
+import { Image } from "astro:assets";
+
 type RedSocial = {
     img: string;
     href: string;
+    alt: string;
 };
 
 const redesSociales: { [key: string]: RedSocial } = {
   facebook: {
-    img: "/facebook.png",
-    href: "https://www.facebook.com/profile.php?id=100093019697677",
+    img: "facebook.png",
+    href: "https://www.facebook.com/profile.php?id=100066694115005",
+    alt: "Facebook",
   },
 
   Instagram: {
-    img: "/instagram.png",
-    href: "https://www.instagram.com/soccerlife2017/",
+    img: "instagram.png",
+    href: "https://www.instagram.com/seleccionamdi22",
+    alt: "Instagram",
   },
+
+  TikTok: {
+    img: "tiktok.png",
+    href: "https://www.tiktok.com/@selectivoamdi_jalisco",
+    alt: "TikTok",
+  }
 };
 ---
 
 <div id="redes">
-    <p class="dark:text-white">Siguenos en nuestras redes sociales:</p>
     {
-      //crear apartados automaticamente
       Object.keys(redesSociales).map((red) => {
-        const { img, href } = redesSociales[red];
+        const { img, href, alt } = redesSociales[red];
         return (
           <a
             href={href}
-            class="">
-            <img src={img}></img>
+            target="_blank"
+            class="inline-flex m-1">
+            <Image src={"/images/"+img} 
+              alt={alt}
+              height="32"
+              width="32"
+            />
           </a>
         );
       })

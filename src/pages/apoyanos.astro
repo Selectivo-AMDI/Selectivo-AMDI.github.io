@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Bancos from "../components/Bancos.astro";
+---
+
+<Layout title="Apoyanos">
+    <main class="dark:text-white text-center m-10 grid justify-center">
+        <h1 class="text-4xl p-2">
+            ¡Gracias por interesarte en nosotros!
+        </h1>
+
+        <p class="text-balance">
+            Gracias a sus donaciones, hemos logrado llegar lejos,
+            construyendo oportunidades para que los niños se desarrollen
+            mientras juegan. De una manera divertida, aplicada, facil
+            y con todo el corazón del mundo.
+        </p>
+            <img src="/apoyanos.webp" class="p-4" alt="Equipo de niños celebrando su más reciente logro">
+        <p>
+            ¿Cómo puedes apoyarnos? Economicamente puedes hacerlo por medio
+            de nuestra cuenta en BBVA, desde $1MXN puedes apoyanos a que este 
+            proyecto siga adelante y que muchos niños alcancen sus sueños
+            de ser grandes profesionales del deporte.
+        </p>
+
+        <Bancos />
+    </main>
+
+</Layout>
