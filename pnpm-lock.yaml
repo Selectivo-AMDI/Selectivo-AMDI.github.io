@@ -14,9 +14,18 @@ importers:
       '@astrojs/db':
         specifier: ^0.11.4
         version: 0.11.4
+      astro:
+        specifier: ^4.8.7
+        version: 4.9.2(@types/node@20.14.1)(typescript@5.4.5)
       astro-og-canvas:
         specifier: ^0.5.0
         version: 0.5.0(astro@4.9.2(@types/node@20.14.1)(typescript@5.4.5))
+      fs:
+        specifier: ^0.0.1-security
+        version: 0.0.1-security
+      pnpm:
+        specifier: ^9.3.0
+        version: 9.3.0
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
@@ -24,9 +33,6 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
     devDependencies:
-      astro:
-        specifier: ^4.9.2
-        version: 4.9.2(@types/node@20.14.1)(typescript@5.4.5)
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.38)
@@ -1341,6 +1347,9 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
+  fs@0.0.1-security:
+    resolution: {integrity: sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -1919,6 +1928,11 @@ packages:
   pkg-dir@4.2.0:
     resolution: {integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==}
     engines: {node: '>=8'}
+
+  pnpm@9.3.0:
+    resolution: {integrity: sha512-7nuT4MK9EUCcZCT5K4ZvMdPqG+9fvkfTx1AM3DyWaIM9LlVoGtZt9bZAxh+p3CXVRu+lTXbX+L9UsTYUrCk2MQ==}
+    engines: {node: '>=18.12'}
+    hasBin: true
 
   postcss-import@15.1.0:
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
@@ -3769,6 +3783,8 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  fs@0.0.1-security: {}
+
   fsevents@2.3.3:
     optional: true
 
@@ -4514,6 +4530,8 @@ snapshots:
   pkg-dir@4.2.0:
     dependencies:
       find-up: 4.1.0
+
+  pnpm@9.3.0: {}
 
   postcss-import@15.1.0(postcss@8.4.38):
     dependencies:
