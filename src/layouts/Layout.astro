@@ -3,16 +3,17 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
+	content?: string;
 }
 
-const { title } = Astro.props;
+const { title, content } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es-MX">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={content? content : "¡Somos AMDI! Unete y juega con nosotros"} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image" href="/images/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
