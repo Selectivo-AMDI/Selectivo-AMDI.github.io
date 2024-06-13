@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import { NOMBRE } from "../constants";
 ---
 
 <Layout title="Proyecto AMDI">
@@ -13,7 +14,7 @@ import "../styles/global.css";
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
-        <h1 class="text-6xl font-bold">Selección AMDI Jalisco</h1>
+        <h1 class="text-6xl font-bold">{NOMBRE}</h1>
         <p class="p-2 text-lg">
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
@@ -143,18 +144,14 @@ import "../styles/global.css";
           </div>
         </div>
       </div>
-      <a href="/testimonios" class="rounded bg-red-600 p-3 font-medium m-4"
-        >Ver testimonios</a
-      >
+      <a href="/testimonios" class="rounded bg-red-600 p-3 font-medium m-4">Ver testimonios</a>
     </div>
 
-    <div>
-      <p class="text-balance">
-        Nos dedicamos arduamente a crear profesionales del deporte, por medio de
-        juegos, de teoria y practica. Llegamos nosotros a crear todo un espacio
-        seguro donde los niños pueden aprender y demostrar sus capacidades en la
-        cancha.
-      </p>
-    </div>
+    <p class="text-balance">
+      Nos dedicamos arduamente a crear profesionales del deporte, por medio de
+      juegos, de teoria y practica. Llegamos nosotros a crear todo un espacio
+      seguro donde los niños pueden aprender y demostrar sus capacidades en la
+      cancha.
+    </p>
   </main>
 </Layout>

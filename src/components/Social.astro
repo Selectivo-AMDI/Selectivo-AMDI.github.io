@@ -30,10 +30,7 @@ const redesSociales: { [key: string]: RedSocial } = {
 ---
 
 <div id="redes">
-    <p class="dark:text-white inline-flex ">Siguenos en nuestras redes sociales:</p>
-
     {
-      //crear apartados automaticamente
       Object.keys(redesSociales).map((red) => {
         const { img, href, alt } = redesSociales[red];
         return (

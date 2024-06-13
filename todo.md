@@ -15,7 +15,7 @@
 
 - [ ] Hacer responsive todos los diseños
 
-- [ ] cambiar favicon
+- [ - ] cambiar favicon
 
 - [ ] En GH, el formateo de titulo de las páginas no sirve
 
