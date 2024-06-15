@@ -37,7 +37,7 @@ import { NOMBRE } from "../constants";
       </div>
     </div>
 
-    <div id="quienes" class="p-2 font-medium">
+    <div id="quienes" class="p-4 mb-4 font-medium">
       <h2 class="text-4xl md:text-6xl sm:text-6xl p-4">#DejandoHuella</h2>
       <p class="text-balance text-lg">
         Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
@@ -59,6 +59,7 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo.webp"
+                loading="lazy"
                 width="50"
                 height="50"
                 alt="Entrenador enseñando al equipo de niños"
@@ -82,9 +83,10 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo2.webp"
+                loading="lazy"
                 width="50"
                 height="50"
-                alt="Photo by Magicle"
+                alt="Equipo formulando un plan"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
 
@@ -105,9 +107,10 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo.jpg"
+                loading="lazy"
                 width="50"
                 height="50"
-                alt="Photo by Martin Sanchez"
+                alt="Equipo tomandose una foto en un templo"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
 
@@ -128,9 +131,10 @@ import { NOMBRE } from "../constants";
             >
               <Image
                 src="/images/equipo3.png"
+                loading="lazy"
                 width="50"
                 height="50"
-                alt="Photo by Lorenzo Herrera"
+                alt="Jugadores compitiendo por el balón"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
 
@@ -148,10 +152,9 @@ import { NOMBRE } from "../constants";
           </div>
         </div>
       </div>
-      <a href="/testimonios" class="rounded bg-red-600 p-4 font-medium m-4"
-        >Ver testimonios</a
-      >
     </div>
+    <a href="/testimonios" class="rounded hover:bg-red-700 bg-red-600 p-4 font-medium m-4"
+    >Ver testimonios</a>
 
     <div id="historia" class="m-4 p-4 justify-center items-center">
       <h2 class="text-4xl font-medium">Historia:</h2>
@@ -170,11 +173,14 @@ import { NOMBRE } from "../constants";
           transformarlos en jugadores competitivos de la talla de grandes ligas.
         </p>
         <div class="xl:flex-shrink-0">
-          <img
+          <Image
             src="/images/inicios.jpg"
+            loading="lazy"
             alt="Niño parando un balón"
-            class="p-4 m-4 h-96 w-auto"
-          />
+            class="p-4 m-4"
+            height="500"
+            width="500"
+            />
         </div>
       </div>
 
@@ -185,10 +191,13 @@ import { NOMBRE } from "../constants";
         <p class="text-4xl font-medium">↓</p>
         <div class="xl:flex items-center justify-center">
           <div class="xl:flex-shrink-0">
-            <img
-              class="py-4 object-fill h-96 w-auto"
+            <Image
+              class="py-4 object-fill"
               src="/images/torneo_peru.jpeg"
-              alt="Sample Image"
+              loading="lazy"
+              alt="Niños listos para competir en el torneo de Perú"
+              height="500"
+              width="500"
             />
           </div>
           <p class="p-4">
@@ -203,7 +212,7 @@ import { NOMBRE } from "../constants";
             mediante visorías de la AMDI (Asociación Mexicana de Desarrollo
             Motriz Infantil).
             <a
-              class="text-white p-1 font-medium rounded bg-blue-700 underline"
+              class="text-white p-1 font-medium rounded hover:bg-blue-800 bg-blue-700 underline"
               target="_blank"
               href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
               >Nota completa</a
@@ -230,17 +239,20 @@ import { NOMBRE } from "../constants";
             victoria de 2-1 sobre Bolivia, en una competencia donde Uruguay se
             coronó campeón.
             <a
-              class="text-white p-1 rounded font-medium bg-blue-700 underline"
+              class="text-white p-1 rounded font-medium bg-blue-700 hover:bg-blue-800 underline"
               target="_blank"
               href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
               >Nota completa</a
             >
             <div class="xl:flex-shrink-0">
-              <img
-                class="py-4 object-fill h-96 w-auto"
+              <Image
+                class="py-4 object-fill"
                 src="/images/copa_brasil.jpg"
-                alt="Sample Image"
-              />
+                loading="lazy"
+                alt="Niños listos para jugar la Copa Brasil"
+                height="500"
+                width="500"
+                />
             </div>
           </p>
         </div>
@@ -255,11 +267,14 @@ import { NOMBRE } from "../constants";
         <p class="text-4xl font-medium">↓</p>
         <div class="xl:flex items-center justify-center">
           <div class="xl:flex-shrink-0">
-            <img
-              class="py-4 object-fill h-96 w-auto"
+            <Image
+              class="py-4 object-fill"
               src="/images/reconocimiento_alfaro.jpeg"
-              alt="Sample Image"
-            />
+              loading="lazy"
+              alt="Alfaro tomandose fotos con los niños, orgulloso de ellos y levantando el pulgar"
+              height="500"
+              width="500"
+              />
           </div>
           <p class="p-4">
             "Con mucho orgullo, recibí a las niñas y niños de los equipos de
@@ -268,7 +283,7 @@ import { NOMBRE } from "../constants";
             competirán en la Copa Infantil América que este año será en
             Argentina." - Enrique Alfaro, gobernador de Jalisco
             <a
-              class="text-white p-1 font-medium rounded bg-blue-700 underline"
+              class="text-white p-1 font-medium rounded bg-blue-700 hover:bg-blue-800 underline"
               target="_blank"
               href="https://twitter.com/EnriqueAlfaroR/status/1751064108818891158"
               >Nota completa</a
@@ -285,7 +300,7 @@ import { NOMBRE } from "../constants";
     
       <div class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4">
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img src="/images/equipo2.webp" alt="Background Misión" class="absolute inset-0 w-full h-full object-cover opacity-20">
+          <img src="/images/equipo2.webp" loading="lazy" alt="Mujer entrenadora dando clases" class="absolute inset-0 w-full h-full object-cover opacity-20">
           <div class="relative bg-red-700 bg-opacity-50 rounded-2xl p-4">
             <h3 class="text-2xl p-2">Misión</h3>
             <p class="p-4">
@@ -300,7 +315,7 @@ import { NOMBRE } from "../constants";
         </div>
     
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img src="/images/equipo.jpg" alt="Background Visión" class="absolute inset-0 w-full h-full object-cover opacity-20">
+          <img src="/images/equipo.jpg" loading="lazy" alt="Niños tomandose una foto en un templo" class="absolute inset-0 w-full h-full object-cover opacity-20">
           <div class="relative bg-blue-700 bg-opacity-50 rounded-2xl p-4">
             <h3 class="text-2xl p-2">Visión</h3>
             <p class="p-4">

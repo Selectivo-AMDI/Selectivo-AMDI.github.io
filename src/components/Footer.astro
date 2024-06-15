@@ -1,26 +1,19 @@
 ---
 import "../styles/global.css";
 import Social from "../components/Social.astro";
-import { DIRECCION, TELEFONO, CORREO } from "../constants";
+import { DIRECCION, TELEFONO, CORREO, NOMBRE } from "../constants";
 ---
 
-<footer class="bg-gray-700 text-white p-4 text-center flex *:p-4 center-items justify-center">
-  <address id="contacto">
-    <p class="p-2">¡Contactanos!</p>
+<footer class="bg-gray-700 text-white text-center *:p-4 center-items justify-center">
+  <address class="pb-4" id="contacto">
     <p>Dirección: {DIRECCION}</p>
     <a href={"tel:" + TELEFONO}>Celular: {TELEFONO}</a>
     <br/>
     <a href={"mailto:" + CORREO}>Email: {CORREO}</a>
+    <br/>
     <Social />
   </address>
-  <div id="paginas">
-    <p class="p-2">Explorar:</p>
-    <ul class="">
-      <li><a class="hover:underline" href="/">Inicio</a></li>
-      <li><a class="hover:underline" href="apoyanos">¡Dona aquí!</a></li>
-      <li><a class="hover:underline" href="partidos">Partidos</a></li>
-      <li><a class="hover:underline" href="testimonios">Testimonios</a></li>  
-    </ul>
-  </div>
+  <a class="rounded bg-red-700 hover:bg-red-800" href="apoyanos">¡Apoyanos aquí!</a>
 
+  <p class="opacity-20">{NOMBRE+'© '+new Date().getFullYear()}, derechos reservados.</p>
 </footer>
