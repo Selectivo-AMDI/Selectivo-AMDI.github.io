@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
+import Partidos from '../components/Partidos.astro'
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import { NOMBRE } from "../constants";
@@ -15,10 +15,11 @@ import { NOMBRE } from "../constants";
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
         <h1 class="text-6xl font-bold">{NOMBRE}</h1>
-        <p class="p-2 text-lg">
+        <p class="p-4 text-xl">
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
         </p>
+        <a class="rounded bg-red-700 p-3 font-medium hover:bg-red-800" href="apoyanos"> 🤝 ¡Apoyanos!</a>
       </div>
     </div>
 
@@ -33,7 +34,8 @@ import { NOMBRE } from "../constants";
         >
           Partidos
         </h1>
-        <p class="p-2 text-lg">Proximos partidos:</p>
+        <Partidos/>
+          <a href="/trabajando" class="p-2 bg-blue-700 hover:bg-blue-800 rounded font-medium">Ver todos los partidos</a>
       </div>
     </div>
 
@@ -153,7 +155,7 @@ import { NOMBRE } from "../constants";
         </div>
       </div>
     </div>
-    <a href="/testimonios" class="rounded hover:bg-red-700 bg-red-600 p-4 font-medium m-4"
+    <a href="/trabajando" class="rounded hover:bg-red-700 bg-red-600 p-4 font-medium m-4"
     >Ver testimonios</a>
 
     <div id="historia" class="m-4 p-4 justify-center items-center">
