@@ -27,7 +27,6 @@ concurrency:
 env:
   BUILD_PATH: "." # default value when not using subfolders
   # BUILD_PATH: subfolder
-  ASTRO_STUDIO_APP_TOKEN: 5eef30efe5d720693eb92696f78ee5bfd9480a3c:gbaiaw829ec5l9o3fsj140c19qld:gbaiaw829ec5l9o3fsj140c19qld
 
 jobs:
   build:
