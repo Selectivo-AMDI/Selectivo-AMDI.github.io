@@ -5,9 +5,4 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
   image: {
     service: squooshImageService()
   },
-  integrations: [db(), webVitals()],
-  output: "server",
-  adapter: node({
-    mode: "standalone"
-  })
 });
