@@ -1,3 +1,5 @@
+/*
+
 // https://astro.build/db/config
 import { defineDb, defineTable, column } from 'astro:db';
 
@@ -22,3 +24,6 @@ const Partido = defineTable({
 export default defineDb({
   tables: { Equipo, Partido },
 })
+
+
+*/
