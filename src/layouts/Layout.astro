@@ -3,22 +3,22 @@ import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
-	title: string;
-	content?: string;
+	title?: string;
 }
 
-const { title, content } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es-MX">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={content? content : "¡Somos AMDI! Unete y juega con nosotros"} />
+		<meta name="description" content="Somos la Asociación Mexicana de Desarrollo Motriz Infantil, la comunidad de apoyo que fomenta el compañerismo y la disciplina a niveles profesionales." />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/public/images/favicon.png">
+		<link rel="icon" type="image/png" href="/images/favicon.png">
 		<meta name="generator" content={Astro.generator} />
-		<title>{ title }</title>
+		<meta name="seobility" content="5db4afcf6424efec7d71c32410fdba39"> <!-- Para www.seobility.net -->
+		<title>{ title? title : "Selección AMDI Jalisco ⚽" }</title>
 		<ViewTransitions></ViewTransitions>
 	</head>
 	<body class="bg-black">
