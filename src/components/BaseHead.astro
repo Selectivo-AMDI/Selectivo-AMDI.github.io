@@ -2,6 +2,7 @@
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import opengraph from '../../public/images/opengraph.png';
 ---
 
 <head>
@@ -51,13 +52,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 	<meta property="og:url" content={canonicalURL} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
-	<meta property="og:image" content="/images/opengraph.jpg" />
+	<meta property="og:image" content={opengraph.src} />
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content="/images/opengraph.jpg" />
+	<meta name="twitter:image" content={opengraph.src} />
 	<meta name="twitter:image:alt" content={title} />
 	<meta name="twitter:site" content="@realkevinleal" />
 	<meta name="twitter:creator" content="@realkevinleal" />
