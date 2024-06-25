@@ -2,25 +2,25 @@
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const openGraphImage = 'https://selectivo-amdi.github.io/images/opengraph3.jpg';
+const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 ---
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<!-- Primary Meta Tags -->
-    <meta name="seobility" content="5db4afcf6424efec7d71c32410fdba39"> <!-- Para www.seobility.net -->
-    <title>{ title? title : "Selección AMDI Jalisco ⚽" }</title>
-    <ViewTransitions></ViewTransitions>
-	<meta name="title" content={title} />
-    <meta name="description" content={description} />
-	<link rel="canonical" href={canonicalURL} />
+<!-- Primary Meta Tags -->
+<meta name="seobility" content="5db4afcf6424efec7d71c32410fdba39" />
+<!-- Para www.seobility.net -->
+<title>{title ? title : "Selección AMDI Jalisco ⚽"}</title>
+<ViewTransitions />
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
 
-	<!-- Global Metadata -->
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-    <!--
+<!-- Global Metadata -->
+<link rel="icon" type="image/png" href="/images/favicon.png" />
+<!--
 	<link rel="apple-touch-icon" href="/images/icon/192x192.png" />
 	<link rel="manifest" href="/manifest.webmanifest" />
 	<meta name="google" content="notranslate" />
@@ -46,20 +46,19 @@ const openGraphImage = 'https://selectivo-amdi.github.io/images/opengraph3.jpg';
 	<meta name="theme-color" content="#ffffff" />
 -->
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:locale" content="es_MX" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={canonicalURL} />
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
-	<meta property="og:image" content={openGraphImage} />
+<!-- Open Graph / Facebook -->
+<meta property="og:locale" content="es_MX" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={openGraphImage} />
 
-	<!-- Twitter -->
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={description} />
-	<meta name="twitter:image" content={openGraphImage} />
-	<meta name="twitter:image:alt" content={title} />
-	<meta name="twitter:site" content="@realkevinleal" />
-	<meta name="twitter:creator" content="@realkevinleal" />
-</head>
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={openGraphImage} />
+<meta name="twitter:image:alt" content={title} />
+<meta name="twitter:site" content="@realkevinleal" />
+<meta name="twitter:creator" content="@realkevinleal" />
