@@ -1,7 +1,71 @@
 ---
+import { NOMBRE } from "../constants";
+import { Image } from "astro:assets";
 
+const local = {
+  nombre: NOMBRE,
+  goles: 0,
+  visitante: false,
+  imagen: "/images/equipos/amdi.jpg",
+  imagen_alt: "logo de AMDI",
+};
+
+const visitante = {
+  nombre: "Atlas FC",
+  goles: 0,
+  visitante: true,
+  imagen: "/images/equipos/atlas.png",
+  imagen_alt: "logo de atlas",
+};
+
+const partido = {
+  fecha: new Date(),
+  url: "https://www.facebook.com",
+  lugar: "Tecmilenio, campus Zapopan",
+};
+
+const hay = true;
 ---
 
-<div id="proximos_partidos">
-    <h3>¡Partidos proximamente!</h3>
-</div>
+{
+  hay ? (
+    <div class="p-8 m-8">
+      <div class="flex items-center justify-center">
+        
+        <Image
+          src={local.imagen}
+          alt={local.imagen_alt}
+          height={50}
+          width={50}
+        />
+        <h2 class="text-2xl p-2 text-center">
+          ¡{local.nombre} vs {visitante.nombre}!
+        </h2>
+        <Image
+          src={visitante.imagen}
+          alt={visitante.imagen_alt}
+          height={50}
+          width={50}
+        />
+      </div>
+      <p>Lugar: {partido.lugar}</p>
+      <p>
+        Fecha:
+        {partido.fecha.getDay() +
+          " de marzo" +
+          " de " +
+          partido.fecha.getFullYear()}
+      </p>
+
+        <div id="live" class="p-4">
+            <a href={partido.url} target="_blank" class="bg-red-700 hover:bg-red-800 rounded p-2 font-medium">
+            🎥 En vivo aquí
+        </a>
+        </div>
+    </div>
+  ) : (
+    <h2 class="text-2xl p-4 font-medium justify-content">
+      Proximamente mas partidos<h2></h2>
+    </h2>
+  )
+}

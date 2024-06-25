@@ -5,10 +5,14 @@ import { Image } from "astro:assets"
 ---
 
 <Layout title="Trabajando">
-    <main class="flex">
-        <h1 class="dark:text-white text-center justify-center text-2xl">
-            Estamos trabajando en ello, aún no se desesperen, a toda marcha estamos allí echandole ganas
+    <main class="text-white text-center">
+        <h1 class="text-4xl font-medium">
+            Sitio en construcción
         </h1>
-        <Image src="/images/trabajando.gif" class="rounded-full" alt="gato trabajando" height="500" width="500">
+        <p>Ya mero sale esta página, falta poquito, así que no se desesperen.</p>
+        <Image src="/images/trabajando.gif" class="p-4" alt="gato trabajando" height="500" width="500" />
+        <div class="p-8">
+            <a href="/" class="bg-blue-700 hover:bg-blue-800 p-4 font-medium rounded">Regresar al inicio</a>
+        </div>
     </main>
 </Layout>

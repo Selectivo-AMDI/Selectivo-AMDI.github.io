@@ -14,7 +14,7 @@ const bancos: { [key: string]: Banco } = {
   BBVA: {
     img: "bbva.png",
     color: "bg-blue-300",
-    nombre: "BBVA",
+    nombre: "Bancomer",
     CLABE: 1234567890123456,
     beneficiario: "Andres Manuel Lopez Obrador",
     alt: "logo de BBVA",
@@ -22,7 +22,7 @@ const bancos: { [key: string]: Banco } = {
   Santander: {
     img: "santander.png",
     color: "bg-red-300",
-    nombre: "santander",
+    nombre: "Santander",
     CLABE: 1111111111111111,
     beneficiario: "Enrique Peña Nieto",
     alt: "logo de Santander",
@@ -36,22 +36,22 @@ const bancos: { [key: string]: Banco } = {
         Object.keys(bancos).map((banco) => {
           const { img, color, nombre, CLABE, beneficiario, alt } = bancos[banco];
           return (
-            <div class={color+" flex items-center p-4"}>
-              <div class="flex-shrink-0">
+            <div class={color+" md:flex items-center p-4"}>
+              <div class="md:flex-shrink-0">
                 <img
-                  class="h-auto max-w-40 object-fill rounded-lg"
+                  class="h-auto max-w-32 object-fill rounded-lg"
                   src={'/images/'+img}
                   alt={alt}
                 />
               </div>
               <div class="ml-4">
-                <h2 class="text-left text-2xl font-bold text-gray-900">{nombre}</h2>
+                <h2 class="text-wrap text-left text-2xl font-bold text-gray-900">{nombre}</h2>
                 <ul class="text-left text-gray-900">
                   <li>
-                      <p>Beneficiario: <span class="font-medium">{beneficiario}</span></p>
+                      <p class="text-wrap">Beneficiario: <span class="font-medium">{beneficiario}</span></p>
                   </li>
                   <li>
-                      <p>CLABE: <span class="font-medium">{CLABE}</span></p>
+                      <p class="text-wrap">CLABE: <span class="text-wrap font-medium">{CLABE}</span></p>
                   </li>
                 </ul>
               </div>
@@ -62,16 +62,16 @@ const bancos: { [key: string]: Banco } = {
       <!-- Otras ayudas -->
 
       <div id="PorEspecie" class="bg-orange-600">
-        <div class=" flex items-center p-4">
+        <div class="md:flex items-center p-4">
             <div class="flex-shrink-0">
               <img
-                class="h-auto max-w-40 object-fill rounded-lg"
+                class="h-auto max-w-32 object-fill rounded-lg"
                 src="/images/ayuda.png"
                 alt="Manos que se ayudan"
               />
             </div>
             <div class="ml-4">
-              <h2 class="text-2xl font-bold text-gray-900">Donación por especie</h2>
+              <h2 class="text-2xl font-bold text-gray-900 text-wrap">Donación por especie</h2>
               <ul class="text-left text-gray-900">
                 <li>
                     <p>Encuentranos en: </p>
