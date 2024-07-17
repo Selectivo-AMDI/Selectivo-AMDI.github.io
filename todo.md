@@ -5,18 +5,22 @@
 
 - [ ] Integrar Paypal u otra manera de donación
 
-- [ ] Platicar sobre agregar una página de "gracias", donde ponemos un mensaje especial a quienes donan
-
 - [ ] Ver un host
 
 - [ ] Pedir correo
 
+- [ ] Pedir visión, misión y partidos
+
 # Dev
 
-- [ ] Hacer responsive todos los diseños
+- [ - ] Hacer responsive todos los diseños
 
 - [ - ] cambiar favicon
 
 - [ ] En GH, el formateo de titulo de las páginas no sirve
+
+- [ ] Optimizar imagenes
+
+- [ ]
 
 # Main

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Social from "../components/Social.astro";
 import { DIRECCION, TELEFONO, CORREO, NOMBRE } from "../constants";
+import BtnDonar from "./BtnDonar.astro";
 ---
 
 <footer class="bg-gray-700 text-white text-center *:p-4 center-items justify-center">
@@ -13,7 +14,7 @@ import { DIRECCION, TELEFONO, CORREO, NOMBRE } from "../constants";
     <br/>
     <Social />
   </address>
-  <a class="rounded bg-red-700 hover:bg-red-800" href="/apoyanos"> 🤝 ¡Apoyanos!</a>
+  <BtnDonar></BtnDonar>
 
   <p class="opacity-20">{NOMBRE+'© '+new Date().getFullYear()}, derechos reservados.</p>
 </footer>

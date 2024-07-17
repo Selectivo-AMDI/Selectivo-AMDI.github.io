@@ -21,9 +21,9 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 <!-- Global Metadata -->
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <!--
-	<link rel="apple-touch-icon" href="/images/icon/192x192.png" />
 	<link rel="manifest" href="/manifest.webmanifest" />
 	<meta name="google" content="notranslate" />
+
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -33,18 +33,22 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
-	<link
-		rel="icon"
-		type="image/png"
-		sizes="192x192"
-		href="/android-icon-192x192.png"
-	/>
+	<link rel="apple-touch-icon" href="/images/icon/192x192.png" />
+
+
+	<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-	<meta name="msapplication-TileColor" content="#2b5797" />
-	<meta name="theme-color" content="#ffffff" />
 -->
+	<meta name="msapplication-TileColor" content="#cc0000" />
+	<meta name="theme-color" content="#cc0000" />
+
+	<meta name="robots" content="index, follow" />
+	<meta name="author" content="Kevin Leal Torres" />
+	<meta name="language" content="Spanish" />
+
+
 
 <!-- Open Graph / Facebook -->
 <meta property="og:locale" content="es_MX" />
@@ -53,6 +57,10 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={openGraphImage} />
+<meta property="og:site_name" content="Selección AMDI Jalisco" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -60,5 +68,14 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={openGraphImage} />
 <meta name="twitter:image:alt" content={title} />
-<meta name="twitter:site" content="@realkevinleal" />
-<meta name="twitter:creator" content="@realkevinleal" />
+<meta name="twitter:site" content="@kevinlealtorres" />
+<meta name="twitter:creator" content="@kevinlealtorres" />
+<meta name="twitter:image:width" content="1200" />
+<meta name="twitter:image:height" content="630" />
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://selectivo-amdi.github.io; script-src 'self'; style-src 'self' https://selectivo-amdi.github.io; font-src 'self';" />
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+<meta name="referrer" content="no-referrer-when-downgrade" />
+

@@ -4,6 +4,7 @@ import Partidos from '../components/Partidos.astro'
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import { NOMBRE } from "../constants";
+import BtnDonar from "../components/BtnDonar.astro";
 ---
 
 <Layout title="Selección AMDI Jalisco ⚽">
@@ -19,7 +20,7 @@ import { NOMBRE } from "../constants";
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
         </p>
-        <a class="rounded bg-red-700 p-3 font-medium hover:bg-red-800" href="/apoyanos"> 🤝 ¡Apoyanos!</a>
+        <BtnDonar></BtnDonar>
       </div>
     </div>
 
