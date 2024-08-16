@@ -1,50 +1,20 @@
 ---
-
 import { Image } from "astro:assets";
-
-type RedSocial = {
-    img: string;
-    href: string;
-    alt: string;
-};
-
-const redesSociales: { [key: string]: RedSocial } = {
-  facebook: {
-    img: "facebook.png",
-    href: "https://www.facebook.com/profile.php?id=100066694115005",
-    alt: "Facebook",
-  },
-
-  Instagram: {
-    img: "instagram.png",
-    href: "https://www.instagram.com/seleccionamdi22",
-    alt: "Instagram",
-  },
-
-  TikTok: {
-    img: "tiktok.png",
-    href: "https://www.tiktok.com/@selectivoamdi_jalisco",
-    alt: "TikTok",
-  }
-};
+import { redes } from "@data/social.json";
 ---
 
 <div id="redes">
-    {
-      Object.keys(redesSociales).map((red) => {
-        const { img, href, alt } = redesSociales[red];
-        return (
-          <a
-            href={href}
-            target="_blank"
-            class="inline-flex m-1">
-            <Image src={"/images/"+img} 
-              alt={alt}
-              height="32"
-              width="32"
-            />
-          </a>
-        );
-      })
-    }
-  </div>
+  {
+    redes.map(({ img, href, alt }) => (
+      <a href={href} target="_blank" class="inline-flex m-1">
+        <Image
+          src={`/images/${img}`}
+          alt={`Perfil de ${alt}`}
+          title={`¡Siguenos en ${alt}!`}
+          height="32"
+          width="32"
+        />
+      </a>
+    ))
+  }
+</div>

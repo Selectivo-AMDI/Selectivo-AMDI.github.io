@@ -39,7 +39,7 @@ const hay = true;
           width={50}
         />
         <h2 class="text-2xl p-2 text-center">
-          ¡{local.nombre} vs {visitante.nombre}!
+          {`¡${local.nombre} vs ${visitante.nombre}!`}
         </h2>
         <Image
           src={visitante.imagen}
@@ -50,11 +50,10 @@ const hay = true;
       </div>
       <p>Lugar: {partido.lugar}</p>
       <p>
-        Fecha:
-        {partido.fecha.getDay() +
-          " de marzo" +
-          " de " +
-          partido.fecha.getFullYear()}
+        Fecha: 
+        {
+        `${partido.fecha.getDay()} de ${partido.fecha.getMonth()} del ${partido.fecha.getFullYear()}`
+        }
       </p>
 
         <div id="live" class="p-4">
@@ -65,7 +64,7 @@ const hay = true;
     </div>
   ) : (
     <h2 class="text-2xl p-4 font-medium justify-content">
-      Proximamente mas partidos<h2></h2>
+      Proximamente mas partidos
     </h2>
   )
 }

@@ -1,17 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import { Image } from 'astro:assets'
+import Layout from "@layout";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Página no encontrada">
     <main class="text-center text-white p-4">
         <h1 class="text-5xl p-4">¡Esta página no existe!</h1>
         <p>
-            Puede que se haya movido, eliminado o nunca existió, ¿Estás seguro que el link está bien escrito?
+            Puede que se haya movido, eliminado o nunca existió, ¿Estás seguro
+            que el link está bien escrito?
         </p>
         <div class="flex items-center justify-center p-4">
-            <Image src="/images/confusion.jpg" class="p-4 rounded-full" loading="lazy" width='500' height="500" alt="Equipo de niños celebrando su más reciente logro">
+            <Image
+                src="/images/confusion.jpg"
+                class="p-4 rounded-full"
+                loading="lazy"
+                width="500"
+                height="500"
+                alt="Equipo de niños celebrando su más reciente logro"
+            />
+            <a href="/" class="p-4 bg-blue-700 rounded font-medium"
+                >Regresar al inicio</a
+            >
         </div>
-        <a href="/" class="p-4 bg-blue-700 rounded font-medium">Regresar al inicio</a>
-    </main>
-</Layout>
+    </main></Layout
+>

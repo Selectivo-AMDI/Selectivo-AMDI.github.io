@@ -1,5 +1,14 @@
 ---
-
+const { padding } = Astro.props;
 ---
 
-<a class="rounded bg-red-700 p-3 font-medium hover:bg-red-800" href="/apoyanos"> 🤝 ¡Apoyanos!</a>
+<!--
+Ya que es tailwind, el padding debe ser acorde a su documentación:
+https://tailwindcss.com/docs/padding
+-->
+<a
+    class={`rounded bg-red-700 p-${padding ?? '2'} text-white font-medium hover:bg-red-800`}
+    href="/apoyanos"
+>
+    🤝 ¡Apoyanos!
+</a>

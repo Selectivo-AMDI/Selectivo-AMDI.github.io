@@ -1,0 +1,42 @@
+{
+  "opciones": [
+    {
+      "nombre": "Inicio",
+      "url": "/",
+      "submenu": []
+    },
+    {
+      "nombre": "Nosotros",
+      "url": "/nosotros",
+      "submenu": []
+    },
+    {
+      "nombre": "Academias",
+      "url": "/academias",
+      "submenu": [
+        {
+          "nombre": "Gimnasia",
+          "url": "/academias/gimnasia"
+        },
+        {
+          "nombre": "Taekwondo",
+          "url": "/academias/taekwondo"
+        },
+        {
+          "nombre": "Futbol",
+          "url": "/academias/futbol"
+        }
+      ]
+    },
+    {
+      "nombre": "Contacto",
+      "url": "/contacto",
+      "submenu": []
+    },
+    {
+      "nombre": "Donar",
+      "url": "/apoyanos",
+      "submenu": []
+    }
+  ]
+}

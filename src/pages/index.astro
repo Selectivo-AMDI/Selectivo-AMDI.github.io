@@ -1,10 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import Partidos from '../components/Partidos.astro'
-import Layout from "../layouts/Layout.astro";
+import Partidos from "@components/Partidos.astro";
+import Layout from "@layout";
 import "../styles/global.css";
 import { NOMBRE } from "../constants";
-import BtnDonar from "../components/BtnDonar.astro";
+import BtnDonar from "@components/BtnDonar.astro";
 ---
 
 <Layout title="Selección AMDI Jalisco ⚽">
@@ -20,7 +20,7 @@ import BtnDonar from "../components/BtnDonar.astro";
           Asociación que se preocupa por darle actividades de alto nivel a cada
           uno de sus integrantes en sus diferentes disciplinas.
         </p>
-        <BtnDonar></BtnDonar>
+        <BtnDonar />
       </div>
     </div>
 
@@ -35,10 +35,7 @@ import BtnDonar from "../components/BtnDonar.astro";
         >
           Partidos
         </h1>
-        <Partidos/>
-          <!--
-            <a href="/trabajando" class="p-2 bg-blue-700 hover:bg-blue-800 rounded font-medium">Ver todos los partidos</a>
-          -->
+        <Partidos />
       </div>
     </div>
 
@@ -158,10 +155,6 @@ import BtnDonar from "../components/BtnDonar.astro";
         </div>
       </div>
     </div>
-    <!--
-    <a href="/trabajando" class="rounded hover:bg-red-700 bg-red-600 p-4 font-medium m-4"
-    >Ver testimonios</a>
-    -->
 
     <div id="historia" class="m-4 p-4 justify-center items-center">
       <h2 class="text-4xl font-medium">Historia:</h2>
@@ -187,7 +180,7 @@ import BtnDonar from "../components/BtnDonar.astro";
             class="p-4 m-auto"
             height="500"
             width="500"
-            />
+          />
         </div>
       </div>
 
@@ -259,7 +252,7 @@ import BtnDonar from "../components/BtnDonar.astro";
                 alt="Niños listos para jugar la Copa Brasil"
                 height="500"
                 width="500"
-                />
+              />
             </div>
           </p>
         </div>
@@ -281,7 +274,7 @@ import BtnDonar from "../components/BtnDonar.astro";
               alt="Alfaro tomandose fotos con los niños, orgulloso de ellos y levantando el pulgar"
               height="500"
               width="500"
-              />
+            />
           </div>
           <p class="p-4">
             "Con mucho orgullo, recibí a las niñas y niños de los equipos de
@@ -304,40 +297,51 @@ import BtnDonar from "../components/BtnDonar.astro";
 
     <div id="somos" class="grid grid-cols-2 gap-2 items-center">
       <h2 class="text-4xl font-medium p-4 col-span-2">Lo que nos define:</h2>
-    
-      <div class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4">
+
+      <div
+        class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4"
+      >
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img src="/images/equipo2.webp" loading="lazy" alt="Mujer entrenadora dando clases" class="absolute inset-0 w-full h-full object-cover opacity-20">
-          <div class="relative  bg-opacity-50 rounded-2xl p-4"><!--bg-red-700 -->
+          <img
+            src="/images/equipo2.webp"
+            loading="lazy"
+            alt="Mujer entrenadora dando clases"
+            class="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
+          <div class="relative bg-opacity-50 rounded-2xl p-4">
             <h3 class="text-2xl p-2">Misión</h3>
             <p class="p-4">
               "AMDI fue fundada con la misión de llevar a los niños a alcanzar
-              todo su potencial y transformarlos en jugadores competitivos capaces
-              de destacar en las mejores ligas del país. {NOMBRE} se dedica a
-              proporcionar una plataforma donde el talento y la pasión de los
-              jóvenes jaliscienses puedan brillar, a través de un enfoque integral
-              que abarca el desarrollo físico, emocional y mental."
+              todo su potencial y transformarlos en jugadores competitivos
+              capaces de destacar en las mejores ligas del país. {NOMBRE} se dedica
+              a proporcionar una plataforma donde el talento y la pasión de los jóvenes
+              jaliscienses puedan brillar, a través de un enfoque integral que abarca
+              el desarrollo físico, emocional y mental."
             </p>
           </div>
         </div>
-    
+
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img src="/images/equipo.jpg" loading="lazy" alt="Niños tomandose una foto en un templo" class="absolute inset-0 w-full h-full object-cover opacity-20">
-          <div class="relative  bg-opacity-50 rounded-2xl p-4"><!--bg-blue-700 -->
+          <img
+            src="/images/equipo.jpg"
+            loading="lazy"
+            alt="Niños tomandose una foto en un templo"
+            class="absolute inset-0 w-full h-full object-cover opacity-20"
+          />
+          <div class="relative bg-opacity-50 rounded-2xl p-4">
             <h3 class="text-2xl p-2">Visión</h3>
             <p class="p-4">
               "La visión de AMDI es crear una comunidad de apoyo que fomente el
-              compañerismo y la disciplina, preparando a los jóvenes no solo para
-              el deporte, sino también para la vida. AMDI aspira a ser reconocida
-              como un semillero de campeones que no solo logran victorias en el
-              campo, sino que también llevan consigo valores sólidos y un profundo
-              amor por el juego, impactando positivamente la vida de sus miembros
-              y sus comunidades."
+              compañerismo y la disciplina, preparando a los jóvenes no solo
+              para el deporte, sino también para la vida. AMDI aspira a ser
+              reconocida como un semillero de campeones que no solo logran
+              victorias en el campo, sino que también llevan consigo valores
+              sólidos y un profundo amor por el juego, impactando positivamente
+              la vida de sus miembros y sus comunidades."
             </p>
           </div>
         </div>
       </div>
     </div>
-    
   </main>
 </Layout>

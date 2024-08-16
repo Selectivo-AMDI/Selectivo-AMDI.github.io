@@ -1,20 +1,23 @@
 ---
 import "../styles/global.css";
-import Social from "../components/Social.astro";
+import Social from "@components/Social.astro";
 import { DIRECCION, TELEFONO, CORREO, NOMBRE } from "../constants";
-import BtnDonar from "./BtnDonar.astro";
+import BtnDonar from "@components/BtnDonar.astro";
 ---
 
-<footer class="bg-gray-700 text-white text-center *:p-4 center-items justify-center">
+<footer
+  class="bg-gray-700 text-white text-center *:p-4 center-items justify-center"
+>
   <address class="pb-4" id="contacto">
     <p>Dirección: {DIRECCION}</p>
-    <a href={"tel:" + TELEFONO}>Celular: {TELEFONO}</a>
-    <br/>
-    <a href={"mailto:" + CORREO}>Email: {CORREO}</a>
-    <br/>
+    <a href=`tel:${TELEFONO}`>Celular: {TELEFONO}</a>
+    <br />
+    <a href=`mailto:${CORREO}`>Email: {CORREO}</a>
+    <br />
     <Social />
   </address>
-  <BtnDonar></BtnDonar>
-
-  <p class="opacity-20">{NOMBRE+'© '+new Date().getFullYear()}, derechos reservados.</p>
+  <BtnDonar />
+  <p class="opacity-20">
+    {NOMBRE}© {new Date().getFullYear()}, derechos reservados.
+  </p>
 </footer>

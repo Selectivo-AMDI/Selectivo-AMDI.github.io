@@ -1,39 +1,72 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Bancos from "../components/Bancos.astro";
+import Layout from "@layout";
+import Bancos from "@components/Bancos.astro";
 ---
 
 <Layout title="Apoyanos">
     <main class="text-white text-center m-10">
-        <h1 class="text-5xl p-2">
-            ¡Gracias por interesarte en nosotros!
-        </h1>
+        <h1 class="text-5xl p-2">¡Gracias por interesarte en nosotros!</h1>
         <hr
-        class="w-64 h-1 mx-auto my-3 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
-      />
+            class="w-64 h-1 mx-auto my-3 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
+        />
 
         <p class="text-balance text-lg">
-            Gracias a sus donaciones, hemos logrado llegar lejos,
-            construyendo oportunidades para que los niños se desarrollen
-            mientras juegan. De una manera divertida, aplicada, facil
-            y con todo el corazón del mundo.
+            Gracias a sus donaciones, hemos logrado llegar lejos, construyendo
+            oportunidades para que los niños se desarrollen mientras juegan. De
+            una manera divertida, aplicada, facil y con todo el corazón del
+            mundo.
         </p>
 
         <!--Creditos a https://tailwindflex.com/@simon-scheffer/masonry-grid -->
         <div class="p-5 sm:p-8">
-            <div class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8">
-                <img src="/images/apoyanos.webp" alt="Niños con el entrenador"/>
-                <img src="/images/copa_brasil.jpg" alt="Niños preparados para competir en la Copa brasil"/>
-                <img src="/images/equipo.jpg" alt="Niños afuera de un templo"/>
-                <img src="/images/equipo2.webp" alt="Entrenadora enseñandole a dos niños"/>
-                <img src="/images/equipo3.png" alt="Dos niños compitiendo por el balón"/>
-                <img src="/images/equipo4.png" alt="Niños preparandose para entrenar, con camisas verdes"/>
-                <img src="/images/equipo5.png" alt="Niños con sus entrenadores, listos para competir"/>
-                <img src="/images/equipo6.jpg" alt="Niños en la cancha de juego, descansando en el suelo"/>
-                <img src="/images/equipo7.jpg" alt="Niño parando un balón que cae con su pie"/>
-                <img src="/images/equipo8.jpg" alt="Niño haciendo una dominada"/>
-                <img src="/images/equipo9.jpg" alt="Todos los niños aprendiendo a jugar con el balón"/>
-                <img src="/images/equipo10.jpg" alt="Niños portero detiene el balón y salva a su equipo de un gol"/>
+            <div
+                class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8"
+            >
+                <img
+                    src="/images/apoyanos.webp"
+                    alt="Niños con el entrenador"
+                />
+                <img
+                    src="/images/copa_brasil.jpg"
+                    alt="Niños preparados para competir en la Copa brasil"
+                />
+                <img src="/images/equipo.jpg" alt="Niños afuera de un templo" />
+                <img
+                    src="/images/equipo2.webp"
+                    alt="Entrenadora enseñandole a dos niños"
+                />
+                <img
+                    src="/images/equipo3.png"
+                    alt="Dos niños compitiendo por el balón"
+                />
+                <img
+                    src="/images/equipo4.png"
+                    alt="Niños preparandose para entrenar, con camisas verdes"
+                />
+                <img
+                    src="/images/equipo5.png"
+                    alt="Niños con sus entrenadores, listos para competir"
+                />
+                <img
+                    src="/images/equipo6.jpg"
+                    alt="Niños en la cancha de juego, descansando en el suelo"
+                />
+                <img
+                    src="/images/equipo7.jpg"
+                    alt="Niño parando un balón que cae con su pie"
+                />
+                <img
+                    src="/images/equipo8.jpg"
+                    alt="Niño haciendo una dominada"
+                />
+                <img
+                    src="/images/equipo9.jpg"
+                    alt="Todos los niños aprendiendo a jugar con el balón"
+                />
+                <img
+                    src="/images/equipo10.jpg"
+                    alt="Niños portero detiene el balón y salva a su equipo de un gol"
+                />
                 <!--
                 <img src="https://source.unsplash.com/xRyL63AwZFE"/>
                 <img src="https://source.unsplash.com/xRyL63AwZFE"/>
@@ -46,16 +79,15 @@ import Bancos from "../components/Bancos.astro";
 
         <h2 class="text-2xl p-4 font-medium">¿Cómo puedes apoyarnos?</h2>
         <hr
-        class="w-64 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
-      />
+            class="w-64 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
+        />
         <p class="text-balance p-4">
-            Economicamente puedes hacerlo por medio
-            de nuestras cuentas, desde <span class="p-1 bg-green-600 text-white rounded font-medium">$10.00MXN</span> puedes apoyanos a que este 
-            proyecto siga adelante y que muchos niños alcancen sus sueños
-            de ser grandes profesionales del deporte:
+            Economicamente puedes hacerlo por medio de nuestras cuentas, desde
+            $10.00MXN puedes apoyarnos a que este proyecto siga adelante y que
+            muchos niños alcancen sus sueños de ser grandes profesionales del
+            deporte:
         </p>
 
         <Bancos />
     </main>
-
 </Layout>

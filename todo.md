@@ -1,26 +1,3 @@
+# Requerimientos:
 
-# Requerimientos
-
-- [ ] Platicar sobre agregar una página de "testimonios"
-
-- [ ] Integrar Paypal u otra manera de donación
-
-- [ ] Ver un host
-
-- [ ] Pedir correo
-
-- [ ] Pedir visión, misión y partidos
-
-# Dev
-
-- [ - ] Hacer responsive todos los diseños
-
-- [ - ] cambiar favicon
-
-- [ ] En GH, el formateo de titulo de las páginas no sirve
-
-- [ ] Optimizar imagenes
-
-- [ ]
-
-# Main
+1. R1: El sistema deberá de tener una barra de navegación con los apartados: "Home", "Academias" (que se deberán )

@@ -1,88 +1,57 @@
 ---
 import { DIRECCION, HORARIO_INCIO, HORARIO_CIERRE, HORARIO_DIA_INICIO, HORARIO_DIA_CIERRE } from "../constants";
-
-type Banco = {
-  img: string;
-  color: string;
-  nombre: string;
-  CLABE: number;
-  beneficiario: string;
-  alt: string;
-};
-
-const bancos: { [key: string]: Banco } = {
-  BBVA: {
-    img: "bbva.png",
-    color: "bg-blue-300",
-    nombre: "Bancomer",
-    CLABE: 1234567890123456,
-    beneficiario: "Andres Manuel Lopez Obrador",
-    alt: "logo de BBVA",
-  },
-  Santander: {
-    img: "santander.png",
-    color: "bg-red-300",
-    nombre: "Santander",
-    CLABE: 1111111111111111,
-    beneficiario: "Enrique Peña Nieto",
-    alt: "logo de Santander",
-  },
-};
+import bancos from "../data/bancos.json";
 ---
 
 <div id="opciones">
     <!-- Bancos -->
     {
-        Object.keys(bancos).map((banco) => {
-          const { img, color, nombre, CLABE, beneficiario, alt } = bancos[banco];
-          return (
-            <div class={color+" md:flex items-center p-4"}>
-              <div class="md:flex-shrink-0">
-                <img
-                  class="h-auto max-w-32 object-fill rounded-lg"
-                  src={'/images/'+img}
-                  alt={alt}
-                />
-              </div>
-              <div class="ml-4">
-                <h2 class="text-wrap text-left text-2xl font-bold text-gray-900">{nombre}</h2>
-                <ul class="text-left text-gray-900">
-                  <li>
-                      <p class="text-wrap">Beneficiario: <span class="font-medium">{beneficiario}</span></p>
-                  </li>
-                  <li>
-                      <p class="text-wrap">CLABE: <span class="text-wrap font-medium">{CLABE}</span></p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          );
-        })
-      }
-      <!-- Otras ayudas -->
-
-      <div id="PorEspecie" class="bg-orange-600">
-        <div class="md:flex items-center p-4">
-            <div class="flex-shrink-0">
-              <img
-                class="h-auto max-w-32 object-fill rounded-lg"
-                src="/images/ayuda.png"
-                alt="Manos que se ayudan"
-              />
-            </div>
-            <div class="ml-4">
-              <h2 class="text-2xl font-bold text-gray-900 text-wrap">Donación por especie</h2>
-              <ul class="text-left text-gray-900">
-                <li>
-                    <p>Encuentranos en: </p>
-                    <address>{DIRECCION}</address>
-                </li>
-                <li>
-                    <p>Estamos de {HORARIO_DIA_INICIO} a {HORARIO_DIA_CIERRE} de: </p>
-                    <time datetime={HORARIO_INCIO}>{HORARIO_INCIO}</time> - <time datetime={HORARIO_CIERRE}>{HORARIO_CIERRE}</time>
-                </li>
-              </ul>
-            </div>
+      bancos.map(({ img, nombre, CLABE, beneficiario, alt }) => (
+        <div class={`bg-zinc-900 md:flex items-center p-4 rounded m-1`} id={nombre}>
+          <div class="md:flex-shrink-0">
+            <img
+              class="h-auto max-w-32 object-fill rounded-lg"
+              src={`/images/${img}`}
+              alt={alt}
+            />
           </div>
+          <div class="ml-4">
+            <h2 class="text-wrap text-left text-2xl font-bold text-gray-400">{nombre}</h2>
+            <ul class="text-left text-white">
+              <li>
+                <p class="text-wrap">Beneficiario: <span class="font-medium">{beneficiario}</span></p>
+              </li>
+              <li>
+                <p class="text-wrap">CLABE: <span class="text-wrap font-medium">{CLABE}</span></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+    <!-- Otras ayudas -->
+    <div id="PorEspecie" class="bg-zinc-900">
+      <div class="md:flex items-center p-4">
+        <div class="flex-shrink-0">
+          <img
+            class="h-auto max-w-32 object-fill rounded-lg"
+            src="/images/ayuda.png"
+            alt="Manos que se ayudan"
+          />
+        </div>
+        <div class="ml-4">
+          <h2 class="text-2xl font-bold text-gray-400 text-wrap">Donación por especie</h2>
+          <ul class="text-left text-white">
+            <li>
+              <p>Encuentranos en: </p>
+              <address>{DIRECCION}</address>
+            </li>
+            <li>
+              <p>{`Estamos de ${HORARIO_DIA_INICIO} a ${HORARIO_DIA_CIERRE} de: `}</p>
+              <time datetime={HORARIO_INCIO}>{HORARIO_INCIO}</time> - <time datetime={HORARIO_CIERRE}>{HORARIO_CIERRE}</time>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
 </div>
