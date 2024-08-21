@@ -1,6 +1,6 @@
 import { defineConfig, squooshImageService } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import vercel from "@astrojs/vercel/serverless";
+/*import vercel from "@astrojs/vercel/serverless";*/
 import react from "@astrojs/react";
 export default /** @type {import('astro').AstroUserConfig} */defineConfig({
   site: 'https://selectivo-amdi.github.io/amdi.github.io/',
@@ -9,6 +9,6 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
   },
   integrations: [sitemap(), react()],
   prefetch: true,
-  output: "server",
-  adapter: vercel()
+/*  output: "server",*/
+/*  adapter: vercel() */
 });
