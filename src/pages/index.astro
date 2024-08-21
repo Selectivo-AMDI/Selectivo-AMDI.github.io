@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Partidos from "@components/Partidos.astro";
 import Layout from "@layout";
 import "../styles/global.css";
@@ -63,7 +62,7 @@ import equipo from "@images/equipo.webp";
             <a
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
-              <Image
+              <img
                 src="/src/images/equipo.webp"
                 loading="lazy"
                 width="50"
@@ -87,7 +86,7 @@ import equipo from "@images/equipo.webp";
             <a
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
-              <Image
+              <img
                 src="/src/images/equipo2.webp"
                 loading="lazy"
                 width="50"
@@ -111,7 +110,7 @@ import equipo from "@images/equipo.webp";
             <a
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
-              <Image
+              <img
                 src="/src/images/equipo.webp"
                 loading="lazy"
                 width="50"
@@ -135,7 +134,7 @@ import equipo from "@images/equipo.webp";
             <a
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
-              <Image
+              <img
                 src="/src/images/equipo3.webp"
                 loading="lazy"
                 width="50"
@@ -179,7 +178,7 @@ import equipo from "@images/equipo.webp";
                 <NotaCompleta nota={nota} color="bg-red-700" />
               </p>
               <div class="xl:flex-shrink-0">
-                <Image
+                <img
                   src={`/src/images/${imagen}`}
                   loading="lazy"
                   alt={alt}
@@ -190,7 +189,7 @@ import equipo from "@images/equipo.webp";
               </div>
           ) : (
               <div class="xl:flex-shrink-0">
-                <Image
+                <img
                   src={`/src/images/${imagen}`}
                   loading="lazy"
                   alt={alt}
@@ -216,8 +215,8 @@ import equipo from "@images/equipo.webp";
         class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4"
       >
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <Image
-            src={equipo2}
+          <img
+            src="/src/images/equipo2.webp"
             loading="lazy"
             alt="Mujer entrenadora dando clases"
             class="absolute inset-0 w-full h-full object-cover opacity-20"
@@ -236,8 +235,8 @@ import equipo from "@images/equipo.webp";
         </div>
 
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <Image
-            src={equipo}
+          <img
+            src="src/images/equipo.webp"
             loading="lazy"
             alt="Niños tomandose una foto en un templo"
             class="absolute inset-0 w-full h-full object-cover opacity-20"
