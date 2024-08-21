@@ -1,13 +1,13 @@
 ---
-import { Image } from "astro:assets";
 import { redes } from "@data/social.json";
+import { Image } from "astro:assets";
 ---
 
 <div id="redes">
   {
     redes.map(({ img, href, alt }) => (
       <a href={href} target="_blank" class="inline-flex m-1">
-        <img
+        <Image
           src={`/src/images/${img}`}
           alt={`Perfil de ${alt}`}
           title={`¡Siguenos en ${alt}!`}

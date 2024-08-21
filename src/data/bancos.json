@@ -1,13 +1,13 @@
 [
     {
-        "img": "bbva.png",
+        "img": "bbva.webp",
         "nombre": "Bancomer",
         "CLABE": 1234567890123456,
         "beneficiario": "Andres Manuel Lopez Obrador",
         "alt": "logo de BBVA"
     },
     {
-        "img": "santander.png",
+        "img": "santander.webp",
         "nombre": "Santander",
         "CLABE": 1111111111111111,
         "beneficiario": "Enrique Peña Nieto",
