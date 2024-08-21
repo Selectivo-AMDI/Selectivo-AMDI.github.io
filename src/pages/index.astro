@@ -5,13 +5,17 @@ import Layout from "@layout";
 import "../styles/global.css";
 import { NOMBRE } from "../constants";
 import BtnDonar from "@components/BtnDonar.astro";
+import { historias } from "@data/historia.json";
+import NotaCompleta from "@components/NotaCompleta.astro";
+import equipo2 from "@images/equipo2.webp";
+import equipo from "@images/equipo.webp";
 ---
 
-<Layout title="Selección AMDI Jalisco ⚽">
+<Layout title="Selección AMDI Jalisco">
   <main class="text-white text-center">
     <div
       id="presentacion"
-      class="relative bg-cover bg-center h-screen bg-[url('/images/equipo.jpg')] grid items-center"
+      class="relative bg-cover bg-center h-screen bg-[url('/src/images/equipo.webp')] grid items-center"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
@@ -23,10 +27,10 @@ import BtnDonar from "@components/BtnDonar.astro";
         <BtnDonar />
       </div>
     </div>
-
+      
     <div
       id="partidos"
-      class="relative bg-cover bg-center h-screen bg-[url('/images/partidos.webp')] items-center"
+      class="relative bg-cover bg-center h-screen bg-[url('/src/images/partidos.webp')] items-center"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
@@ -60,7 +64,7 @@ import BtnDonar from "@components/BtnDonar.astro";
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <Image
-                src="/images/equipo.webp"
+                src="/src/images/equipo.webp"
                 loading="lazy"
                 width="50"
                 height="50"
@@ -84,7 +88,7 @@ import BtnDonar from "@components/BtnDonar.astro";
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
               <Image
-                src="/images/equipo2.webp"
+                src="/src/images/equipo2.webp"
                 loading="lazy"
                 width="50"
                 height="50"
@@ -108,7 +112,7 @@ import BtnDonar from "@components/BtnDonar.astro";
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
             >
               <Image
-                src="/images/equipo.jpg"
+                src="/src/images/equipo.webp"
                 loading="lazy"
                 width="50"
                 height="50"
@@ -132,7 +136,7 @@ import BtnDonar from "@components/BtnDonar.astro";
               class="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <Image
-                src="/images/equipo3.png"
+                src="/src/images/equipo3.webp"
                 loading="lazy"
                 width="50"
                 height="50"
@@ -162,137 +166,47 @@ import BtnDonar from "@components/BtnDonar.astro";
         class="w-64 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
       />
 
-      <h3 class="text-2xl font-medium">2018, Jalisco</h3>
-      <p class="text-4xl font-medium">↓</p>
-
-      <div id="inicios" class="p-4 xl:flex items-center justify-center">
-        <p>
-          Nació un sueño bajo el nombre de "Academia Mexicana de Desarrollo
-          Infantil". Con un claro y ambicioso objetivo: llevar a los niños
-          jalisciences talentosos y apasionados a explotar todo su potencial y
-          transformarlos en jugadores competitivos de la talla de grandes ligas.
-        </p>
-        <div class="xl:flex-shrink-0">
-          <Image
-            src="/images/inicios.jpg"
-            loading="lazy"
-            alt="Niño parando un balón"
-            class="p-4 m-auto"
-            height="500"
-            width="500"
-          />
-        </div>
-      </div>
-
-      <!-- TORNEO PERÚ ENTRADA -->
-
-      <div id="torneoperu" class="p-4">
-        <h3 class="text-2xl font-medium">11 de octubre de 2022</h3>
+      {
+        historias.map(( { descripcion, fecha, alt, imagen, nota }, index ) => (
+        <h3 class="text-2xl font-medium">{fecha}</h3>
         <p class="text-4xl font-medium">↓</p>
-        <div class="xl:flex items-center justify-center">
-          <div class="xl:flex-shrink-0">
-            <Image
-              class="py-4 object-fill m-auto"
-              src="/images/torneo_peru.jpeg"
-              loading="lazy"
-              alt="Niños listos para competir en el torneo de Perú"
-              height="500"
-              width="500"
-            />
-          </div>
-          <p class="p-4">
-            Integrada por talentosos niños de entre 13 y 14 años, la selección
-            de Jalisco se enfrentó a Perú en un emocionante partido el pasado
-            domingo 9 de octubre en Tingo María, Huánuco. Después de un empate
-            en el tiempo reglamentario, la final se decidió en una intensa tanda
-            de penales, en la que los jaliscienses emergieron victoriosos,
-            demostrando su increíble habilidad y determinación. Estos jóvenes
-            atletas, originarios de Jalisco y provenientes de prestigiosas
-            escuelas de fútbol como Chivas, Atlas y Pumas, fueron seleccionados
-            mediante visorías de la AMDI (Asociación Mexicana de Desarrollo
-            Motriz Infantil).
-            <a
-              class="text-white p-1 font-medium rounded hover:bg-blue-800 bg-blue-700 underline"
-              target="_blank"
-              href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
-              >Nota completa</a
-            >
-          </p>
-        </div>
-      </div>
 
-      <!-- TORNEO PERÚ SALIDA -->
-
-      <!-- COPA BRASIL ENTRADA -->
-
-      <div id="copabrasil" class="p-4">
-        <h3 class="text-2xl font-medium">16 de febrero de 2023</h3>
-        <p class="text-4xl font-medium">↓</p>
-        <div class="xl:flex items-center justify-center">
-          <p class="p-4">
-            La selección de fútbol AMDI Jalisco sigue haciendo historia y
-            demostrando su excelencia en el deporte. Conformada por talentosos
-            niños de la categoría 2012, este equipo mexicano logró una
-            impresionante medalla de bronce en la Copa América AIFI en Brasil,
-            celebrada del 4 al 11 de febrero de 2023. Gracias a una
-            sobresaliente participación, México aseguró el tercer lugar con una
-            victoria de 2-1 sobre Bolivia, en una competencia donde Uruguay se
-            coronó campeón.
-            <a
-              class="text-white p-1 rounded font-medium bg-blue-700 hover:bg-blue-800 underline"
-              target="_blank"
-              href="https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
-              >Nota completa</a
-            >
-            <div class="xl:flex-shrink-0">
-              <Image
-                class="py-4 object-fill m-auto"
-                src="/images/copa_brasil.jpg"
-                loading="lazy"
-                alt="Niños listos para jugar la Copa Brasil"
-                height="500"
-                width="500"
-              />
-            </div>
-          </p>
-        </div>
-      </div>
-
-      <!-- COPA BRASIL SALIDA -->
-
-      <!-- RECONOCIMIENTO ALFARO ENTRADA -->
-
-      <div class="reconocimientoalfaro">
-        <h3 class="text-2xl font-medium">26 de enero de 2024</h3>
-        <p class="text-4xl font-medium">↓</p>
-        <div class="xl:flex items-center justify-center">
-          <div class="xl:flex-shrink-0">
-            <Image
-              class="py-4 object-fill m-auto"
-              src="/images/reconocimiento_alfaro.jpeg"
-              loading="lazy"
-              alt="Alfaro tomandose fotos con los niños, orgulloso de ellos y levantando el pulgar"
-              height="500"
-              width="500"
-            />
-          </div>
-          <p class="p-4">
-            "Con mucho orgullo, recibí a las niñas y niños de los equipos de
-            futbol de la Asociación Mexicana de Desarrollo Motriz Infantil,
-            AMDI, 45 pequeñas y pequeños que, con todo su talento y entusiasmo,
-            competirán en la Copa Infantil América que este año será en
-            Argentina." - Enrique Alfaro, gobernador de Jalisco
-            <a
-              class="text-white p-1 font-medium rounded bg-blue-700 hover:bg-blue-800 underline"
-              target="_blank"
-              href="https://twitter.com/EnriqueAlfaroR/status/1751064108818891158"
-              >Nota completa</a
-            >
-          </p>
-        </div>
-      </div>
-
-      <!-- RECONOCIMIENTO ALFARO SALIDA -->
+        <div id="inicios" class="p-4 xl:flex items-center justify-center">
+          {index % 2 === 0
+            ? (
+              <p>
+                {descripcion}
+                <NotaCompleta nota={nota} color="bg-red-700" />
+              </p>
+              <div class="xl:flex-shrink-0">
+                <Image
+                  src={`/src/images/${imagen}`}
+                  loading="lazy"
+                  alt={alt}
+                  class="p-4 m-auto"
+                  height="500"
+                  width="500"
+                />
+              </div>
+          ) : (
+              <div class="xl:flex-shrink-0">
+                <Image
+                  src={`/src/images/${imagen}`}
+                  loading="lazy"
+                  alt={alt}
+                  class="p-4 m-auto"
+                  height="500"
+                  width="500"
+                />
+              </div>
+                <p>
+                  {descripcion}
+                  <NotaCompleta nota={nota} color="bg-red-700" />
+                </p>
+          )}
+      </div>  
+        ))
+      }
     </div>
 
     <div id="somos" class="grid grid-cols-2 gap-2 items-center">
@@ -302,8 +216,8 @@ import BtnDonar from "@components/BtnDonar.astro";
         class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4"
       >
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img
-            src="/images/equipo2.webp"
+          <Image
+            src={equipo2}
             loading="lazy"
             alt="Mujer entrenadora dando clases"
             class="absolute inset-0 w-full h-full object-cover opacity-20"
@@ -322,8 +236,8 @@ import BtnDonar from "@components/BtnDonar.astro";
         </div>
 
         <div class="relative rounded-2xl overflow-hidden flex-1">
-          <img
-            src="/images/equipo.jpg"
+          <Image
+            src={equipo}
             loading="lazy"
             alt="Niños tomandose una foto en un templo"
             class="absolute inset-0 w-full h-full object-cover opacity-20"

@@ -1,0 +1,32 @@
+{
+    "historias": [
+        {
+            "descripcion": "Nació un sueño bajo el nombre de \"Academia Mexicana de Desarrollo Infantil\". Con un claro y ambicioso objetivo: llevar a los niños jalisciences talentosos y apasionados a explotar todo su potencial y transformarlos en jugadores competitivos de la talla de grandes ligas.",
+            "fecha": "2018, Jalisco",
+            "alt": "Niño parando un balón",
+            "imagen": "inicios.webp",
+            "nota": ""
+        },
+        {
+            "descripcion": "Integrada por talentosos niños de entre 13 y 14 años, la selección de Jalisco se enfrentó a Perú en un emocionante partido el pasado domingo 9 de octubre en Tingo María, Huánuco. Después de un empate en el tiempo reglamentario, la final se decidió en una intensa tanda de penales, en la que los jaliscienses emergieron victoriosos, demostrando su increíble habilidad y determinación. Estos jóvenes atletas, originarios de Jalisco y provenientes de prestigiosas escuelas de fútbol como Chivas, Atlas y Pumas, fueron seleccionados mediante visorías de la AMDI (Asociación Mexicana de Desarrollo Motriz Infantil).",
+            "fecha": "11 de octubre de 2022",
+            "alt": "Niños listos para competir en el torneo de Perú",
+            "imagen": "torneo_peru.webp",
+            "nota": "https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
+        },
+        {
+            "descripcion": "La selección de fútbol AMDI Jalisco sigue haciendo historia y demostrando su excelencia en el deporte. Conformada por talentosos niños de la categoría 2012, este equipo mexicano logró una impresionante medalla de bronce en la Copa América AIFI en Brasil, celebrada del 4 al 11 de febrero de 2023. Gracias a una sobresaliente participación, México aseguró el tercer lugar con una victoria de 2-1 sobre Bolivia, en una competencia donde Uruguay se coronó campeón.",
+            "fecha": "16 de febrero de 2023",
+            "alt": "Niños listos para jugar la Copa Brasil",
+            "imagen": "copa_brasil.webp",
+            "nota": "https://www.informador.mx/deportes/Seleccion-de-Futbol-AMDI-Jalisco-se-corona-en-torneo-CAED-en-Peru-20221011-0096.html"
+        },
+        {
+            "descripcion": "Con mucho orgullo, recibí a las niñas y niños de los equipos de futbol de la Asociación Mexicana de Desarrollo Motriz Infantil, AMDI, 45 pequeñas y pequeños que, con todo su talento y entusiasmo, competirán en la Copa Infantil América que este año será en Argentina.\" - Enrique Alfaro, gobernador de Jalisco",
+            "fecha": "26 de enero de 2024",
+            "alt": "Alfaro tomandose fotos con los niños, orgulloso de ellos y levantando el pulgar",
+            "imagen": "reconocimiento_alfaro.webp",
+            "nota": "https://twitter.com/EnriqueAlfaroR/status/1751064108818891158"
+        }
+    ]
+}

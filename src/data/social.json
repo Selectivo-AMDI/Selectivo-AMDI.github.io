@@ -2,19 +2,19 @@
     "redes": [
         {
             "nombre": "Facebook",
-            "img": "facebook.png",
+            "img": "facebook.webp",
             "href": "https://www.facebook.com/profile.php?id=100066694115005",
             "alt": "Facebook"
         },
         {
             "nombre": "Instagram",
-            "img": "instagram.png",
+            "img": "instagram.webp",
             "href": "https://www.instagram.com/seleccionamdi22",
             "alt": "Instagram"
         },
         {
             "nombre": "TikTok",
-            "img": "tiktok.png",
+            "img": "tiktok.webp",
             "href": "https://www.tiktok.com/@selectivoamdi_jalisco",
             "alt": "TikTok"
         }

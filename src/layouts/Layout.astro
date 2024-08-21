@@ -2,17 +2,19 @@
 import Footer from "../components/Footer.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Nav from "../components/Nav.astro";
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es-MX">
 	<head>
 		<BaseHead
-			title="Selección AMDI Jalisco"
-			description="Somos la Asociación Mexicana de Desarrollo Motriz Infantil, la comunidad de apoyo que fomenta el compañerismo y la disciplina a niveles profesionales."
+			title={ title ?? "Selección AMDI Jalisco ⚽" }
+			description={ description ?? "Somos la Asociación Mexicana de Desarrollo Motriz Infantil, la comunidad de apoyo que fomenta el compañerismo y la disciplina a niveles profesionales." }
 		/>
 	</head>
-	<body class="bg-black pt-5">
+	<body class="bg-black pt-10">
 		<Nav />
 		<slot />
 		<Footer />

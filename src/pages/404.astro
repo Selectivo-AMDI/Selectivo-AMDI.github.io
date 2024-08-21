@@ -1,6 +1,7 @@
 ---
 import Layout from "@layout";
 import { Image } from "astro:assets";
+import confusion from "@images/confusion.webp";
 ---
 
 <Layout title="Página no encontrada">
@@ -10,13 +11,11 @@ import { Image } from "astro:assets";
             Puede que se haya movido, eliminado o nunca existió, ¿Estás seguro
             que el link está bien escrito?
         </p>
-        <div class="flex items-center justify-center p-4">
+        <div class="items-center justify-center p-4">
             <Image
-                src="/images/confusion.jpg"
+                src={confusion}
                 class="p-4 rounded-full"
                 loading="lazy"
-                width="500"
-                height="500"
                 alt="Equipo de niños celebrando su más reciente logro"
             />
             <a href="/" class="p-4 bg-blue-700 rounded font-medium"

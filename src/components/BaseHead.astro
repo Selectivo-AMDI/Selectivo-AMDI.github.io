@@ -1,5 +1,11 @@
 ---
 import ViewTransitions from "astro/components/ViewTransitions.astro";
+
+export interface Props {
+	title: string;
+	description: string;
+}
+
 const { title, description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
@@ -19,7 +25,7 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Global Metadata -->
-<link rel="icon" type="image/png" href="/images/favicon.png" />
+<link rel="icon" type="image/png" href="/images/favicon.webp" />
 <link rel="manifest" href="/manifest.webmanifest" />
 <!--
 	<meta name="google" content="notranslate" />

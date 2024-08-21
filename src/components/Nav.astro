@@ -1,5 +1,7 @@
 ---
 import { opciones } from "@data/navbar.json";
+import icono from "@images/logo.webp";
+import { Image } from "astro:assets";
 
 const mobile_classes = "text-sm text-gray-400 hover:bg-gray-800 p-4 rounded";
 const desktop_classes =
@@ -21,10 +23,20 @@ const menu = (classes: string) =>
 	);
 ---
 
-<nav class="fixed top-0 left-0 w-full p-4 z-50 px-3 py-3 flex justify-between items-center bg-gray-700">
-	<a class="text-3xl font-bold leading-none" href="#">
-		<!-- TODO: imagen de la empresa -->
-		<img src="" alt="ICONO" />
+<nav
+	class="fixed top-0 left-0 w-full p-4 z-50 px-3 py-3 flex justify-between items-center bg-gray-700"
+>
+	<a
+		class="text-3xl font-bold leading-none md:justify-center md:content-center"
+		href="#"
+	>
+		<Image
+			src={icono}
+			alt="Icono de AMDI"
+			class="rounded-full"
+			height={icono.height / 20}
+			width={icono.width / 20}
+		/>
 	</a>
 	<div class="lg:hidden">
 		<button class="navbar-burger flex items-center text-blue-600 p-3">
@@ -50,9 +62,14 @@ const menu = (classes: string) =>
 		class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-gray-700 border-r overflow-y-auto"
 	>
 		<div class="flex items-center mb-8">
-			<a class="mr-auto text-3xl font-bold leading-none" href="#">
-				<!-- TODO: icono de la empresa -->
-				<img src="" alt="ICONO" />
+			<a class="mr-auto text-3xl font-bold leading-none center" href="#">
+				<Image
+					src={icono}
+					alt="Icono de AMDI"
+					class="rounded-full"
+					height={icono.height / 20}
+					width={icono.width / 20}
+				/>
 			</a>
 			<button class="navbar-close">
 				<svg
@@ -79,6 +96,9 @@ const menu = (classes: string) =>
 </div>
 
 <script>
+	/*Nota de KevinDev: alch no supe hacer este componente sin tener que recurrir a ChatGPT. si sabes
+	cómo mejorar esta madre sin JS, gracias
+	*/
 	// Burger menus
 	document.addEventListener("DOMContentLoaded", function () {
 		// open

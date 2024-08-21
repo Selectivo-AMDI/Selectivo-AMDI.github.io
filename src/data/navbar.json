@@ -34,6 +34,11 @@
       "submenu": []
     },
     {
+      "nombre": "Patrocinadores",
+      "url": "/patrocinios",
+      "submenu": []
+    },
+    {
       "nombre": "Donar",
       "url": "/apoyanos",
       "submenu": []

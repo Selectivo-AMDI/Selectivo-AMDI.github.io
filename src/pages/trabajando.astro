@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import { Image } from "astro:assets"
+import chambeando from "@images/apoyanos.webp"
 ---
 
 <Layout title="Trabajando">
@@ -9,7 +10,7 @@ import { Image } from "astro:assets"
             Sitio en construcción
         </h1>
         <p>Ya mero sale esta página, falta poquito, así que no se desesperen.</p>
-        <Image src="/images/trabajando.gif" class="p-4" alt="gato trabajando" height="500" width="500" />
+        <Image src={chambeando} class="p-4" alt="gato chambeando" height="500" width="500" />
         <div class="p-8">
             <a href="/" class="bg-blue-700 hover:bg-blue-800 p-4 font-medium rounded">Regresar al inicio</a>
         </div>
