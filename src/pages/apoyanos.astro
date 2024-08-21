@@ -1,20 +1,12 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 import Layout from "@layout";
 import Bancos from "@components/Bancos.astro";
-import { Image } from "astro:assets";
 
 import apoyanos from "@images/apoyanos.webp";
 import copaBrasil from "@images/copa_brasil.webp";
 import equipo from "@images/equipo.webp";
-import equipo2 from "@images/equipo2.webp";
-import equipo3 from "@images/equipo3.webp";
-import equipo4 from "@images/equipo4.webp";
-import equipo5 from "@images/equipo5.webp";
-import equipo6 from "@images/equipo6.webp";
-import equipo7 from "@images/equipo7.webp";
-import equipo8 from "@images/equipo8.webp";
-import equipo9 from "@images/equipo9.webp";
-import equipo10 from "@images/equipo10.webp";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
     "/src/images/equipo*.webp",
@@ -55,14 +47,26 @@ const alts = [
             <div
                 class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8"
             >
-                <Image {...{ src: apoyanos, alt: "Niños con el entrenador" }} />
+                <Image
+                    {...{
+                        src: apoyanos,
+                        alt: "Niños con el entrenador",
+                    }}
+                />
+
                 <Image
                     {...{
                         src: copaBrasil,
                         alt: "Niños preparados para competir en la Copa brasil",
                     }}
                 />
-                <Image {...{ src: equipo, alt: "Niños afuera de un templo" }} />
+
+                <Image
+                    {...{
+                        src: equipo,
+                        alt: "Niños afuera de un templo",
+                    }}
+                />
 
                 {
                     Object.entries(images).map(([_, value], index) => (
@@ -74,110 +78,6 @@ const alts = [
                         />
                     ))
                 }
-                <!--
-                <Image
-                    {...{
-                        src: equipo2,
-                        alt: "Entrenadora enseñandole a dos niños",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo3,
-                        alt: "Dos niños compitiendo por el balón",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo4,
-                        alt: "Niños preparandose para entrenar, con camisas verdes",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo5,
-                        alt: "Niños con sus entrenadores, listos para competir",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo6,
-                        alt: "Niños en la cancha de juego, descansando en el suelo",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo7,
-                        alt: "Niño parando un balón que cae con su pie",
-                    }}
-                />
-                <Image
-                    {...{ src: equipo8, alt: "Niño haciendo una dominada" }}
-                />
-                <Image
-                    {...{
-                        src: equipo9,
-                        alt: "Todos los niños aprendiendo a jugar con el balón",
-                    }}
-                />
-                <Image
-                    {...{
-                        src: equipo10,
-                        alt: "Niños portero detiene el balón y salva a su equipo de un gol",
-                    }}
-                />-->
-                <!--<Image
-                    src={copaBrasil}
-                    alt="Niños preparados para competir en la Copa brasil"
-                />
-                <Image
-                    src={equipo}
-                    alt="Niños afuera de un templo"
-                />
-                <Image
-                    src={equipo2}
-                    alt="Entrenadora enseñandole a dos niños"
-                />
-                <Image
-                    src={equipo3}
-                    alt="Dos niños compitiendo por el balón"
-                />
-                <Image
-                    src={equipo4}
-                    alt="Niños preparandose para entrenar, con camisas verdes"
-                />
-                <Image
-                    src={equipo5}
-                    alt="Niños con sus entrenadores, listos para competir"
-                />
-                <Image
-                    src={equipo6}
-                    alt="Niños en la cancha de juego, descansando en el suelo"
-                />
-                <Image
-                    src={equipo7}
-                    alt="Niño parando un balón que cae con su pie"
-                />
-                <Image
-                    src={equipo8}
-                    alt="Niño haciendo una dominada"
-                />
-                <Image
-                    src={equipo9}
-                    alt="Todos los niños aprendiendo a jugar con el balón"
-                />
-                <Image
-                    src={equipo10}
-                    alt="Niños portero detiene el balón y salva a su equipo de un gol"
-                />
-        -->
-                <!--
-                <img src="https://source.unsplash.com/xRyL63AwZFE"/>
-                <img src="https://source.unsplash.com/xRyL63AwZFE"/>
-                <img src="https://source.unsplash.com/XeNKWTiCPNw"/>
-                <img src="https://source.unsplash.com/DFt3T5r_4FE"/>
-                <img src="https://source.unsplash.com/Ebwp2-6BG8E"/>
-                -->
             </div>
         </div>
 

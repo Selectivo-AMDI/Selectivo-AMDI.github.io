@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 import {
@@ -11,27 +11,23 @@ import {
 } from "../constants";
 import bancos from "@data/bancos.json";
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.webp');
-
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.webp",
+);
 ---
 
 <div id="opciones">
   <!-- Bancos -->
   {
-    bancos.map(({ img, nombre, CLABE, beneficiario, alt }, index) => (
-      <div class="bg-zinc-900 md:flex items-center p-4 rounded m-1" id={nombre}>
+    bancos.map(({ img, nombre, CLABE, beneficiario, alt }) => (
+      <div class="bg-zinc-900 md:flex items-center p-4 rounded m-1">
         <div class="md:flex-shrink-0">
           <Image
-            src={images[`/src/images/${img}.webp`]()}
-            alt=""
-            height={10}
-            width={10}
+            src={images[`/src/images/${img}`]()}
+            alt={alt}
+            height={125}
+            width={125}
           />
-          {/*            class="h-auto max-w-32 object-fill rounded-lg"
-            src={getImage({ src: "/src/images/"+img, alt }).then((i) => i.attributes.src)}
-            height={}
-            width={}
-            alt={alt}*/}
         </div>
         <div class="ml-4">
           <h2 class="text-wrap text-left text-2xl font-bold text-gray-400">
@@ -57,9 +53,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.webp'
   <div id="PorEspecie" class="bg-zinc-900">
     <div class="md:flex items-center p-4">
       <div class="flex-shrink-0">
-        <img
+        <Image
           class="h-auto max-w-32 object-fill rounded-lg"
-          src="/src/images/ayuda.png"
+          src={import("/src/images/ayuda.webp")}
           alt="Manos que se ayudan"
         />
       </div>
