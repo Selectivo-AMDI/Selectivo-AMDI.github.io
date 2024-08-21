@@ -19,7 +19,8 @@ const visitante = {
 };
 
 const partido = {
-  fecha: new Date(),
+  dia: new Date().getDay(),
+  mes: new Date().getMonth(),
   url: "https://www.facebook.com/people/Selecci%C3%B3n-AMDI-Jalisco/100066694115005/",
   lugar: "Tecmilenio, campus Zapopan",
 };
@@ -41,7 +42,7 @@ const hay = true;
         <h2 class="text-2xl p-2 text-center">
           {`¡${local.nombre} vs ${visitante.nombre}!`}
         </h2>
-        <Image
+        <img
           src={visitante.imagen}
           alt={visitante.imagen_alt}
           height={50}
@@ -52,7 +53,7 @@ const hay = true;
       <p>
         Fecha: 
         {
-        `${partido.fecha.getDay()} de ${partido.fecha.getMonth()} del ${partido.fecha.getFullYear()}`
+        `${partido.dia} de ${partido.mes}`
         }
       </p>
 

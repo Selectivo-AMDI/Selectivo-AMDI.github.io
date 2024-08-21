@@ -1,4 +1,7 @@
 ---
+import { Image, getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 import {
   DIRECCION,
   HORARIO_INCIO,
@@ -7,22 +10,28 @@ import {
   HORARIO_DIA_CIERRE,
 } from "../constants";
 import bancos from "@data/bancos.json";
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.webp');
+
 ---
 
 <div id="opciones">
   <!-- Bancos -->
   {
-    bancos.map(({ img, nombre, CLABE, beneficiario, alt }) => (
-      <div
-        class="bg-zinc-900 md:flex items-center p-4 rounded m-1"
-        id={nombre}
-      >
+    bancos.map(({ img, nombre, CLABE, beneficiario, alt }, index) => (
+      <div class="bg-zinc-900 md:flex items-center p-4 rounded m-1" id={nombre}>
         <div class="md:flex-shrink-0">
-          <img
-            class="h-auto max-w-32 object-fill rounded-lg"
-            src={`/src/images/${img}`}
-            alt={alt}
+          <Image
+            src={images[`/src/images/${img}.webp`]()}
+            alt=""
+            height={10}
+            width={10}
           />
+          {/*            class="h-auto max-w-32 object-fill rounded-lg"
+            src={getImage({ src: "/src/images/"+img, alt }).then((i) => i.attributes.src)}
+            height={}
+            width={}
+            alt={alt}*/}
         </div>
         <div class="ml-4">
           <h2 class="text-wrap text-left text-2xl font-bold text-gray-400">
