@@ -3,24 +3,16 @@ import { opciones } from "@data/navbar.json";
 import icono from "@images/logo.webp";
 import { Image } from "astro:assets";
 
-const mobile_classes = "text-sm text-gray-400 hover:bg-gray-800 p-4 rounded";
-const desktop_classes =
-	"block p-4 text-sm font-semibold text-gray-400 hover:bg-gray-800 rounded";
+const menu = (mobile: boolean) =>
+  opciones.map(
+    ({ url, nombre }) =>`<li class="mb-1">
+        <a class:list={{'text-sm text-gray-400 hover:bg-gray-800 p-4 rounded': true, 'block': ${mobile}, 'font-semibold': ${mobile}}} 
+        href="${url}">
+          ${nombre}
+        </a>
+      </li>`
+  );
 
-const menu = (classes: string) =>
-	opciones.map(
-		({ url, nombre }) =>
-			`
-	<li class="mb-1">
-		<a
-			class="${classes}"
-			href="${url}"
-		>
-			${nombre}
-		</a>
-	</li>
-	`,
-	);
 ---
 
 <nav
@@ -53,7 +45,7 @@ const menu = (classes: string) =>
 	<ul
 		class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
 	>
-		<Fragment set:html={menu(mobile_classes)} />
+		<Fragment set:html={menu(true)} />
 	</ul>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
@@ -89,7 +81,7 @@ const menu = (classes: string) =>
 		</div>
 		<div>
 			<ul>
-				<Fragment set:html={menu(desktop_classes)} />
+				<Fragment set:html={menu(false)} />
 			</ul>
 		</div>
 	</nav>
