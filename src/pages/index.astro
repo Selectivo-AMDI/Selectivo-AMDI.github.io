@@ -197,7 +197,7 @@ const imagenes = import.meta.glob<{ default: ImageMetadata }>(
           ) : (
               <div class="xl:flex-shrink-0">
                 <Image
-                  src={`/src/images/${imagen}`}
+                  src={imagenes[`/src/images/${imagen}`]() }
                   loading="lazy"
                   alt={alt}
                   class="p-4 m-auto"
