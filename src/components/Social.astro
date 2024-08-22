@@ -1,6 +1,9 @@
 ---
+import type { ImageMetadata } from "astro";
 import { redes } from "@data/social.json";
 import { Image } from "astro:assets";
+
+const iconosRedes = import.meta.glob< { default: ImageMetadata } >("/src/images/redes/*");
 ---
 
 <div id="redes">
@@ -8,7 +11,7 @@ import { Image } from "astro:assets";
     redes.map(({ img, href, alt }) => (
       <a href={href} target="_blank" class="inline-flex m-1">
         <Image
-          src={`/src/images/${img}`}
+          src={iconosRedes[`/src/images/redes/${img}`]()}
           alt={`Perfil de ${alt}`}
           title={`¡Siguenos en ${alt}!`}
           height="32"

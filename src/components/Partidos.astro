@@ -6,7 +6,7 @@ const local = {
   nombre: NOMBRE,
   goles: 0,
   visitante: false,
-  imagen: "/src/images/equipos/amdi.webp",
+  imagen: import("/src/images/equipos/amdi.webp"),
   imagen_alt: "logo de AMDI",
 };
 
@@ -14,7 +14,7 @@ const visitante = {
   nombre: "Atlas FC",
   goles: 0,
   visitante: true,
-  imagen: "/src/images/equipos/atlas.webp",
+  imagen: import("/src/images/equipos/atlas.webp"),
   imagen_alt: "logo de atlas",
 };
 
@@ -32,7 +32,6 @@ const hay = true;
   hay ? (
     <div class="p-8 m-8">
       <div class="flex items-center justify-center">
-        
         <Image
           src={local.imagen}
           alt={local.imagen_alt}
@@ -42,7 +41,7 @@ const hay = true;
         <h2 class="text-2xl p-2 text-center">
           {`¡${local.nombre} vs ${visitante.nombre}!`}
         </h2>
-        <img
+        <Image
           src={visitante.imagen}
           alt={visitante.imagen_alt}
           height={50}
@@ -51,17 +50,19 @@ const hay = true;
       </div>
       <p>Lugar: {partido.lugar}</p>
       <p>
-        Fecha: 
-        {
-        `${partido.dia} de ${partido.mes}`
-        }
+        Fecha:
+        {`${partido.dia} de ${partido.mes}`}
       </p>
 
-        <div id="live" class="p-4">
-            <a href={partido.url} target="_blank" class="bg-red-700 hover:bg-red-800 rounded p-2 font-medium">
-            🎥 En vivo aquí
+      <div id="live" class="p-4">
+        <a
+          href={partido.url}
+          target="_blank"
+          class="bg-red-700 hover:bg-red-800 rounded p-2 font-medium"
+        >
+          🎥 En vivo aquí
         </a>
-        </div>
+      </div>
     </div>
   ) : (
     <h2 class="text-2xl p-4 font-medium justify-content">

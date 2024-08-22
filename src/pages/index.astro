@@ -11,6 +11,10 @@ import { historias } from "@data/historia.json";
 import NotaCompleta from "@components/NotaCompleta.astro";
 import { Image } from "astro:assets";
 
+const imagenes = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/images/*.webp",
+);
+
 ---
 
 <Layout title="Selección AMDI Jalisco">
@@ -32,14 +36,14 @@ import { Image } from "astro:assets";
       
     <div
       id="partidos"
-      class="relative bg-cover bg-center h-screen items-center"
+      class="relative bg-cover bg-center bg-[url('/src/images/equipo.webp')] h-screen items-center"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
       <div class="relative z-10 p-8">
         <h1
           class="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-3xl font-bold"
         >
-          PartidosgetImage
+          Partidos
         </h1>
         <Partidos />
       </div>
@@ -116,7 +120,7 @@ import { Image } from "astro:assets";
               <Image
                 src={equipo}
                 loading="lazy"
-                width="50"
+                width="500"
                 height="50"
                 alt="Equipo tomandose una foto en un templo"
                 class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -182,7 +186,7 @@ import { Image } from "astro:assets";
               </p>
               <div class="xl:flex-shrink-0">
                 <Image
-                  src={`/src/images/${imagen}`}
+                  src={imagenes[`/src/images/${imagen}`]() }
                   loading="lazy"
                   alt={alt}
                   class="p-4 m-auto"
@@ -265,12 +269,3 @@ import { Image } from "astro:assets";
     </div>
   </main>
 </Layout>
-<style>
-  #presentacion {
-    background-image: url('/src/images/equipo.webp');
-}
-
-#partidos {
-  background-image: url('/src/images/partidos.webp');
-}
-</style>
