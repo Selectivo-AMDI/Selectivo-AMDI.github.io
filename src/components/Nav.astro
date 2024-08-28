@@ -4,15 +4,10 @@ import icono from "@images/logo.webp";
 import { Image } from "astro:assets";
 
 const menu = (mobile: boolean) =>
-  opciones.map(
-    ({ url, nombre }) =>`<li class="mb-1">
-        <a class:list={{'text-sm text-gray-400 hover:bg-gray-800 p-4 rounded': true, 'block': ${mobile}, 'font-semibold': ${mobile}}} 
-        href="${url}">
-          ${nombre}
-        </a>
-      </li>`
-  );
-
+	opciones.map(
+		({ url, nombre }) =>
+			`<li class="mb-1"><a class="text-sm text-gray-400 hover:bg-gray-800 p-4 rounded ${mobile?"block font-semibold":""}" href="${url}">${nombre}</a></li>`
+	);
 ---
 
 <nav
@@ -20,7 +15,7 @@ const menu = (mobile: boolean) =>
 >
 	<a
 		class="text-3xl font-bold leading-none md:justify-center md:content-center"
-		href="#"
+		href="/"
 	>
 		<Image
 			src={icono}

@@ -35,12 +35,12 @@
     },
     {
       "nombre": "Patrocinadores",
-      "url": "/patrocinios",
+      "url": "/patrocinadores",
       "submenu": []
     },
     {
       "nombre": "Donar",
-      "url": "/apoyanos",
+      "url": "/donar",
       "submenu": []
     }
   ]
