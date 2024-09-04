@@ -1,3 +1,9 @@
-# Requerimientos:
+1. El componente "Partidos" debería ser un componente storyblok para
+su propia edición
 
-1. R1: El sistema deberá de tener una barra de navegación con los apartados: "Home", "Academias" (que se deberán )
+2. En el modo celular, el hamburger menu tiene un bug que si lo abres 
+y cambias de pagina, el estado se qued abierto
+
+3. Hacer las páginas del menú
+
+4. Hacer el submenu de "academias"

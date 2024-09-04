@@ -27,3 +27,6 @@ pnpm-debug.log*
 # Visual Studio extensions
 .vscode/
 .vercel
+
+# Automatization:
+.AstroServer.sh

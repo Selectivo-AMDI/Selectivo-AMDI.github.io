@@ -1,14 +1,46 @@
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 /*import vercel from "@astrojs/vercel/serverless";*/
-import react from "@astrojs/react";
 import compressor from "astro-compressor";
+import storyblok from "@storyblok/astro";
+import basicSsl from '@vitejs/plugin-basic-ssl';
+import "dotenv/config";
+import tailwind from "@astrojs/tailwind";
 export default /** @type {import('astro').AstroUserConfig} */defineConfig({
-  site: 'https://selectivo-amdi.github.io/amdi.github.io/',
-  image: {
-    service: squooshImageService()
+  vite: {
+    plugins: [basicSsl()],
+    server: {
+      https: true
+    }
   },
-  integrations: [sitemap(), react(), compressor({ gzip: false, brotli: true })],
+  experimental: {
+    contentIntellisense: true
+  },
+  site: 'https://selectivo-amdi.github.io/',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false
+      }
+    }
+  },
+  integrations: [sitemap(), compressor({
+    gzip: false,
+    brotli: true
+  }), storyblok({
+    accessToken: process.env.STORYBLOK_PREVIEW_ACCESS_TOKEN,
+    apiOptions: {
+      region: 'us'
+    },
+    components: {
+      page: "storyblok/Page",
+      feature: "storyblok/Feature",
+      grid: "storyblok/Grid",
+      teaser: "storyblok/Teaser",
+      test: "storyblok/Test",
+    }
+  }), tailwind()],
   prefetch: true
   /*  output: "server",*/
   /*  adapter: vercel() */

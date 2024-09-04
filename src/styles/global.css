@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body {
+    @apply text-white;
+}
+
+h1 {
+    @apply text-4xl;
+}
+
+.principal-title {
+    @apply text-4xl;
+    @apply font-medium;
+}
+
+main {
+    @apply bg-[#660700];
+} /*original #1E201E*/
