@@ -1,0 +1,19 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { Image } from "astro:assets";
+
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+    <Image
+        src={blok.image.filename}
+        alt={blok.image.alt}
+        class="w-24 h-24 rounded-full"
+    />
+    <h3 class="py-32 text-6xl text-white font-bold text-center">
+        {blok.headline}
+    </h3>
+
+    <time class="text-white text-center block">{blok.date}</time>
+</div>

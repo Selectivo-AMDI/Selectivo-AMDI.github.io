@@ -1,19 +1,19 @@
 ---
 export interface Props {
     nota?: string;
-    color: string;
+    color?: string;
 }
 
 const { nota, color } = Astro.props;
 
-const hoverColor = `bg-${color.split("-")[1]}-${parseInt(color.split("-")[2]) + 100}`;
+const hoverColor =  color ? `bg-${color.split("-")[1]}-${parseInt(color.split("-")[2]) + 100}` : "bg-[#853504] hover:bg-[#643604]";
 ---
 
 {
     nota 
         ? 
             <a
-            class={`text-white p-1 font-medium rounded hover:${hoverColor} ${color} underline`}
+            class={` p-1 font-medium rounded hover:${hoverColor} ${color} underline`}
             target="_blank"
             href={nota}>Nota completa
             </a>
