@@ -1,43 +1,47 @@
 ---
-/*
 import { useStoryblokApi } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import Layout from "@layout";
 
+// Función para obtener las rutas estáticas
 export async function getStaticPaths() {
     const storyblokApi = useStoryblokApi();
 
+    // Obtener todos los enlaces
     const links = await storyblokApi.getAll("cdn/links", {
         version: "draft",
     });
-    return links
-        .filter((link) => !link.is_folder)
-        .map((link) => {
-            return {
+
+    // Filtrar solo los enlaces que no son carpetas y devolver las rutas
+    return {
+        paths: links
+            .filter((link) => !link.is_folder)
+            .map((link) => ({
                 params: {
-                    slug: link.slug === "home" ? undefined : link.slug,
+                    slug: link.slug === "home" ? [] : link.slug.split("/"),
                 },
-            };
-        });
+            })),
+        fallback: false, // Si las rutas no están predefinidas, devolver 404
+    };
 }
 
+// Obtener el parámetro slug de la URL
 const { slug } = Astro.params;
 
+// API de Storyblok
 const storyblokApi = useStoryblokApi();
 
+// Obtener la historia (home o slug específico)
 const { data } = await storyblokApi.get(
-    `cdn/stories/${slug === undefined ? "home" : slug}`,
+    `cdn/stories/${slug === undefined ? "home" : slug.join("/")}`, // Si el slug está vacío, cargar 'home'
     {
         version: "draft",
     },
 );
 
 const story = data.story;
-*/
 ---
 
-<!--
-<Layout title="slg..." description="sdasdsad">
+<Layout title={story.name} description={story.content.description}>
     <StoryblokComponent blok={story.content} />
 </Layout>
--->
