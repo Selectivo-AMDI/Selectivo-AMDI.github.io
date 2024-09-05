@@ -6,12 +6,12 @@ import { Image } from "astro:assets";
 const menu = (mobile: boolean) =>
 	opciones.map(
 		({ url, nombre }) =>
-			`<li class="mb-1"><a class="text-sm text-gray-400 hover:bg-gray-800 p-4 rounded ${mobile?"block font-semibold":""}" href="${url}">${nombre}</a></li>`
+			`<li class="mb-1"><a class="text-sm text-white hover:bg-red-800 p-3 rounded ${mobile?"block font-semibold":""}" href="${url}">${nombre}</a></li>`
 	);
 ---
-
+ <!-- bg-[#c3332b] -->
 <nav
-	class="fixed top-0 left-0 w-full p-4 z-50 px-3 py-3 flex justify-between items-center bg-[#c3332b]"
+	class="fixed top-0 left-0 w-full p-4 z-50 px-3 py-3 flex justify-between items-center  bg-[url('/src/nav-bg.svg')] bg-no-repeat bg-cover bg-blend-darken bg-bottom bg-black/50"
 > <!-- bg-gray-700 -->
 	<a
 		class="text-3xl font-bold leading-none md:justify-center md:content-center"
@@ -26,7 +26,7 @@ const menu = (mobile: boolean) =>
 		/>
 	</a>
 	<div class="lg:hidden">
-		<button class="navbar-burger flex items-center text-blue-600 p-3">
+		<button class="navbar-burger flex items-center text-white p-3">
 			<svg
 				class="block h-4 w-4 fill-current"
 				viewBox="0 0 20 20"
@@ -44,9 +44,9 @@ const menu = (mobile: boolean) =>
 	</ul>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
-	<div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+	<div class="navbar-backdrop fixed inset-0 bg-red-800 opacity-25"></div>
 	<nav
-		class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-gray-700 border-r overflow-y-auto"
+		class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-red-700 border-r overflow-y-auto"
 	>
 		<div class="flex items-center mb-8">
 			<a class="mr-auto text-3xl font-bold leading-none center" href="#">
