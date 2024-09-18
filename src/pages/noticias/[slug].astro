@@ -1,0 +1,84 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import Layout from "@layout";
+
+// Función para obtener las rutas estáticas (slugs)
+export async function getStaticPaths() {
+    const storyblokApi = useStoryblokApi();
+
+    // Obtener todas las noticias desde Storyblok
+    const stories = await storyblokApi.getAll("cdn/stories", {
+        version: "draft",  // Cambiar a 'published' en producción
+        starts_with: '/noticias/' // Solo obtener historias dentro de la carpeta "noticias"
+    });
+
+    // Crear las rutas basadas en los slugs
+    return {
+        paths: stories.map((story) => ({
+            params: { slug: story.slug.split('/').pop() }, // Obtener solo el último segmento del slug
+        })),
+        fallback: false, // Si las rutas no están predefinidas, devolver 404
+    };
+}
+
+// Obtener el parámetro slug de la URL
+const { slug } = Astro.params;
+
+// API de Storyblok
+const storyblokApi = useStoryblokApi();
+
+// Hacer la solicitud a Storyblok usando el slug
+const { data } = await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
+    version: "draft",  // Cambiar a 'published' en producción
+});
+
+// Verificar si la historia se está obteniendo correctamente
+const story = data ? data.story : null;
+
+if (story) {
+    console.log("Contenido de la historia:", story.content);
+} else {
+    console.log("No se encontró la historia para el slug:", slug);
+}
+
+// Extraer los campos de la historia desde el primer elemento de `body`
+const noticia = story?.content?.body?.[0] ?? {};
+const { Titulo: titulo, Fecha_publicacion, Cuerpo: cuerpo, Autor: autor } = noticia;
+
+// Verificar los valores de `autor` y `cuerpo`
+console.log("Autor:", autor);
+console.log("Cuerpo:", cuerpo);
+---
+
+<Layout title={titulo || "Noticia"} description={cuerpo || "Contenido de la noticia"}>
+    <article class="prose max-w-none">
+        <h1>{titulo}</h1>
+
+        <!-- Mostrar la fecha de publicación -->
+        <p class="text-gray-500 mb-4">
+          Publicado el {Fecha_publicacion ? new Date(Fecha_publicacion).toLocaleDateString('es-MX', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+          }) : "Fecha no disponible"}
+        </p>
+
+        <!-- Mostrar el componente de Autor si está disponible -->
+        {Array.isArray(autor) && autor.length > 0 && typeof autor[0] === 'object' ? (
+          <div>
+            <h3>Autor:</h3>
+            <StoryblokComponent blok={autor[0]} />
+          </div>
+        ) : (
+          <p class="text-gray-500">Autor desconocido</p>
+        )}
+
+        <!-- Mostrar el cuerpo de la noticia si está disponible -->
+        {cuerpo && typeof cuerpo === 'object' ? (
+          <div class="rich-text">
+            <StoryblokComponent blok={cuerpo} />
+          </div>
+        ) : (
+          <p>No hay contenido disponible para esta noticia.</p>
+        )}
+    </article>
+</Layout>
