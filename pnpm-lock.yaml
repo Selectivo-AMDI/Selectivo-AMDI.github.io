@@ -14,15 +14,30 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.1.6
         version: 3.1.6
+      '@astrojs/tailwind':
+        specifier: ^5.1.0
+        version: 5.1.1(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))(tailwindcss@3.4.10)
       '@astrojs/vercel':
         specifier: ^7.8.0
         version: 7.8.0(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))
+      '@storyblok/astro':
+        specifier: ^5.0.1
+        version: 5.0.2(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))
+      '@vitejs/plugin-basic-ssl':
+        specifier: ^1.1.0
+        version: 1.1.0(vite@5.4.2(@types/node@17.0.45))
       astro-compressor:
         specifier: ^0.4.1
         version: 0.4.1
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
+      storyblok-rich-text-astro-renderer:
+        specifier: ^2.2.0
+        version: 2.2.1(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))
       typescript:
         specifier: ^5.4.5
         version: 5.5.4
@@ -37,7 +52,7 @@ importers:
         specifier: ^8.4.38
         version: 8.4.41
       tailwindcss:
-        specifier: ^3.4.3
+        specifier: ^3.4.10
         version: 3.4.10
 
 packages:
@@ -83,6 +98,12 @@ packages:
 
   '@astrojs/sitemap@3.1.6':
     resolution: {integrity: sha512-1Qp2NvAzVImqA6y+LubKi1DVhve/hXXgFvB0szxiipzh7BvtuKe4oJJ9dXSqaubaTkt4nMa6dv6RCCAYeB6xaQ==}
+
+  '@astrojs/tailwind@5.1.1':
+    resolution: {integrity: sha512-LwurA10uIKcGRxQP2R81RvAnBT0WPKzBntXZBF4hrAefDgM5Uumn0nsGr6tdIjSARgYz4X+Cq/Vh78t3bql3yw==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0 || ^5.0.0-beta.0
+      tailwindcss: ^3.0.24
 
   '@astrojs/telemetry@3.1.0':
     resolution: {integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==}
@@ -595,6 +616,17 @@ packages:
   '@shikijs/core@1.14.1':
     resolution: {integrity: sha512-KyHIIpKNaT20FtFPFjCQB5WVSTpLR/n+jQXhWHWVUMm9MaOaG9BGOG0MSyt7yA4+Lm+4c9rTc03tt3nYzeYSfw==}
 
+  '@storyblok/astro@5.0.2':
+    resolution: {integrity: sha512-/jSU5E8ziBDb8y2hsgUpeMwuuPNCVbXAIe7kDHnHqeg6n8yGhbxG0LE8pCsNn6N9KmUfPib1GB2VqoF0t7bpXQ==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0
+
+  '@storyblok/js@3.1.4':
+    resolution: {integrity: sha512-Uh+ESR4xF+8C7veSiVA3IeYNqPdwRDOxJdqyGHAVBZ7OuQ2SzZkW3eAKax2TiX8W4DPSljIKvI6MKpvEG3KwWA==}
+
+  '@storyblok/richtext@2.0.0':
+    resolution: {integrity: sha512-yJm5BgWrCRGUdwZtviPgGno3rLXcnEvjK1bL1Ut4GmU1UOEVLC42m543EtrrOBVGDZdRPD9dK8ObgyHp6zNwqw==}
+
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
 
@@ -658,6 +690,12 @@ packages:
     resolution: {integrity: sha512-oySTdDSzUAFDXpsSLk9Q943o+/Yu/+TCFxnehpFQEf/3khi2stMpTHPVNwFdvZq/Z4Ky93lE+MGHpXCRpMkSCA==}
     engines: {node: '>=16'}
     hasBin: true
+
+  '@vitejs/plugin-basic-ssl@1.1.0':
+    resolution: {integrity: sha512-wO4Dk/rm8u7RNhOf95ZzcEmC9rYOncYgvq4z3duaJrCgjN8BxAnDVyndanfcJZ0O6XZzHz6Q0hTimxTg8Y9g/A==}
+    engines: {node: '>=14.6.0'}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   '@volar/kit@2.4.0':
     resolution: {integrity: sha512-uqwtPKhrbnP+3f8hs+ltDYXLZ6Wdbs54IzkaPocasI4aBhqWLht5qXctE1MqpZU52wbH359E0u9nhxEFmyon+w==}
@@ -823,6 +861,10 @@ packages:
     resolution: {integrity: sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==}
     engines: {node: '>=14.16'}
 
+  camelcase@8.0.0:
+    resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
+    engines: {node: '>=16'}
+
   caniuse-lite@1.0.30001653:
     resolution: {integrity: sha512-XGWQVB8wFQ2+9NZwZ10GxTYC5hk0Fa+q8cSkr0tgvMhYhMHP/QC+WTgrePMDBWiWc/pV+1ik82Al20XOK25Gcw==}
 
@@ -915,6 +957,10 @@ packages:
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
+  consola@3.2.3:
+    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+
   console-control-strings@1.1.0:
     resolution: {integrity: sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==}
 
@@ -976,6 +1022,10 @@ packages:
 
   dlv@1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}
+
+  dotenv@16.4.5:
+    resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
+    engines: {node: '>=12'}
 
   dset@3.1.3:
     resolution: {integrity: sha512-20TuZZHCEZ2O71q9/+8BwKwZ0QtD9D8ObhrihJPr+vLLYlSuAU3/zL4cSlgbfeoGHTjCSJBa7NGcrF9/Bx/WJQ==}
@@ -1360,6 +1410,9 @@ packages:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
 
+  lodash.mergewith@4.6.2:
+    resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
+
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -1706,6 +1759,9 @@ packages:
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
 
+  picocolors@1.1.0:
+    resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
+
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
@@ -1765,6 +1821,10 @@ packages:
 
   postcss@8.4.41:
     resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
+    engines: {node: ^10 || ^12 || >=14}
+
+  postcss@8.4.47:
+    resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
   preferred-pm@4.0.0:
@@ -1946,6 +2006,10 @@ packages:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
 
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
@@ -1955,6 +2019,14 @@ packages:
   stdin-discarder@0.2.2:
     resolution: {integrity: sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==}
     engines: {node: '>=18'}
+
+  storyblok-js-client@6.9.2:
+    resolution: {integrity: sha512-31GM5X/SIP4eJsSMCpAnaPDRmmUotSSWD3Umnuzf3CGqjyakot2Gv5QmuV23fRM7TCDUQlg5wurROmAzkKMKKg==}
+
+  storyblok-rich-text-astro-renderer@2.2.1:
+    resolution: {integrity: sha512-lPjCovZXJWHHOigVqUfoTtjLkOpBuNwMyPFNWvsOZkynB1n832ByQBnfGRK153ZiUMG3jvRVkM4YhEHHtBHNJA==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0
 
   stream-replace-string@2.0.0:
     resolution: {integrity: sha512-TlnjJ1C0QrmxRNrON00JvaFFlNh5TTG00APw23j74ET7gkQpTASi6/L2fuiav8pzK715HXtUeClpBTw2NPSn6w==}
@@ -2452,6 +2524,16 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.23.8
 
+  '@astrojs/tailwind@5.1.1(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))(tailwindcss@3.4.10)':
+    dependencies:
+      astro: 4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4)
+      autoprefixer: 10.4.20(postcss@8.4.47)
+      postcss: 8.4.47
+      postcss-load-config: 4.0.2(postcss@8.4.47)
+      tailwindcss: 3.4.10
+    transitivePeerDependencies:
+      - ts-node
+
   '@astrojs/telemetry@3.1.0':
     dependencies:
       ci-info: 4.0.0
@@ -2913,6 +2995,22 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
+  '@storyblok/astro@5.0.2(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4))':
+    dependencies:
+      '@storyblok/js': 3.1.4
+      astro: 4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4)
+      camelcase: 8.0.0
+      lodash.mergewith: 4.6.2
+
+  '@storyblok/js@3.1.4':
+    dependencies:
+      '@storyblok/richtext': 2.0.0
+      storyblok-js-client: 6.9.2
+
+  '@storyblok/richtext@2.0.0':
+    dependencies:
+      consola: 3.2.3
+
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.25.4
@@ -2989,6 +3087,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@vitejs/plugin-basic-ssl@1.1.0(vite@5.4.2(@types/node@17.0.45))':
+    dependencies:
+      vite: 5.4.2(@types/node@17.0.45)
 
   '@volar/kit@2.4.0(typescript@5.5.4)':
     dependencies:
@@ -3205,6 +3307,16 @@ snapshots:
       postcss: 8.4.41
       postcss-value-parser: 4.2.0
 
+  autoprefixer@10.4.20(postcss@8.4.47):
+    dependencies:
+      browserslist: 4.23.3
+      caniuse-lite: 1.0.30001653
+      fraction.js: 4.3.7
+      normalize-range: 0.1.2
+      picocolors: 1.0.1
+      postcss: 8.4.47
+      postcss-value-parser: 4.2.0
+
   axobject-query@4.1.0: {}
 
   bail@2.0.2: {}
@@ -3253,6 +3365,8 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   camelcase@7.0.1: {}
+
+  camelcase@8.0.0: {}
 
   caniuse-lite@1.0.30001653: {}
 
@@ -3336,6 +3450,8 @@ snapshots:
 
   concat-map@0.0.1: {}
 
+  consola@3.2.3: {}
+
   console-control-strings@1.1.0: {}
 
   convert-source-map@2.0.0: {}
@@ -3379,6 +3495,8 @@ snapshots:
   diff@5.2.0: {}
 
   dlv@1.1.3: {}
+
+  dotenv@16.4.5: {}
 
   dset@3.1.3: {}
 
@@ -3788,6 +3906,8 @@ snapshots:
   locate-path@5.0.0:
     dependencies:
       p-locate: 4.1.0
+
+  lodash.mergewith@4.6.2: {}
 
   lodash@4.17.21: {}
 
@@ -4292,6 +4412,8 @@ snapshots:
 
   picocolors@1.0.1: {}
 
+  picocolors@1.1.0: {}
+
   picomatch@2.3.1: {}
 
   pify@2.3.0: {}
@@ -4323,6 +4445,13 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.41
 
+  postcss-load-config@4.0.2(postcss@8.4.47):
+    dependencies:
+      lilconfig: 3.1.2
+      yaml: 2.5.0
+    optionalDependencies:
+      postcss: 8.4.47
+
   postcss-nested@6.2.0(postcss@8.4.41):
     dependencies:
       postcss: 8.4.41
@@ -4340,6 +4469,12 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.1
       source-map-js: 1.2.0
+
+  postcss@8.4.47:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.1.0
+      source-map-js: 1.2.1
 
   preferred-pm@4.0.0:
     dependencies:
@@ -4592,11 +4727,19 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
+  source-map-js@1.2.1: {}
+
   space-separated-tokens@2.0.2: {}
 
   sprintf-js@1.0.3: {}
 
   stdin-discarder@0.2.2: {}
+
+  storyblok-js-client@6.9.2: {}
+
+  storyblok-rich-text-astro-renderer@2.2.1(astro@4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4)):
+    dependencies:
+      astro: 4.14.6(@types/node@17.0.45)(rollup@4.21.1)(typescript@5.5.4)
 
   stream-replace-string@2.0.0: {}
 
