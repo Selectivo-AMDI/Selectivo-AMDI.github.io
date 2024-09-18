@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-/*import vercel from "@astrojs/vercel/serverless";*/
+import vercel from "@astrojs/vercel/serverless";
 import compressor from "astro-compressor";
 import storyblok from "@storyblok/astro";
 import basicSsl from '@vitejs/plugin-basic-ssl';
@@ -34,14 +34,12 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
       region: 'us'
     },
     components: {
-      page: "storyblok/Page",
-      feature: "storyblok/Feature",
-      grid: "storyblok/Grid",
-      teaser: "storyblok/Teaser",
-      test: "storyblok/Test",
+      partido: "storyblok/Partido",
+      autor: "storyblok/Autor",
+      noticia: "storyblok/Noticia",
     }
   }), tailwind()],
-  prefetch: true
-  /*  output: "server",*/
-  /*  adapter: vercel() */
+  prefetch: true,
+  output: "server",
+  adapter: vercel()
 });

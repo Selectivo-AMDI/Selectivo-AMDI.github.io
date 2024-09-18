@@ -2,7 +2,6 @@
 import equipo2 from "@images/equipo2.webp";
 import equipo from "@images/equipo.webp";
 import equipo3 from "@images/equipo3.webp";
-import Partidos from "@components/Partidos.astro";
 import Layout from "@layout";
 import "../styles/global.css";
 import { NOMBRE } from "../constants";
@@ -10,11 +9,33 @@ import BtnDonar from "@components/BtnDonar.astro";
 import { historias } from "@data/historia.json";
 import NotaCompleta from "@components/NotaCompleta.astro";
 import { Image } from "astro:assets";
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 
 const imagenes = import.meta.glob<{ default: ImageMetadata }>(
   "/src/images/*.webp",
 );
 
+const storyblokApi = useStoryblokApi();
+let partidosContent;
+
+try {
+  const { data } = await storyblokApi.get('cdn/stories/partidos', {
+    version: 'draft', // Cambia a 'published' para producción
+  });
+  partidosContent = data.story.content;
+} catch (error) {
+  console.error("Error fetching Storyblok data:", error);
+  partidosContent = null; // Manejar el caso en que no haya datos
+}
+
+// Formatear la fecha según el formato personalizado
+function formatDate(date) {
+  const options = {
+    weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric', hour12: true
+  };
+  return new Date(date).toLocaleDateString('es-MX', options);
+}
 ---
 
 <Layout title="Selección AMDI Jalisco" description="Página oficial de AMDI">
@@ -33,21 +54,27 @@ const imagenes = import.meta.glob<{ default: ImageMetadata }>(
         <BtnDonar />
       </div>
     </div>
-      
-    <div
-      id="partidos"
-      class="relative bg-cover bg-center bg-[url('/src/images/partidos.webp')] h-screen items-center"
-    >
-      <div class="absolute inset-0 bg-black opacity-70"></div>
-      <div class="relative z-10 p-8">
-        <h1
-          class="2xl:text-8xl xl:text-7xl lg:text-5xl md:text-4xl text-3xl font-bold"
-        >
-          Partidos
-        </h1>
-        <Partidos />
-      </div>
+ {partidosContent ? (
+  <div
+    id="partidos"
+    class="relative bg-cover bg-center bg-[url('/src/images/partidos.webp')] items-center"
+  >
+    <div class="absolute inset-0 bg-black opacity-70"></div>
+    <div class="relative z-10 p-8">
+      <h1 class="2xl:text-5xl xl:text-4xl lg:text-3xl md:text-2xl text-xl font-bold">
+        Partido
+      </h1>
+
+      <!-- Renderizamos el contenido dinámico de Storyblok -->
+      <StoryblokComponent blok={partidosContent} />
     </div>
+  </div>
+) : (
+  <div class="relative bg-black text-white p-8">
+    <h2 class="text-3xl font-bold">No se encontraron partidos</h2>
+    <p>Por favor, vuelve más tarde para ver los próximos partidos.</p>
+  </div>
+)}
 
     <div id="quienes" class="p-4 mb-4 font-medium bg-[url('../bg.svg')] bg-blend-darken bg-bottom bg-no-repeat bg-cover bg-black/70">
 
