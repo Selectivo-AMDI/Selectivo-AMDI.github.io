@@ -3,7 +3,7 @@ import equipo2 from "@images/equipo2.webp";
 import equipo from "@images/equipo.webp";
 import equipo3 from "@images/equipo3.webp";
 import Layout from "@layout";
-import "../styles/global.css";
+import "/src/styles/global.css";
 import { NOMBRE } from "../constants";
 import BtnDonar from "@components/BtnDonar.astro";
 import { historias } from "@data/historia.json";
@@ -27,14 +27,6 @@ try {
 } catch (error) {
   console.error("Error fetching Storyblok data:", error);
   partidosContent = null; // Manejar el caso en que no haya datos
-}
-
-// Formatear la fecha según el formato personalizado
-function formatDate(date) {
-  const options = {
-    weekday: 'long', day: 'numeric', month: 'long', hour: 'numeric', minute: 'numeric', hour12: true
-  };
-  return new Date(date).toLocaleDateString('es-MX', options);
 }
 ---
 
