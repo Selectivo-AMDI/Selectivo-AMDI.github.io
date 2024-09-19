@@ -1,0 +1,14 @@
+{
+    "build": {
+      "env": {
+        "PNPM_INSTALL_FLAGS": "--no-frozen-lockfile"
+      }
+    },
+    "rewrites": [
+      {
+        "source": "/old-route",
+        "destination": "/new-route"
+      }
+    ]
+  }
+  
