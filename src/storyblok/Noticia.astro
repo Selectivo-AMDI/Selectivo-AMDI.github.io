@@ -2,6 +2,16 @@
 import { useStoryblokApi } from '@storyblok/astro';
 import Layout from '@layout';
 
+interface Noticia {
+  Titulo: string;
+  Cuerpo: any;
+  Autor: any[];
+  Fecha_publicacion: string;
+  uuid: string;
+  content: any;
+  slug: string;
+}
+
 // Obtener todas las noticias desde Storyblok
 const storyblokApi = useStoryblokApi();
 let noticias = [];
@@ -26,7 +36,7 @@ try {
     <!-- Listar todas las noticias -->
     <ul class="list-none space-y-6">
       {noticias.length > 0 ? (
-        noticias.map(noticia => (
+        noticias.map((noticia: Noticia) => (
           <li id={noticia.uuid} class="border-b pb-4">
             <a href={`/noticias/${noticia.slug}`} class="text-2xl font-semibold text-blue-600 hover:underline">
               {noticia.content.titulo}
