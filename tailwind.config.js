@@ -3,6 +3,7 @@ module.exports = {
   darkMode: 'selector',
   content: [
     './src/**/*.{astro,html,js,jsx,ts,tsx}',
+    '!./src/pages/noticias/**/*.{astro,html,js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {

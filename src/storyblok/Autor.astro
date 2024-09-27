@@ -2,7 +2,10 @@
 const { blok } = Astro.props;
 ---
 
-<div class="flex items-center mb-4">
+<div class="flex items-center mb-4 text-left">
   <img src={blok.foto_autor.filename} alt={blok.nombre_autor} class="w-12 h-12 rounded-full mr-4" />
-  <p class="text-lg font-semibold">{blok.nombre_autor}</p>
+  <div>
+    <p class="text-xs">Redactado por:</p>
+    <p class="text-lg font-semibold">{blok.nombre_autor}</p>
+  </div>
 </div>
