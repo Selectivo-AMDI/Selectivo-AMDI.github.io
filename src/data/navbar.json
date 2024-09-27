@@ -34,6 +34,11 @@
       "submenu": []
     },
     {
+      "nombre": "Noticias",
+      "url": "/noticias",
+      "submenu": []
+    },
+    {
       "nombre": "Patrocinadores",
       "url": "/patrocinadores",
       "submenu": []
