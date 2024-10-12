@@ -24,7 +24,7 @@ function formatDate(date: string) {
     <div class="flex flex-col items-center">
       <Image
         src={blok.Logo_local.filename}
-        alt={blok.Nombre_local}
+        alt={blok.Nombre_local ?? "Equipo local"}
         inferSize
         class="w-16 h-16"
       />
@@ -37,7 +37,7 @@ function formatDate(date: string) {
     <div class="flex flex-col items-center">
       <Image
         src={blok.Logo_visitante.filename}
-        alt={blok.Nombre_visitante}
+        alt={blok.Nombre_visitante ?? "Equipo visitante"}
         inferSize
         class="w-16 h-16"
       />
