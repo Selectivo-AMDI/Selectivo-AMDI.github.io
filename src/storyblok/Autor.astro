@@ -1,9 +1,15 @@
 ---
+import { Image } from "astro:assets";
 const { blok } = Astro.props;
 ---
 
 <div class="flex items-center mb-4 text-left">
-  <img src={blok.foto_autor.filename} alt={blok.nombre_autor} class="w-12 h-12 rounded-full mr-4" />
+  <Image
+    src={blok.foto_autor.filename}
+    alt={blok.nombre_autor}
+    inferSize
+    class="w-12 h-12 rounded-full mr-4"
+  />
   <div>
     <p class="text-xs">Redactado por:</p>
     <p class="text-lg font-semibold">{blok.nombre_autor}</p>

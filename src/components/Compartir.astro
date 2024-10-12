@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import Facebook from '@images/redes/facebook.webp';
+import Instagram from '@images/redes/instagram.webp';
+
+
+const { titulo, url } = Astro.props;
+const encodedTitle = encodeURIComponent(titulo);
+const encodedUrl = encodeURIComponent(url);
+---
+
+<div id="compartir_noticia" class="flex items-center space-x-4 bg-red-900 justify-center p-4">
+
+  <p>¡Comparte esta noticia con tus amigos!</p>
+
+  <a
+    href={`https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en WhatsApp"
+    class="hover:opacity-75"
+  >
+    <Image src={Facebook} alt="Facebook Logo" height={32} width={32} />
+  </a>
+
+  <!-- Facebook -->
+  <a
+    href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en Facebook"
+    class="hover:opacity-75"
+  >
+    <img src="/icons/facebook.svg" alt="Facebook" class="w-6 h-6" />
+  </a>
+
+  <!-- Instagram (redirigir al perfil, ya que Instagram no permite compartir URLs) -->
+  <a
+    href="https://www.instagram.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ir a Instagram"
+    class="hover:opacity-75"
+  >
+    <Image src={Instagram} alt="Instagram Logo" height={32} width={32} />
+  </a>
+
+  <!-- Twitter -->
+  <a
+    href={`https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Compartir en Twitter"
+    class="hover:opacity-75"
+  >
+    <img src="/icons/twitter.svg" alt="Twitter" class="w-6 h-6" />
+  </a>
+</div>
