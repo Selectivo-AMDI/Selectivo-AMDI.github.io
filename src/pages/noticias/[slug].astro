@@ -1,16 +1,20 @@
 ---
-import { useStoryblokApi, renderRichText } from "@storyblok/astro";
+import {
+    storyblokEditable,
+    useStoryblokApi,
+    renderRichText,
+} from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import Layout from "@layout";
+import { Image } from "astro:assets";
+import Compartir from "@components/Compartir.astro";
 
-// Obtener datos del slug
 const { slug } = Astro.params;
+const { blok } = Astro.props;
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
     version: "draft", // Cambiar a 'published' en producción
 });
-
-// Obtener el contenido de la historia
 const story = data.story;
 const noticia = story?.content?.body?.[0] ?? {};
 const {
@@ -18,23 +22,30 @@ const {
     Cuerpo: cuerpo,
     Fecha_publicacion,
     Autor: autor,
+    Imagen_portada,
 } = noticia;
-
-// Renderizar el RichText
 const renderedRichText = renderRichText(cuerpo);
 ---
 
 <Layout title={titulo} description={titulo}>
-    <article class="prose max-w-none p-4">
-        <h1 class="principal-title text-center">{titulo}</h1>
-        <!-- TODO: Mostrar la imagen de la noticia -->
+    <article {...storyblokEditable(blok)} class="p-8">
+        <div
+            id="portada"
+            class="max-h-16 max-w-full items-center grid justify-center"
+        >
+            <Image
+                src={Imagen_portada.filename}
+                alt={titulo}
+                inferSize
+                height={300}
+            />
+        </div>
+        <h1 class="principal-title p-2 text-center">{titulo}</h1>
 
-        <!-- Mostrar el componente de Autor -->
         <div>
             <StoryblokComponent blok={autor[0]} />
         </div>
 
-        <!-- Mostrar la fecha de publicación -->
         <p class="text-gray-500 mb-4 text-left">
             Publicado el {
                 new Date(Fecha_publicacion).toLocaleDateString("es-MX", {
@@ -46,7 +57,7 @@ const renderedRichText = renderRichText(cuerpo);
             }
         </p>
 
-        <!-- Renderizar RichText -->
         <div set:html={renderedRichText} />
     </article>
+    <Compartir />
 </Layout>
