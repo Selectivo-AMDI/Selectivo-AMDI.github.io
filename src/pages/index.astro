@@ -198,7 +198,7 @@ try {
                 <Image
                   src={imagenes[`/src/images/${imagen}`]() }
                   loading="lazy"
-                  alt={alt}
+                  alt={alt ?? "Imagen"}
                   class="p-4 m-auto."
                   height="500"
                   width="500"
@@ -209,7 +209,7 @@ try {
                 <Image
                   src={imagenes[`/src/images/${imagen}`]() }
                   loading="lazy"
-                  alt={alt}
+                  alt={alt ?? "Imagen"}
                   class="p-4 m-auto"
                   height="500"
                   width="500"
