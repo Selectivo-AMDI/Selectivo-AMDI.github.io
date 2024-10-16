@@ -1,10 +1,30 @@
 [
     {
-        "nombre": "Patrocinador 1",
-        "url": "https://patrocinador1.com",
-        "img": "/patrocinadores/patrocinador1.webp",
-        "alt": "Logo de Patrocinador 1",
-        "noticia": "https://patrocinador1.com/alianza-amdi"
+        "nombre": "Universidad TecMilenio",
+        "url": "https://tecmilenio.mx/",
+        "img": "https://tecmilenio.mx/sites/default/files/styles/large/public/2023-11/Group%20%287%29_0.png",
+        "alt": "Logo de TecMilenio",
+        "noticia": "https://tecmilenio.mx/amdi-y-tecmilenio"
+    },
+    {
+        "nombre": "Gobierno de Zapopan",
+        "url": "https://www.zapopan.gob.mx/",
+        "img": "https://servicios.zapopan.gob.mx:8000/wwwportal/publicfiles/inline-images/escudo_zapopan_ciudadninios.png",
+        "alt": "Logo del Gobierno de Zapopan",
+        "noticia": ""
+    },
+    {
+        "nombre": "UTEG",
+        "url": "https://www.uteg.edu.mx/",
+        "img": "https://d9hhrg4mnvzow.cloudfront.net/aspirantes.uteg.edu.mx/presencial/9159c7ff-logo-uteg-nuevo_1000000000000000000028.png",
+        "alt": "Logo de la UTEG",
+        "noticia": "https://www.uteg.edu.mx/alianza-amdi-uteg"
+    },
+    {
+        "nombre": "Gobierno de Guadalajara",
+        "url": "https://www.guadalajara.gob.mx/",
+        "img": "https://guadalajara.gob.mx/gdlWeb/assets/gdl_img/Pleca_GDL.png",
+        "alt": "Logo del Gobierno de Guadalajara",
+        "noticia": ""
     }
-
 ]

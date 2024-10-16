@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-const { blok } = Astro.props;
+import type { Content } from "src/types/PartidosStoryType";
+const { blok }: Content = Astro.props;
 
 function formatDate(date: string) {
   const options: Intl.DateTimeFormatOptions = {

@@ -5,13 +5,13 @@ export interface Props {
 
 const { padding } = Astro.props;
 ---
-
 <!--
 Ya que es tailwind, el padding debe ser acorde a su documentación:
 https://tailwindcss.com/docs/padding
 -->
 <a
-    class={`rounded bg-[#853504] p-${padding ?? '2'}  font-medium hover:bg-red-800`}
+    class={`rounded-full bg-red-700 p-${padding ?? '2'} font-bold hover:bg-red-800`}
+    
     href="/donar"
 >
     🤝 ¡Apoyanos!

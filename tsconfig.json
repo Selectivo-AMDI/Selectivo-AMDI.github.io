@@ -18,6 +18,9 @@
       "@images/*": [
         "src/images/*"
       ],
+      "@icons/*": [
+        "src/images/iconos/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

@@ -1,4 +1,5 @@
 ---
+import type { Content } from "src/types/storyblokAPIs";
 import equipo2 from "@images/equipo2.webp";
 import equipo from "@images/equipo.webp";
 import equipo3 from "@images/equipo3.webp";
@@ -23,7 +24,7 @@ try {
   const { data } = await storyblokApi.get('cdn/stories/partidos', {
     version: 'draft', // Cambia a 'published' para producción
   });
-  partidosContent = data.story.content;
+  partidosContent = data.story.content as Content;
 } catch (error) {
   console.error("Error fetching Storyblok data:", error);
   partidosContent = null; // Manejar el caso en que no haya datos
@@ -192,7 +193,7 @@ try {
             ? (
               <p>
                 {descripcion}
-                <NotaCompleta nota={nota} color="bg-red-700" />
+                <NotaCompleta nota={nota} />
               </p>
               <div class="xl:flex-shrink-0">
                 <Image
@@ -217,7 +218,7 @@ try {
               </div>
                 <p>
                   {descripcion}
-                  <NotaCompleta nota={nota} color="bg-red-700" />
+                  <NotaCompleta nota={nota} />
                 </p>
           )}
       </div>  

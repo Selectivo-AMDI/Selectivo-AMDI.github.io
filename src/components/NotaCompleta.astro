@@ -1,22 +1,21 @@
 ---
 export interface Props {
     nota?: string;
-    color?: string;
 }
-
-const { nota, color } = Astro.props;
-
-const hoverColor =  color ? `bg-${color.split("-")[1]}-${parseInt(color.split("-")[2]) + 100}` : "bg-[#853504] hover:bg-[#643604]";
+/**
+ * @param nota link a la noticia o blog a redirigir
+ *
+ */
+const { nota } = Astro.props;
 ---
 
 {
-    nota 
-        ? 
-            <a
-            class={` p-1 font-medium rounded hover:${hoverColor} ${color} underline`}
-            target="_blank"
-            href={nota}>Nota completa
-            </a>
-        :
-            ""
+    nota ? (
+    <a
+    class={` p-1 font-medium rounded-full hover:bg-red-800 bg-red-700`}
+    target="_blank"
+    href={nota}
+    >Nota completa...
+    </a>
+    ) : ("")
 }
