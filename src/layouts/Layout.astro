@@ -3,19 +3,21 @@ import Footer from "@components/Footer.astro";
 import BaseHead from "@components/BaseHead.astro";
 import Nav from "@components/Nav.astro";
 import Trabajando from "@components/Trabajando.astro";
+import "src/styles/global.css"
 
-/*
-  @title: string - Título de la página
-  @description: string - Descripción de la página
-  @draft?: boolean - Si la página está en construcción. Si lo está se mostrará un mensaje un componente indicando que está en construcción
+/**
+  @param title string - Título de la página
+  @param description string - Descripción de la página
+  @param draft boolean? - Si la página está en construcción. Si lo está se mostrará un mensaje un componente indicando que está en construcción
 */
 export interface Props {
 	title: string;
 	description: string;
+	cover?: string;
 	draft?: boolean;
 }
 
-const { title, description, draft } = Astro.props;
+const { title, description, draft, cover } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,6 +26,7 @@ const { title, description, draft } = Astro.props;
 		<BaseHead
 			title={title}
 			description={description}
+			cover={cover}
 		/>
 	</head>
 	<body class="bg-[#121212]">

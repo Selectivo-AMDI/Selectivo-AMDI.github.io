@@ -1,4 +1,5 @@
 ---
+import type { Story, Body } from "src/types/NoticiasStoryTypes";
 import {
     storyblokEditable,
     useStoryblokApi,
@@ -15,8 +16,8 @@ const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
     version: "draft", // Cambiar a 'published' en producción
 });
-const story = data.story;
-const noticia = story?.content?.body?.[0] ?? {};
+const story: Story = data.story;
+const noticia: Body = story?.content?.body?.[0] ?? {};
 const {
     Titulo: titulo,
     Cuerpo: cuerpo,

@@ -1,36 +1,39 @@
 ---
+import type { Patrocinador, Content } from "src/types/PatrocinadoresStoryTypes";
+import { useStoryblokApi } from "@storyblok/astro";
+import { Image } from "astro:assets";
+import NotaCompleta from "@components/NotaCompleta.astro";
 import Layout from "@layout";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/patrocinadores", {
+  version: "draft", // Cambiar a "published" para producción
+});
+
+const patrocinadores: Content = data.story.content.patrocinador;
 ---
 
-<Layout
-    title="Patrocinadores"
-    description="Conoce a nuestros patrocinadores"
-    draft={true}
->
-    <main class="text-center">
-        <h1>¡Gracias por su apoyo ❤️!</h1>
-        <p>
-            Gracias a nuestros patrocinadores podemos seguir adelante con
-            nuestra misión de ayudar a los niños a desarrollar sus habilidades
-            motrices.
-        </p>
-        <div class="grid grid-cols-2 gap-4 p-4">
-            <div class="bg-gray-200 p-4 rounded">
-                <h2>Patrocinador 1</h2>
-                <p>Descripción del patrocinador 1</p>
-            </div>
-            <div class="bg-gray-200 p-4 rounded">
-                <h2>Patrocinador 2</h2>
-                <p>Descripción del patrocinador 2</p>
-            </div>
-            <div class="bg-gray-200 p-4 rounded">
-                <h2>Patrocinador 3</h2>
-                <p>Descripción del patrocinador 3</p>
-            </div>
-            <div class="bg-gray-200 p-4 rounded">
-                <h2>Patrocinador 4</h2>
-                <p>Descripción del patrocinador 4</p>
-            </div>
-        </div>
-    </main></Layout
->
+<Layout title="Patrocinadores" description="Nuestros patrocinadores">                        
+  <section class="prose max-w-none p-8">
+    <h1>Patrocinadores</h1>
+    <div class="grid grid-cols-2 gap-8">
+      {
+        patrocinadores.map((patrocinador: Patrocinador) => (
+          <div class="flex flex-col items-center text-center">
+
+            <h2 class="text-lg font-semibold mt-4">
+              {patrocinador.Nombre_patrocinador}
+            </h2>
+            <Image
+                src={patrocinador.Logo_patrocinador.filename}
+                inferSize
+                alt={patrocinador.Alt_image ?? `Imagen del logo de ${patrocinador.Nombre_patrocinador}`}
+                class="w-full max-w-xs object-cover"
+              />
+            <NotaCompleta nota={patrocinador.Url_nota?.url} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

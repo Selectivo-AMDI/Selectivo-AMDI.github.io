@@ -1,14 +1,20 @@
 ---
 import ViewTransitions from "astro/components/ViewTransitions.astro";
-
+/**
+ * @param title titulo de la página
+ * @param description descripción de la página
+ * @param cover portada de la página (y para OpenGraph)
+*/
 export interface Props {
 	title: string;
 	description: string;
+	cover?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, cover } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
+const openGraphImage =
+	cover ?? "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 ---
 
 <meta charset="utf-8" />
@@ -26,8 +32,8 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 
 <!-- Global Metadata -->
 <link rel="icon" type="image/png" href="/favicon.webp" />
-<link rel="manifest" href="/manifest.webmanifest" />
 <!--
+	<link rel="manifest" href="/manifest.webmanifest" />
 	<meta name="google" content="notranslate" />
 
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
@@ -47,14 +53,12 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 -->
-	<meta name="msapplication-TileColor" content="#cc0000" />
-	<meta name="theme-color" content="#cc0000" />
+<meta name="msapplication-TileColor" content="#cc0000" />
+<meta name="theme-color" content="#cc0000" />
 
-	<meta name="robots" content="index, follow" />
-	<meta name="author" content="Kevin Leal Torres" />
-	<meta name="language" content="Spanish" />
-
-
+<meta name="robots" content="index, follow" />
+<meta name="author" content="Kevin Leal Torres" />
+<meta name="language" content="Spanish" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:locale" content="es-MX" />
@@ -66,7 +70,6 @@ const openGraphImage = "https://selectivo-amdi.github.io/images/opengraph3.jpg";
 <meta property="og:site_name" content="Selección AMDI Jalisco" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -88,4 +91,3 @@ TODO este CSP da problemas con TailwindCSS
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 
 <meta name="referrer" content="no-referrer-when-downgrade" />
-

@@ -1,13 +1,162 @@
 ---
+import type { Content, Trabajadores } from "src/types/TrabajadoresStoryTypes";
+import { useStoryblokApi } from "@storyblok/astro";
 import Layout from "@layout";
+import Copa_Brasil from "@images/copa_brasil.webp";
+import Equipo9 from "@images/equipo9.webp";
+import Equipo10 from "@images/equipo10.webp";
+import Disciplina from "@icons/disciplina.png";
+import Respeto from "@icons/respeto.png";
+import Companerismo from "@icons/compañerismo.png";
+import Equipo from '@icons/equipo.png';
+import Esfuerzo from '@icons/esfuerzo.png';
+import Excelencia from '@icons/excelencia.png';
+import { Image } from "astro:assets";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/trabajadores", {
+  version: "draft", // Cambiar a "published" para producción
+});
+const trabajadores: Content = data.story.content.trabajadores;
 ---
 
 <Layout
     title="Nosotros"
-    description="Aquí encontrarás quienés somos nosotros"
-    draft={true}
+    description="Conoce la misión, visión y valores de AMDI"
 >
-    <main>
-        <h1>Nosotros</h1>
-    </main>
+    <section class="max-w-4xl mx-auto p-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Nosotros</h1>
+
+        <!-- Misión -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Nuestra Misión</h2>
+            <Image
+                src={Equipo9}
+                alt="AMDI en la copa Brasil"
+                class="w-full h-64 object-cover rounded-lg mb-6"
+            />
+
+            <p class="text-lg leading-relaxed">
+                AMDI fue fundada con la misión de llevar a los niños a alcanzar
+                todo su potencial y transformarlos en jugadores competitivos
+                capaces de destacar en las mejores ligas del país. Selección
+                AMDI Jalisco se dedica a proporcionar una plataforma donde el
+                talento y la pasión de los jóvenes jaliscienses puedan brillar,
+                a través de un enfoque integral que abarca el desarrollo físico,
+                emocional y mental.
+            </p>
+        </div>
+
+        <!-- Visión -->
+        <div class="mb-12">
+            <h2 class="text-3xl font-semibold mb-4">Nuestra Visión</h2>
+            <Image
+                src={Copa_Brasil}
+                alt="AMDI entrenando a las nuevas generaciones"
+                class="w-full h-64 object-cover rounded-lg mb-6"
+            />
+
+            <p class="text-lg leading-relaxed">
+                La visión de AMDI es crear una comunidad de apoyo que fomente el
+                compañerismo y la disciplina, preparando a los jóvenes no solo
+                para el deporte, sino también para la vida. AMDI aspira a ser
+                reconocida como un semillero de campeones que no solo logran
+                victorias en el campo, sino que también llevan consigo valores
+                sólidos y un profundo amor por el juego, impactando
+                positivamente la vida de sus miembros y sus comunidades.
+            </p>
+        </div>
+
+        <div class="mb-12" id="valores">
+            <h2 class="text-3xl font-semibold mb-4">Nuestros Valores</h2>
+
+            <Image
+                src={Equipo10}
+                alt="Imagen representando los valores de AMDI"
+                class="w-full h-64 object-cover rounded-lg mb-6"
+            />
+
+            <p class="text-lg leading-relaxed pb-4">Esto es lo que enseñamos y defendemos en cada partido en el que vamos:</p>
+
+
+            <ul
+                class="sm:text-lg *:justify-items-center grid-cols-1 grid md:grid-cols-2 justify-center items-center *:font-bold list-none text-center"
+            >
+                <li class="bg-green-500">
+                    Compañerismo
+                    <Image
+                        src={Companerismo}
+                        alt="icono de compañerismo"
+                    />
+                </li>
+                <li class="bg-red-500">
+                    Disciplina
+                    <Image
+                        src={Disciplina}
+                        alt="icono de disciplina"
+                    />
+                </li>
+                <li class="bg-blue-500">
+                    Respeto
+                    <Image
+                        src={Respeto}
+                        alt="icono de respeto"
+                    />
+                </li>
+                <li class="bg-yellow-500">
+                    Trabajo en equipo
+                    <Image
+                        src={Equipo}
+                        alt="icono de trabajo en equipo"
+                    />
+                    </li>
+                <li class="bg-amber-500">
+                    Esfuerzo continuo
+                    <Image
+                        src={Esfuerzo}
+                        alt="icono de esfuerzo"
+                    />
+                </li>
+                <li class="bg-rose-500">
+                    Compromiso con la excelencia
+                    <Image
+                        src={Excelencia}
+                        alt="icono de excelencia"
+                    />
+                </li>
+            </ul>
+        </div>
+
+        <div id="quienes" class="items-center justify-center">
+            <h2 class="text-3xl font-semibold mb-4">¿Quiénes somos?</h2>
+            <p class="pb-4">Nuestro gran equipo en la asociación está compuesto por:</p>
+            <div class="presentacion grid grid-cols-2 justify-center items-center text-center">
+
+            <!--- TODO terminarlo con storyblok -->
+            { /*
+                trabajadores.map((trabajador: Trabajadores) => (
+                <Image src={trabajador.Img.filename} inferSize alt="Gonzalo, lider de AMDI" height={200}/>
+                <div id="datos">
+                    <h3>{trabajador.Nombre}</h3>
+                    <p>{trabajador.Rol}</p>
+                </div>
+                ))
+            */}
+
+            </div>
+        </div>
+    </section>
 </Layout>
+<style>
+    .presentacion {
+        @apply bg-slate-600;
+
+        h3 {
+            @apply font-bold;
+            @apply text-xl;
+            @apply font-bold;
+            @apply text-center;
+        }
+
+    }
+</style>
