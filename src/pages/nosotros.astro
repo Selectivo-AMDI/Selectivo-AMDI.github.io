@@ -1,5 +1,5 @@
 ---
-import type { Trabajadores, TrabajadoresStoryTypes } from "src/types/TrabajadoresStoryTypes";
+import type { Trabajadores } from "src/types/TrabajadoresStoryTypes";
 import { useStoryblokApi } from "@storyblok/astro";
 import Layout from "@layout";
 import Copa_Brasil from "@images/copa_brasil.webp";
@@ -14,7 +14,7 @@ import Excelencia from '@icons/excelencia.png';
 import { Image } from "astro:assets";
 
 const storyblokApi = useStoryblokApi();
-const { data }: TrabajadoresStoryTypes = await storyblokApi.get("cdn/stories/trabajadores", {
+const { data } = await storyblokApi.get("cdn/stories/trabajadores", {
   version: "draft", // Cambiar a "published" para producción
 });
 const trabajadores: Trabajadores[] = data.story.content.Trabajadores;

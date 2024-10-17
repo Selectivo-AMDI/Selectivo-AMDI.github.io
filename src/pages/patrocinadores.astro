@@ -1,5 +1,5 @@
 ---
-import type { Patrocinador, Content } from "src/types/PatrocinadoresStoryTypes";
+import type { Patrocinador } from "src/types/PatrocinadoresStoryTypes";
 import { useStoryblokApi } from "@storyblok/astro";
 import { Image } from "astro:assets";
 import NotaCompleta from "@components/NotaCompleta.astro";
@@ -10,7 +10,7 @@ const { data } = await storyblokApi.get("cdn/stories/patrocinadores", {
   version: "draft", // Cambiar a "published" para producción
 });
 
-const patrocinadores: Content = data.story.content.patrocinador;
+const patrocinadores = data.story.content.patrocinador;
 ---
 
 <Layout title="Patrocinadores" description="Nuestros patrocinadores">                        
