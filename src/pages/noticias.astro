@@ -1,6 +1,6 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
-import type { NoticiasStoryTypes, Story } from "src/types/NoticiasStoryTypes";
+import type { Story } from "src/types/NoticiasStoryTypes";
 import Layout from "@layout";
 
 const storyblokApi = useStoryblokApi();
@@ -21,7 +21,7 @@ const noticias: Story[] = data.stories;
 
     <!-- Grid para mostrar todas las noticias -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {noticias.map((noticia: Story, index) => (
+      {noticias.map((noticia: Story) => (
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
           <a href={`/noticias/${noticia.slug}`}>
             <img

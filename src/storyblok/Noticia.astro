@@ -1,9 +1,8 @@
 ---
-import type { Body } from "src/types/NoticiasStoryTypes";
 import { storyblokEditable, renderRichText } from "@storyblok/astro";
 import Autor from "./Autor.astro";
 
-const { blok }: Body = Astro.props;
+const { blok } = Astro.props;
 const renderedRichText = renderRichText(blok.content)
 ---
 
