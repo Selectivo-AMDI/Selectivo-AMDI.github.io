@@ -5,10 +5,8 @@ import {
     useStoryblokApi,
     renderRichText,
 } from "@storyblok/astro";
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import Layout from "@layout";
-import { Image } from "astro:assets";
-import Compartir from "@components/Compartir.astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
 const { slug } = Astro.params;
 const { blok } = Astro.props;
@@ -17,36 +15,22 @@ const { data } = await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
     version: "draft", // Cambiar a 'published' en producción
 });
 const story: Story = data.story;
-const noticia: Body = story?.content?.body?.[0] ?? {};
-const {
-    Titulo: titulo,
-    Cuerpo: cuerpo,
-    Fecha_publicacion,
-    Autor: autor,
-    Imagen_portada,
-} = noticia;
-const renderedRichText = renderRichText(cuerpo);
+const noticia: Body = story.content.body[0];
+const { Titulo, Cuerpo, Fecha_publicacion, Autor } = noticia;
+const renderedRichText = renderRichText(Cuerpo);
 ---
 
-<Layout title={titulo} description={titulo}>
-    <article {...storyblokEditable(blok)} class="p-8">
-        <div
-            id="portada"
-            class="max-h-16 max-w-full items-center grid justify-center"
-        >
-            <Image
-                src={Imagen_portada.filename}
-                alt={titulo}
-                inferSize
-                height={300}
-            />
-        </div>
-        <h1 class="principal-title p-2 text-center">{titulo}</h1>
-
+<Layout title={Titulo} description={Titulo}>
+    <article {...storyblokEditable(blok)} class="prose max-w-none p-4">
+        <h1 class="principal-title text-center">{Titulo}</h1>
+        <img
+            src={noticia.Imagen_portada.filename }
+            alt={Titulo}
+            class="w-full h-48 object-cover mb-6"
+        />
         <div>
-            <StoryblokComponent blok={autor[0]} />
+            <StoryblokComponent blok={Autor[0]} />
         </div>
-
         <p class="text-gray-500 mb-4 text-left">
             Publicado el {
                 new Date(Fecha_publicacion).toLocaleDateString("es-MX", {
@@ -58,7 +42,7 @@ const renderedRichText = renderRichText(cuerpo);
             }
         </p>
 
-        <div set:html={renderedRichText} />
+        <!-- Renderizando el texto enriquecido con 'prose' para asegurar espaciado adecuado -->
+        <div class="prose" set:html={renderedRichText} />
     </article>
-    <Compartir />
 </Layout>

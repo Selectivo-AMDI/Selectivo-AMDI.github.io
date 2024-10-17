@@ -1,0 +1,54 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import type { Story } from "src/types/NoticiasStoryTypes";
+import { Image } from "astro:assets";
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get("cdn/stories", {
+    starts_with: "noticias/", // Ruta de la carpeta en Storyblok
+    version: "draft", // Usa 'published' en producción
+    per_page: 3, // Limitar a 3 resultados
+});
+
+const noticias: Story[] = data.stories;
+---
+
+<section class="max-w-4xl mx-auto p-8" id="noticias">
+    <h1 class="text-4xl font-bold text-center">Noticias</h1>
+    <h2>Todo lo nuevo que AMDI tiene opara ti</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
+        {
+            noticias.map((noticia: Story) => (
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <a href={`/noticias/${noticia.slug}`}>
+                        <Image
+                            src={
+                                noticia.content.body[0].Imagen_portada.filename
+                            }
+                            inferSize
+                            alt={noticia.content.body[0].Titulo || "Noticia"}
+                            class="w-full h-48 object-cover"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-xl font-semibold text-gray-800">
+                                {noticia.content.body[0].Titulo}
+                            </h2>
+                            <p class="text-gray-500">
+                                {new Date(
+                                    noticia.content.body[0].Fecha_publicacion,
+                                ).toLocaleDateString("es-MX")}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+    <a href="/noticias">
+        <p class="text-xl p-3 bg-red-700 hover:bg-red-800 rounded-xl">
+            Ver más
+        </p>
+    </a>
+</section>

@@ -1,9 +1,40 @@
 ---
+import { CORREO, TELEFONO, DIRECCION } from "src/constants";
+import { Image } from "astro:assets";
+import Correo from "@icons/email.svg";
+import Celular from "@icons/llamada.svg";
+
 import Layout from "@layout";
 ---
 
-<Layout draft={true} title="Contacto" description="Contacta a la Asociación Mexicana de Desarrollo Motriz Infantil">
-    <main>
+<Layout
+    draft={true}
+    title="Contacto"
+    description="Contacta a la Asociación Mexicana de Desarrollo Motriz Infantil"
+>
+    <main class="p-10 text-center">
         <h1>Contacto</h1>
+        <div id="metodos" class="grid lg:grid-cols-2 grid-cols-1 *:justify-items-center">
+            <div id="email">
+                <Image
+                    src={Correo}
+                    alt="icono de un correo electronico"
+                    width={64}
+                />
+                <div>
+                    <h2>Nuestro correo electronico:</h2>
+                    <a href=`mailto:${CORREO}`>{CORREO}</a>
+                </div>
+            </div>
+            <div id="celular">
+                <Image src={Celular} alt="icono de telefono" width={64} />
+                <h2>Nuestro numero celular:</h2>
+                <a href=`tel:+52${TELEFONO}`>{TELEFONO}</a>
+            </div>
+            <div id="ubicacion">
+                <h2>Nuestra dirección:</h2>
+                <address>{DIRECCION}</address>
+            </div>
+        </div>
     </main>
 </Layout>

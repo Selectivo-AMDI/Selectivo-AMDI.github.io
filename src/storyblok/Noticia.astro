@@ -1,16 +1,15 @@
 ---
+import type { Body } from "src/types/NoticiasStoryTypes";
 import { storyblokEditable, renderRichText } from "@storyblok/astro";
 import Autor from "./Autor.astro";
 
-const { blok } = Astro.props;
+const { blok }: Body = Astro.props;
 const renderedRichText = renderRichText(blok.content)
 ---
 
 <div {...storyblokEditable(blok)}>
-  <!-- Título de la noticia -->
   <h1 class="text-4xl font-bold mb-2">{blok.Titulo}</h1>
 
-  <!-- Autor y Fecha de Publicación -->
   <div class="flex items-center text-sm text-gray-500 mb-4">
     {blok.Autor && <Autor blok={blok.Autor[0]} />}
     <span class="ml-4"

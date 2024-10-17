@@ -1,0 +1,31 @@
+---
+import BtnDonar from "@components/BtnDonar.astro";
+
+/**
+ * @param bg fondo de la portada (string del path de la imagen)
+ * @param header titulo de la portada
+ * @param subheader subitutlo de la portada
+ */
+export interface Props {
+    bg: string;
+    header: string;
+    subheader: string;
+}
+
+const { bg, header, subheader } = Astro.props;
+const bg_classes = await `relative bg-cover bg-[url('/${bg}')] bg-center h-screen grid items-center`
+---
+
+<div
+    id="presentacion"
+    class={bg_classes}
+>
+    <div class="absolute inset-0 bg-black opacity-70"></div>
+    <div class="relative z-10 p-8">
+        <h1 class="text-6xl font-bold">{header}</h1>
+        <p class="p-4 text-xl">
+            {subheader}
+        </p>
+        <BtnDonar />
+    </div>
+</div>

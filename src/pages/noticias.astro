@@ -1,0 +1,43 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import type { NoticiasStoryTypes, Story } from "src/types/NoticiasStoryTypes";
+import Layout from "@layout";
+
+const storyblokApi = useStoryblokApi();
+
+// Obtén todas las noticias de la carpeta "noticias"
+const { data } = await storyblokApi.get('cdn/stories', {
+  starts_with: 'noticias/',  // Ruta de la carpeta en Storyblok
+  version: 'draft',          // Usa 'published' en producción
+});
+
+const noticias: Story[] = data.stories;
+---
+
+<Layout title="Noticias" description="Listado de todas las noticias de AMDI">
+  <section class="max-w-4xl mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center mb-8">Noticias</h1>
+    <h2>Noticias oficiales acerca de todo lo que pasa en AMDI: Alianzas, acontecimientos importantes, premios, campeonatos estatales. Todo en un sólo lugar</h2>
+
+    <!-- Grid para mostrar todas las noticias -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {noticias.map((noticia: Story, index) => (
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <a href={`/noticias/${noticia.slug}`}>
+            <img
+              src={noticia.content.body[0].Imagen_portada?.filename}
+              alt={noticia.content.body[0].Titulo || 'Noticia'}
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h2 class="text-xl font-semibold text-gray-800">
+                {noticia.content.body[0].Titulo}
+              </h2>
+              <p class="text-gray-500">Publicado el {new Date(noticia.created_at).toLocaleDateString("es-MX")}</p>
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
