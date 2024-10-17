@@ -1,9 +1,54 @@
 ---
 import Layout from "@layout";
+import { Image } from "astro:assets";
+import Taekwondo from "public/taekwondo.jpg";
+import Equipo from "@images/equipo7.webp";
+import Equipo6 from "@images/equipo6.webp";
 ---
 
-<Layout title="Academias" description="Encuentra la academia perfecta para ti" draft={true}>
-    <main>
-        <h1>Hola mundo</h1>
+<Layout title="Academias" description="Encuentra la academia perfecta para ti">
+    <main class="text-center">
+        <h1 class="font-bold pb-4 p-2 text-4xl">¡Unete a nosotros!</h1>
+        <p class="text-lg">
+            Tenemos un gran camino para ti en estas disciplinas que elevaran tu
+            competitividad y tu excelencia en los deportes
+        </p>
+
+        <div
+            class="grid md:grid-cols-2 grid-cols-1 *:rounded-lg *:m-4 *:shadow-md *:justify-center *:content-center *:justify-items-center text-center *:transition *:delay-75"
+        >
+            <div id="taekwondo" class="bg-red-700 hover:bg-red-800">
+                <a href="/academias/taekwondo">
+                    <Image
+                        src={Taekwondo}
+                        alt="Logo de la academia de taekwondo"
+                        class="rounded-lg object-fill"
+                    />
+                    <h2>Academia de Taekwondo</h2>
+                </a>
+            </div>
+            <div id="futbol" class="bg-blue-700 hover:bg-blue-800">
+                <a href="/academias/futbol/">
+                    <Image
+                        src={Equipo}
+                        alt="Logo de la academia de futbol"
+                        class="rounded-lg"
+                    />
+                    <h2>Academia de Futbol</h2>
+                </a>
+            </div>
+            <div id="gym" class="bg-amber-700 hover:bg-amber-800">
+                <a href="/academias/gym/">
+                    <Image src={Equipo6} alt="Logo de la academia de gym" />
+                    <h2>Gym</h2>
+                </a>
+            </div>
+        </div>
     </main>
 </Layout>
+<style>
+    h2 {
+        @apply font-bold;
+        @apply text-xl;
+    }
+</style>

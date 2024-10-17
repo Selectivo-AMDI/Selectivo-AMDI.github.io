@@ -1,5 +1,5 @@
 ---
-import type { Content, Trabajadores } from "src/types/TrabajadoresStoryTypes";
+import type { Trabajadores, TrabajadoresStoryTypes } from "src/types/TrabajadoresStoryTypes";
 import { useStoryblokApi } from "@storyblok/astro";
 import Layout from "@layout";
 import Copa_Brasil from "@images/copa_brasil.webp";
@@ -14,10 +14,10 @@ import Excelencia from '@icons/excelencia.png';
 import { Image } from "astro:assets";
 
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/trabajadores", {
+const { data }: TrabajadoresStoryTypes = await storyblokApi.get("cdn/stories/trabajadores", {
   version: "draft", // Cambiar a "published" para producción
 });
-const trabajadores: Content = data.story.content.trabajadores;
+const trabajadores: Trabajadores[] = data.story.content.Trabajadores;
 ---
 
 <Layout
@@ -133,7 +133,7 @@ const trabajadores: Content = data.story.content.trabajadores;
             <div class="presentacion grid grid-cols-2 justify-center items-center text-center">
 
             <!--- TODO terminarlo con storyblok -->
-            { /*
+            {
                 trabajadores.map((trabajador: Trabajadores) => (
                 <Image src={trabajador.Img.filename} inferSize alt="Gonzalo, lider de AMDI" height={200}/>
                 <div id="datos">
@@ -141,7 +141,7 @@ const trabajadores: Content = data.story.content.trabajadores;
                     <p>{trabajador.Rol}</p>
                 </div>
                 ))
-            */}
+            }
 
             </div>
         </div>
@@ -149,7 +149,6 @@ const trabajadores: Content = data.story.content.trabajadores;
 </Layout>
 <style>
     .presentacion {
-        @apply bg-slate-600;
 
         h3 {
             @apply font-bold;
