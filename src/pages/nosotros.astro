@@ -8,14 +8,14 @@ import Equipo10 from "@images/equipo10.webp";
 import Disciplina from "@icons/disciplina.png";
 import Respeto from "@icons/respeto.png";
 import Companerismo from "@icons/compañerismo.png";
-import Equipo from '@icons/equipo.png';
-import Esfuerzo from '@icons/esfuerzo.png';
-import Excelencia from '@icons/excelencia.png';
+import Equipo from "@icons/equipo.png";
+import Esfuerzo from "@icons/esfuerzo.png";
+import Excelencia from "@icons/excelencia.png";
 import { Image } from "astro:assets";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/trabajadores", {
-  version: "draft", // Cambiar a "published" para producción
+    version: "draft", // Cambiar a "published" para producción
 });
 const trabajadores: Trabajadores[] = data.story.content.Trabajadores;
 ---
@@ -76,86 +76,80 @@ const trabajadores: Trabajadores[] = data.story.content.Trabajadores;
                 class="w-full h-64 object-cover rounded-lg mb-6"
             />
 
-            <p class="text-lg leading-relaxed pb-4">Esto es lo que enseñamos y defendemos en cada partido en el que vamos:</p>
-
+            <p class="text-lg leading-relaxed pb-4">
+                Esto es lo que enseñamos y defendemos en cada partido en el que
+                vamos:
+            </p>
 
             <ul
-                class="sm:text-lg *:justify-items-center grid-cols-1 grid md:grid-cols-2 justify-center items-center *:font-bold list-none text-center"
+                class="sm:text-lg *:justify-items-center *:grid *:items-center grid-cols-1 grid md:grid-cols-2 justify-center items-center *:font-bold list-none text-center"
             >
                 <li class="bg-green-500">
                     Compañerismo
-                    <Image
-                        src={Companerismo}
-                        alt="icono de compañerismo"
-                    />
+                    <Image src={Companerismo} alt="icono de compañerismo" />
                 </li>
                 <li class="bg-red-500">
                     Disciplina
-                    <Image
-                        src={Disciplina}
-                        alt="icono de disciplina"
-                    />
+                    <Image src={Disciplina} alt="icono de disciplina" />
                 </li>
                 <li class="bg-blue-500">
                     Respeto
-                    <Image
-                        src={Respeto}
-                        alt="icono de respeto"
-                    />
+                    <Image src={Respeto} alt="icono de respeto" />
                 </li>
                 <li class="bg-yellow-500">
                     Trabajo en equipo
-                    <Image
-                        src={Equipo}
-                        alt="icono de trabajo en equipo"
-                    />
-                    </li>
+                    <Image src={Equipo} alt="icono de trabajo en equipo" />
+                </li>
                 <li class="bg-amber-500">
                     Esfuerzo continuo
-                    <Image
-                        src={Esfuerzo}
-                        alt="icono de esfuerzo"
-                    />
+                    <Image src={Esfuerzo} alt="icono de esfuerzo" />
                 </li>
                 <li class="bg-rose-500">
                     Compromiso con la excelencia
-                    <Image
-                        src={Excelencia}
-                        alt="icono de excelencia"
-                    />
+                    <Image src={Excelencia} alt="icono de excelencia" />
                 </li>
             </ul>
         </div>
 
         <div id="quienes" class="items-center justify-center">
             <h2 class="text-3xl font-semibold mb-4">¿Quiénes somos?</h2>
-            <p class="pb-4">Nuestro gran equipo en la asociación está compuesto por:</p>
-            <div class="presentacion grid grid-cols-2 justify-center items-center text-center">
-
-            <!--- TODO terminarlo con storyblok -->
+            <p class="pb-4">
+                Nuestro gran equipo en la asociación está compuesto por:
+            </p>
+            <div
+                class="presentacion *:grid *:lg:grid-cols-2 grid md:grid-cols-2 grid-cols-1 justify-center items-center text-center"
+            >
             {
                 trabajadores.map((trabajador: Trabajadores) => (
-                <Image src={trabajador.Img.filename} inferSize alt="Gonzalo, lider de AMDI" height={200}/>
-                <div id="datos">
-                    <h3>{trabajador.Nombre}</h3>
-                    <p>{trabajador.Rol}</p>
-                </div>
+                    <div id={trabajador.Nombre} class="p-4 flex flex-col items-center content-center justify-center">
+                        <Image
+                            src={trabajador.Img.filename}
+                            inferSize
+                            alt={
+                                trabajador.Img.alt ??
+                                `foto del ${trabajador.Rol}, ${trabajador.Nombre}`
+                            }
+                            class="rounded-full object-cover w-48 h-48"
+                        />
+                        <div id={`datos_${trabajador.Nombre}`} class="mt-4">
+                            <h3 class="font-bold text-lg">{trabajador.Nombre}</h3>
+                            <p >{trabajador.Rol}</p>
+                        </div>
+                    </div>
                 ))
             }
-
+            
             </div>
         </div>
     </section>
 </Layout>
 <style>
     .presentacion {
-
         h3 {
             @apply font-bold;
             @apply text-xl;
             @apply font-bold;
             @apply text-center;
         }
-
     }
 </style>
