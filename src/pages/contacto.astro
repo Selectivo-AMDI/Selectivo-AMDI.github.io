@@ -2,9 +2,27 @@
 import { CORREO, TELEFONO, DIRECCION } from "src/constants";
 import { Image } from "astro:assets";
 import Correo from "@icons/email.svg";
-import Celular from "@icons/llamada.svg";
-
+import Celular from "@icons/celular.svg";
 import Layout from "@layout";
+import Mapa from "@icons/mapa.svg";
+
+const metodos = {
+    correo: {
+        icono: Correo,
+        titulo: "Correo",
+        contenido: CORREO,
+    },
+    telefono: {
+        icono: Celular,
+        titulo: "Teléfono",
+        contenido: TELEFONO,
+    },
+    direccion: {
+        icono: Mapa,
+        titulo: "Dirección",
+        contenido: DIRECCION
+    },
+}
 ---
 
 <Layout
@@ -14,27 +32,20 @@ import Layout from "@layout";
 >
     <main class="p-10 text-center">
         <h1>Contacto</h1>
-        <div id="metodos" class="grid lg:grid-cols-2 grid-cols-1 *:justify-items-center">
-            <div id="email">
-                <Image
-                    src={Correo}
-                    alt="icono de un correo electronico"
-                    width={64}
-                />
-                <div>
-                    <h2>Nuestro correo electronico:</h2>
-                    <a href=`mailto:${CORREO}`>{CORREO}</a>
+        <p>¿Tienes alguna duda o comentario? ¡Contáctanos!</p>
+        <div
+            id="metodos"
+            class="grid lg:grid-cols-2 grid-cols-1 *:justify-items-center *:content-center *:items-center"
+        >
+        {
+            Object.values(metodos).map(({icono, titulo, contenido}) => (
+                <div class="p-4">
+                    <Image src={icono} alt="icono de contacto" class="h-12 w-46 fill-red-700" />
+                    <h2 class="text-lg font-bold">{titulo}:</h2>
+                    <p>{contenido}</p>
                 </div>
-            </div>
-            <div id="celular">
-                <Image src={Celular} alt="icono de telefono" width={64} />
-                <h2>Nuestro numero celular:</h2>
-                <a href=`tel:+52${TELEFONO}`>{TELEFONO}</a>
-            </div>
-            <div id="ubicacion">
-                <h2>Nuestra dirección:</h2>
-                <address>{DIRECCION}</address>
-            </div>
+            ))
+        }
         </div>
     </main>
 </Layout>

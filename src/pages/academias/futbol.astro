@@ -1,14 +1,23 @@
 ---
-import Portada from "@components/Portada.astro";
+import BtnDonar from "@components/BtnDonar.astro";
 import Layout from "@layout";
 ---
 
 <Layout title="Academia de futbol" description="AMDI Futbol | Página Oficial">
     <main>
-        <Portada
-            bg="partidos.webp"
-            header="Academia de futbol"
-            subheader="Academia enfocada en la practicidad y en el compañerismo"
-        />
+        <div
+            id="presentacion"
+            class="relative bg-cover bg-[url('/partidos.webp')] bg-center h-screen grid items-center"
+        >
+            <div class="absolute inset-0 bg-black opacity-70"></div>
+            <div class="relative z-10 p-8">
+                <h1 class="text-6xl font-bold">Gym AMDI</h1>
+                <p class="p-4 text-xl">
+                    Fortaleciento tu cuerpo y mente, con ejercicios y rutinas
+                    personalizadas.
+                </p>
+                <BtnDonar />
+            </div>
+        </div>
     </main>
 </Layout>

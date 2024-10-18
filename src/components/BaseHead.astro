@@ -4,7 +4,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
  * @param title titulo de la página
  * @param description descripción de la página
  * @param cover portada de la página (y para OpenGraph)
-*/
+ */
 export interface Props {
 	title: string;
 	description: string;
@@ -13,8 +13,10 @@ export interface Props {
 
 const { title, description, cover } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const openGraphImage =
-	cover ?? "https://selectivo-amdi.github.io/images/opengraph3.jpg";
+const openGraphImage = new URL(
+	cover ?? "/apoyanos.webp",
+	Astro.site,
+).toString();
 ---
 
 <meta charset="utf-8" />
@@ -31,7 +33,9 @@ const openGraphImage =
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Global Metadata -->
-<link rel="icon" type="image/png" href="/favicon.webp" />
+<link rel="icon" type="image/webp" href="/favicon.webp" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
 <!--
 	<link rel="manifest" href="/manifest.webmanifest" />
 	<meta name="google" content="notranslate" />
@@ -81,12 +85,6 @@ const openGraphImage =
 <meta name="twitter:creator" content="@kevinlealtorres" />
 <meta name="twitter:image:width" content="1200" />
 <meta name="twitter:image:height" content="630" />
-
-<!--
-TODO este CSP da problemas con TailwindCSS
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://selectivo-amdi.github.io; script-src 'self'; style-src 'self' https://selectivo-amdi.github.io; font-src 'self';" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tailwindui.com https://images.unsplash.com;">
--->
 
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 

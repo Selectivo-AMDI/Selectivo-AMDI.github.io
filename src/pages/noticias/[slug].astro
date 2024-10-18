@@ -7,6 +7,7 @@ import {
 } from "@storyblok/astro";
 import Layout from "@layout";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import Compartir from "@components/Compartir.astro";
 
 const { slug } = Astro.params;
 const { blok } = Astro.props;
@@ -20,7 +21,7 @@ const { Titulo, Cuerpo, Fecha_publicacion, Autor } = noticia;
 const renderedRichText = renderRichText(Cuerpo);
 ---
 
-<Layout title={Titulo} description={Titulo}>
+<Layout title={Titulo} description={Titulo} cover={noticia.Imagen_portada.filename}>
     <article {...storyblokEditable(blok)} class="prose max-w-none p-4">
         <h1 class="principal-title text-center">{Titulo}</h1>
         <img
@@ -44,5 +45,6 @@ const renderedRichText = renderRichText(Cuerpo);
 
         <!-- Renderizando el texto enriquecido con 'prose' para asegurar espaciado adecuado -->
         <div class="prose" set:html={renderedRichText} />
+        <Compartir title={Titulo} />
     </article>
 </Layout>
