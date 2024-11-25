@@ -1,0 +1,1 @@
+export type CryptoType = `${string}-${string}-${string}-${string}-${string}`;

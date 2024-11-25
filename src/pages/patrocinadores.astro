@@ -13,23 +13,25 @@ const { data } = await storyblokApi.get("cdn/stories/patrocinadores", {
 const patrocinadores = data.story.content.patrocinador;
 ---
 
-<Layout title="Patrocinadores" description="Nuestros patrocinadores">                        
+<Layout title="Patrocinadores" description="Nuestros patrocinadores">
   <section class="prose max-w-none p-8">
     <h1>Patrocinadores</h1>
     <div class="grid grid-cols-2 gap-8">
       {
         patrocinadores.map((patrocinador: Patrocinador) => (
           <div class="flex flex-col items-center text-center">
-
             <h2 class="text-lg font-semibold mt-4">
               {patrocinador.Nombre_patrocinador}
             </h2>
             <Image
-                src={patrocinador.Logo_patrocinador.filename}
-                inferSize
-                alt={patrocinador.Alt_image ?? `Imagen del logo de ${patrocinador.Nombre_patrocinador}`}
-                class="w-full max-w-xs object-cover"
-              />
+              src={patrocinador.Logo_patrocinador.filename}
+              inferSize
+              alt={
+                patrocinador.Alt_image ??
+                `Imagen del logo de ${patrocinador.Nombre_patrocinador}`
+              }
+              class="w-full max-w-xs object-cover"
+            />
             <NotaCompleta nota={patrocinador.Url_nota?.url} />
           </div>
         ))

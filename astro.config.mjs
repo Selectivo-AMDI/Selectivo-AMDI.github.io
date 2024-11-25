@@ -6,6 +6,7 @@ import storyblok from "@storyblok/astro";
 import basicSsl from '@vitejs/plugin-basic-ssl';
 import "dotenv/config";
 import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
 export default /** @type {import('astro').AstroUserConfig} */defineConfig({
   vite: {
     plugins: [basicSsl()],
@@ -38,7 +39,7 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
       autor: "storyblok/Autor",
       noticia: "storyblok/Noticia",
     }
-  }), tailwind()],
+  }), tailwind(), react()],
   prefetch: true,
   output: "server",
   adapter: vercel()

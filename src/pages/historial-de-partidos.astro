@@ -1,0 +1,31 @@
+---
+import type { Data } from "src/types/HistorialPartidosData";
+import { useStoryblokApi } from '@storyblok/astro';
+
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories/', {
+  starts_with: 'todos-los-partidos/',
+  version: import.meta.env.DEV ? "draft" : "published",
+}) as { data: Data };
+
+console.debug(data.stories[0].content)
+
+const partidos = data.stories;
+---
+
+{
+  partidos.map(({ content: { Local, Visitante, Goles_local, Goles_visitante, Fecha_partido, Academia, Lugar_partido } }) => (
+    <div class="flex justify-between items-center p-4 border-b border-gray-200">
+      <div>
+        <h2 class="text-lg font-bold">{Local} vs {Visitante}</h2>
+        <p class="text-sm text-gray-500">{Fecha_partido}</p>
+      </div>
+      <div>
+        <p class="text-lg font-bold">{Goles_local} - {Goles_visitante}</p>
+        <p class="text-sm text-gray-500">{Lugar_partido}</p>
+      </div>
+    </div>
+  ))
+}

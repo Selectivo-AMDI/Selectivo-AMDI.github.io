@@ -1,70 +1,49 @@
 ---
-import type { Content } from "src/types/PartidosStoryTypes";
+import { Image } from "astro:assets";
+
 import equipo2 from "@images/equipo2.webp";
 import equipo from "@images/equipo.webp";
 import equipo3 from "@images/equipo3.webp";
+
 import Layout from "@layout";
-import "/src/styles/global.css";
-import { NOMBRE } from "../constants";
 import BtnDonar from "@components/BtnDonar.astro";
-import { historias } from "@data/historia.json";
-import NotaCompleta from "@components/NotaCompleta.astro";
-import { Image } from "astro:assets";
-import { useStoryblokApi } from '@storyblok/astro';
-import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
 import Noticias from "@components/Noticias.astro";
-
-const imagenes = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/images/*.webp",
-);
-
-const storyblokApi = useStoryblokApi();
-
-const { data } = await storyblokApi.get('cdn/stories/partidos', {
-  version: 'draft', // Cambia a 'published' para producción
-});
-const partidosContent: Content = data.story.content;
-
+import Historia from "@components/Historia.astro";
+import MisionVision from "@components/MisionVision.astro";
+import Partidos from "@components/Partidos.astro";
+import CoverCarrousel from "@components/CoverCarrousel.astro";
 ---
 
-<Layout title="Selección AMDI Jalisco" description="Página oficial de AMDI">
+<Layout title="Selección AMDI Jalisco | Página oficial" description="Página oficial de AMDI Jalisco">
   <main class="text-center">
-    <div
+
+    {/*
+       <div
       id="presentacion"
-      class="relative bg-cover bg-[url('/equipo.webp')] bg-center h-screen grid items-center"
+      class="relative bg-cover bg-[url('/donacion.jpg')] bg-center h-screen grid items-center"
     >
       <div class="absolute inset-0 bg-black opacity-70"></div>
-      <div class="relative z-10 p-8">
-        <h1 class="text-6xl font-bold">{NOMBRE}</h1>
-        <p class="p-4 text-xl">
-          Asociación que se preocupa por darle actividades de alto nivel a cada
-          uno de sus integrantes en sus diferentes disciplinas.
+      <div class="relative z-10 p-8 text-left">
+        <h1 class="lg:text-6xl font-bold">Necesitamos tu ayuda</h1>
+        <p class="p-4 lg:text-xl text-sm">
+          Somos una asociación que busca el desarrollo de niños y niñas a través del deporte.
         </p>
         <BtnDonar />
       </div>
     </div>
- {partidosContent ? (
-  <div
-    id="partidos"
-    class="relative bg-cover bg-center bg-[url('/src/images/partidos.webp')] items-center"
-  >
-    <div class="absolute inset-0 bg-black opacity-70"></div>
-    <div class="relative z-10 p-8">
-      <h1 class="2xl:text-5xl xl:text-4xl lg:text-3xl md:text-2xl text-xl font-bold">
-        Partido
-      </h1>
-      <StoryblokComponent blok={partidosContent} />
+    */}
+    <CoverCarrousel />
+    <div id="noticias">
+      <h1 class="text-4xl font-bold">Lo más nuevo en AMDI</h2>
+      <p>Mantente al tanto de lo que nuestra asociación está aportando a la sociedad</p>
+      <!--<Noticias />-->
     </div>
-  </div>
-) : (
-  <div class="relative bg-black text-white p-8">
-    <h2 class="text-3xl font-bold">No se encontraron partidos</h2>
-    <p>Por favor, vuelve más tarde para ver los próximos partidos.</p>
-  </div>
-)}
+    <div id="partidos">
+      <h2 class="text-4xl font-bold">Partidos en nuestras academias:</h2>
+      <p>No te pierdas de los nuevos partidos que nuestras academias están a punto de ganar</p>
+      <!--<Partidos />-->
 
-  <Noticias />
-
+    </div>
     <div id="quienes" class="p-4 mb-4 font-medium bg-[url('../bg.svg')] bg-blend-darken bg-bottom bg-no-repeat bg-cover bg-black/70">
 
       <h2 class="text-4xl md:text-6xl sm:text-6xl p-4">#DejandoHuella</h2>
@@ -174,107 +153,7 @@ const partidosContent: Content = data.story.content;
         </div>
       </div>
     </div>
-
-    <div id="historia" class="justify-center items-center bg-[url('../historia-bg.jpg')] bg-blend-darken bg-black/75 bg-repeat bg-cover">
-      <h2 class="text-4xl font-medium">Historia:</h2>
-      <hr
-        class="w-64 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"
-      />
-
-      {
-        historias.map(( { descripcion, fecha, alt, imagen, nota }, index ) => (
-        <h3 class="text-2xl font-medium">{fecha}</h3>
-        <p class="text-4xl font-medium">↓</p>
-
-        <div id="inicios" class="p-4 xl:flex items-center justify-center">
-          {index % 2 === 0
-            ? (
-              <p>
-                {descripcion}
-                <NotaCompleta nota={nota} />
-              </p>
-              <div class="xl:flex-shrink-0">
-                <Image
-                  src={imagenes[`/src/images/${imagen}`]() }
-                  loading="lazy"
-                  alt={alt ?? "Imagen"}
-                  class="p-4 m-auto."
-                  height="500"
-                  width="500"
-                />
-              </div>
-          ) : (
-              <div class="xl:flex-shrink-0">
-                <Image
-                  src={imagenes[`/src/images/${imagen}`]() }
-                  loading="lazy"
-                  alt={alt ?? "Imagen"}
-                  class="p-4 m-auto"
-                  height="500"
-                  width="500"
-                />
-              </div>
-                <p>
-                  {descripcion}
-                  <NotaCompleta nota={nota} />
-                </p>
-          )}
-      </div>  
-        ))
-      }
-    </div>
-
-    <div id="somos" class="grid grid-cols-2 gap-2 items-center">
-      <h2 class="text-4xl font-medium p-4 col-span-2">Lo que nos define:</h2>
-
-      <div
-        class="xl:flex text-center p-2 col-span-2 space-y-4 md:space-y-0 md:space-x-4"
-      >
-        <div class="relative rounded-2xl overflow-hidden flex-1">
-          <Image
-            src={equipo2}
-            loading="lazy"
-            alt="Mujer entrenadora dando clases"
-            class="absolute inset-0 w-full h-full object-cover opacity-30"
-            height={500}
-            width={500}
-            />
-          <div class="relative bg-opacity-10 rounded-2xl p-4">
-            <h3 class="text-2xl p-2">Misión</h3>
-            <p class="p-4">
-              "AMDI fue fundada con la misión de llevar a los niños a alcanzar
-              todo su potencial y transformarlos en jugadores competitivos
-              capaces de destacar en las mejores ligas del país. {NOMBRE} se dedica
-              a proporcionar una plataforma donde el talento y la pasión de los jóvenes
-              jaliscienses puedan brillar, a través de un enfoque integral que abarca
-              el desarrollo físico, emocional y mental."
-            </p>
-          </div>
-        </div>
-
-        <div class="relative rounded-2xl overflow-hidden flex-1">
-          <Image
-            src={equipo}
-            loading="lazy"
-            alt="Niños tomandose una foto en un templo"
-            class="absolute inset-0 w-full h-full object-cover opacity-30"
-            height={500}
-            width={500}
-          />
-          <div class="relative bg-opacity-10 rounded-2xl p-4">
-            <h3 class="text-2xl p-2">Visión</h3>
-            <p class="p-4">
-              "La visión de AMDI es crear una comunidad de apoyo que fomente el
-              compañerismo y la disciplina, preparando a los jóvenes no solo
-              para el deporte, sino también para la vida. AMDI aspira a ser
-              reconocida como un semillero de campeones que no solo logran
-              victorias en el campo, sino que también llevan consigo valores
-              sólidos y un profundo amor por el juego, impactando positivamente
-              la vida de sus miembros y sus comunidades."
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Historia />
+    <MisionVision />
   </main>
 </Layout>

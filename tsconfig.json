@@ -21,6 +21,9 @@
       "@icons/*": [
         "src/images/iconos/*"
       ],
+      "@types/*": [
+        "src/types/*"
+      ],
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

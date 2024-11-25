@@ -1,54 +1,87 @@
 ---
+// academias/index.astro
 import Layout from "@layout";
+
 import { Image } from "astro:assets";
-import Taekwondo from "public/taekwondo.jpg";
-import Equipo from "@images/equipo7.webp";
-import Equipo6 from "@images/equipo6.webp";
+import gymImg from "@images/apoyanos.webp";
+import futbolImg from "@images/ayuda.webp";
+import taekwondoImg from "@images/confusion.webp";
+import proximamenteImg from "@images/equipo2.webp";
+
+// Datos de las academias
+const academias = [
+    {
+        nombre: "Gym",
+        url: "/academias/gym",
+        imagen: gymImg,
+        descripcion: "Mejora tu fuerza y resistencia en nuestro gimnasio.",
+    },
+    {
+        nombre: "Futbol",
+        url: "/academias/futbol",
+        imagen: futbolImg,
+        descripcion: "Entrena con los mejores para destacar en el campo.",
+    },
+    {
+        nombre: "Taekwondo",
+        url: "/academias/taekwondo",
+        imagen: taekwondoImg,
+        descripcion: "Disciplina, defensa personal y crecimiento personal.",
+    },
+    {
+        nombre: "Próximamente...",
+        url: "#",
+        imagen: proximamenteImg,
+        descripcion: "¡Nuevas academias estarán disponibles pronto!",
+    },
+];
 ---
 
-<Layout title="Academias" description="Encuentra la academia perfecta para ti">
-    <main class="text-center">
-        <h1 class="font-bold pb-4 p-2 text-4xl">¡Unete a nosotros!</h1>
-        <p class="text-lg">
-            Tenemos un gran camino para ti en estas disciplinas que elevaran tu
-            competitividad y tu excelencia en los deportes
-        </p>
+<Layout
+    title="Academias"
+    description="Descubre las academias que AMDI tiene para ti"
+>
+    <main class="bg-gray-100 text-gray-800 py-12 px-4">
+        <section class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-6 text-red-700">
+                Nuestras Academias
+            </h1>
+            <p class="text-lg leading-relaxed mb-12">
+                Explora las academias deportivas que ofrecemos y elige la que
+                mejor se adapte a tus intereses. ¡Con AMDI, desarrollarás tu
+                máximo potencial!
+            </p>
 
-        <div
-            class="grid md:grid-cols-2 grid-cols-1 *:rounded-lg *:m-4 *:shadow-md *:justify-center *:content-center *:justify-items-center text-center *:transition *:delay-75"
-        >
-            <div id="taekwondo" class="bg-red-700 hover:bg-red-800">
-                <a href="/academias/taekwondo">
-                    <Image
-                        src={Taekwondo}
-                        alt="Logo de la academia de taekwondo"
-                        class="rounded-lg object-fill"
-                    />
-                    <h2>Academia de Taekwondo</h2>
-                </a>
+            <!-- Grid de Academias -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {
+                    academias.map((academia) => (
+                        <a
+                            href={academia.url}
+                            class="group relative block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:scale-105 transition transform"
+                        >
+                            <Image
+                                src={academia.imagen}
+                                alt={`Imagen de la academia de ${academia.nombre}`}
+                                class="h-48 w-full object-cover"
+                            />
+                            <div class="p-4">
+                                <h2 class="text-2xl font-bold text-red-700 mb-2">
+                                    {academia.nombre}
+                                </h2>
+                                <p class="text-gray-600">
+                                    {academia.descripcion}
+                                </p>
+                            </div>
+                            {academia.url === "#" && (
+                                <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center text-white font-bold text-lg">
+                                    ¡Próximamente!
+                                </div>
+                            )}
+                        </a>
+                    ))
+                }
             </div>
-            <div id="futbol" class="bg-blue-700 hover:bg-blue-800">
-                <a href="/academias/futbol/">
-                    <Image
-                        src={Equipo}
-                        alt="Logo de la academia de futbol"
-                        class="rounded-lg"
-                    />
-                    <h2>Academia de Futbol</h2>
-                </a>
-            </div>
-            <div id="gym" class="bg-amber-700 hover:bg-amber-800">
-                <a href="/academias/gym/">
-                    <Image src={Equipo6} alt="Logo de la academia de gym" />
-                    <h2>Gym</h2>
-                </a>
-            </div>
-        </div>
+        </section>
     </main>
 </Layout>
-<style>
-    h2 {
-        @apply font-bold;
-        @apply text-xl;
-    }
-</style>

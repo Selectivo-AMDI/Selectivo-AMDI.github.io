@@ -1,46 +1,41 @@
-export type NoticiasStoryTypes = {
+import type { CryptoType } from '@types/CryptoType';
+
+export interface NoticiaData {
     story: Story;
     cv:    number;
-    rels:  any[];
-    links: any[];
+    rels?:  any[];
+    links?: any[];
 }
 
-export type Story = {
+export interface Story {    
     name:               string;
     created_at:         Date;
-    published_at:       null;
+    published_at:       Date;
     id:                 number;
     uuid:               string;
-    content:            StoryContent;
+    content:            Content;
     slug:               string;
     full_slug:          string;
     sort_by_date:       null;
     position:           number;
-    tag_list:           any[];
+    tag_list?:           any[];
     is_startpage:       boolean;
     parent_id:          number;
-    meta_data:          null;
-    group_id:           string;
+    meta_data?:          null;
+    group_id:           CryptoType;
     first_published_at: null;
     release_id:         null;
     lang:               string;
     path:               null;
-    alternates:         any[];
-    default_full_slug:  null;
-    translated_slugs:   null;
+    alternates?:         any[];
+    default_full_slug?:  any;
+    translated_slugs?:   any;
 }
 
-export type StoryContent = {
-    _uid:      string;
-    body:      Body[];
-    component: string;
-    _editable: string;
-}
-
-export type Body = {
-    _uid:              string;
-    Autor:             Autor[];
-    Cuerpo:            Cuerpo;
+export interface Content {
+    _uid:              CryptoType;
+    Autor:             CryptoType;
+    Cuerpo:            string;
     Titulo:            string;
     component:         string;
     Imagen_portada:    ImagenPortada;
@@ -48,61 +43,23 @@ export type Body = {
     _editable:         string;
 }
 
-export type Autor = {
-    _uid:         string;
-    component:    string;
-    foto_autor:   ImagenPortada;
-    nombre_autor: string;
-    _editable:    string;
-}
-
-export type ImagenPortada = {
+export interface ImagenPortada {
     id:              number;
     alt:             string;
     name:            string;
-    focus:           string;
+    focus?:           string;
     title:           string;
     source:          string;
     filename:        string;
-    copyright:       string;
+    copyright?:       string;
     fieldtype:       string;
-    meta_data:       MetaData;
+    meta_data?:       MetaData;
     is_external_url: boolean;
 }
 
-export type MetaData = {
-}
-
-export type Cuerpo = {
-    type:    string;
-    content: CuerpoContent[];
-}
-
-export type CuerpoContent = {
-    type:     FluffyType;
-    content?: ContentContent[];
-    attrs?:   Attrs;
-}
-
-export type Attrs = {
-    level: number;
-}
-
-export type ContentContent = {
-    text:   string;
-    type:   PurpleType;
-    marks?: Mark[];
-}
-
-export type Mark = {
-    type: string;
-}
-
-export enum PurpleType {
-    Text = "text",
-}
-
-export enum FluffyType {
-    Heading = "heading",
-    Paragraph = "paragraph",
+export interface MetaData {
+    alt?:       string;
+    title?:     string;
+    source?:    string;
+    copyright?: string;
 }
