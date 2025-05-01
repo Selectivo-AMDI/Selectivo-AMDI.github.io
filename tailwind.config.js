@@ -12,7 +12,10 @@ export const theme = {
       'amdi-white': '#FEFEFE',
       'amdi-black': '#000000',
       'amdi-maroon': '#853504',
-    }
+    },
+    backgroundImage: {
+      'amdi-logo': "url('/src/images/amdi-logo.png')",
+    },
   },
 };
 export const plugins = [];

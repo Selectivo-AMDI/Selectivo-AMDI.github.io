@@ -1,5 +1,4 @@
 ---
-// academias/index.astro
 import Layout from "@layout";
 
 import { Image } from "astro:assets";
@@ -41,9 +40,9 @@ const academias = [
     title="Academias"
     description="Descubre las academias que AMDI tiene para ti"
 >
-    <main class="bg-gray-100 text-gray-800 py-12 px-4">
+    <main class="py-12 px-4">
         <section class="max-w-5xl mx-auto text-center">
-            <h1 class="text-4xl font-bold mb-6 text-red-700">
+            <h1 class="mb-6 text-red-700">
                 Nuestras Academias
             </h1>
             <p class="text-lg leading-relaxed mb-12">
@@ -58,7 +57,7 @@ const academias = [
                     academias.map((academia) => (
                         <a
                             href={academia.url}
-                            class="group relative block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg hover:scale-105 transition transform"
+                            class="group relative block bg-red-950 rounded-lg shadow-md overflow-hidden hover:shadow-lg clickeable"
                         >
                             <Image
                                 src={academia.imagen}

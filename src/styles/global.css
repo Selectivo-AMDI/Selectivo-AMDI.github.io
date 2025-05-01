@@ -2,24 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-    @apply text-white;
-    @apply bg-white;
+html,
+body {
+    @apply text-white bg-white;
 }
 
 h1 {
-    @apply text-4xl;
+    @apply text-4xl font-bold m-8;
 }
 
 h2 {
-    @apply text-xl;
-    @apply py-2;
+    @apply text-3xl font-bold m-6;
+}
+
+h3 {
+    @apply text-xl font-bold m-3;
 }
 
 .principal-title {
-    @apply text-4xl;
-    @apply font-medium;
+    @apply text-4xl font-medium;
 }
 
-main {
+.presentacion {
+    h3 {
+        @apply font-bold
+                text-xl
+                text-center;
+    }
+}
+
+.clickeable {
+    @apply  hover:scale-105
+            hover:bg-amdi-black
+            transition
+            transform
+            hover:text-amdi-white
+            duration-300
 }

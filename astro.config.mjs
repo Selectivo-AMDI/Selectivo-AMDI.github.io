@@ -17,7 +17,8 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
   experimental: {
     contentIntellisense: true
   },
-  site: 'https://selectivo-amdi.github.io/',
+  /*site: 'https://selectivo-amdi.github.io/',*/
+  site: 'https://amdi-three.vercel.app/',
   image: {
     service: {
       entrypoint: 'astro/assets/services/sharp',
@@ -34,10 +35,11 @@ export default /** @type {import('astro').AstroUserConfig} */defineConfig({
     apiOptions: {
       region: 'us'
     },
+    livePreview: true,
     components: {
-      partido: "storyblok/Partido",
-      autor: "storyblok/Autor",
-      noticia: "storyblok/Noticia",
+      Patrocinador: "storyblok/Patrocinador",
+      Autor: "storyblok/Autor",
+      Noticia: "storyblok/Noticia",
     }
   }), tailwind(), react()],
   prefetch: true,

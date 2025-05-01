@@ -1,98 +1,74 @@
 ---
-import type { NoticiasData } from "@types/NoticiasStoriesTypes";
+import type { Data } from "@types/NoticiaTypes";
 import { useStoryblokApi } from "@storyblok/astro";
+import { Image } from "astro:assets";
 
 const storyblokApi = useStoryblokApi();
+
 const { data } = (await storyblokApi.get("cdn/stories", {
     version: import.meta.env.DEV ? "draft" : "published",
     starts_with: "noticias/",
-    per_page: 5, // Limitamos a 5 noticias
-})) as { data: NoticiasData };
+    per_page: 5,
+})) as { data: Data };
 
 const noticias = data.stories;
-
-console.log(noticias);
 ---
 
-<section class="relative h-screen bg-gray-800 text-white">
-    <!-- Botones de navegación -->
-    <div class="absolute inset-0 flex justify-between items-center px-6 z-30">
-        <button
-            id="prevSlide"
-            class="bg-red-700 hover:bg-red-800 p-3 rounded-full shadow-lg focus:outline-none"
-        >
-            <strong>&#8249;</strong> <!-- Símbolo de anterior -->
-        </button>
-        <button
-            id="nextSlide"
-            class="bg-red-700 hover:bg-red-800 p-3 rounded-full shadow-lg focus:outline-none"
-        >
-            <strong>&#8250;</strong> <!-- Símbolo de siguiente -->
-        </button>
-    </div>
-    <div id="carousel" class="relative w-full h-full overflow-hidden">
+<section class="relative h-screen bg-gray-900 text-white overflow-hidden">
+    {/*Contenedor del carrusel*/}
+    <div id="carousel" class="relative w-full h-full">
         {
-            noticias.map(({ content: {Imagen_portada, Titulo, Cuerpo} }, index) => (
-                <div
-                    class={`slide absolute inset-0 transition-opacity duration-700 ${
-                        index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-                    }`}
-                >
-                    <img
-                        src={Imagen_portada.filename}
-                        alt={
-                            Imagen_portada.alt ?? "Imagen de la noticia"
-                        }
-                        class="w-full h-full object-cover"
-                    />
-                    <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4 z-20">
-                            <h1 class="text-6xl font-bold">{Titulo}</h2>
-                        <p class="mt-4 text-lg max-w-2xl">
-                            {Cuerpo.substring(
-                                0,
-                                100,
-                            )}
-                            ...
-                        </p>
+            noticias.map(
+                ({ content: { titulo, portada }, full_slug }, index) => (
+                    <div
+                        class={`slide absolute inset-0 transition-opacity duration-700 ${
+                            index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+                        }`}
+                        data-index={index}
+                    >
+                        <Image
+                            src={portada.filename}
+                            inferSize
+                            alt={portada.alt ?? "Imagen de la noticia"}
+                            class="w-full h-full object-cover"
+                        />
+                        <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-6">
+                            <h1>{titulo}</h1>
+                            <a
+                                href={`/${full_slug}`}
+                                class="mt-4 px-6 py-2 bg-red-700 clickeable text-white font-semibold rounded shadow-md focus:outline-none"
+                            >
+                                Leer más...
+                            </a>
+                        </div>
                     </div>
-                </div>
-            ))
+                ),
+            )
         }
-
     </div>
-    <!-- Carrusel -->
-
 </section>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Seleccionar las diapositivas y botones
         const slides = document.querySelectorAll(".slide");
-        const prevBtn = document.getElementById("prevSlide");
-        const nextBtn = document.getElementById("nextSlide");
+        let currentIndex = 0;
 
-        // Índice de la diapositiva actual
-        let currentIndex: number = 0;
+        const changeSlide = () => {
+            const totalSlides = slides.length;
 
-        // Función para cambiar de diapositiva
-        const updateSlides = (newIndex: number) => {
+            // Ocultamos la diapositiva actual
             slides[currentIndex].classList.remove("opacity-100", "z-10");
             slides[currentIndex].classList.add("opacity-0", "z-0");
-            slides[newIndex].classList.remove("opacity-0", "z-0");
-            slides[newIndex].classList.add("opacity-100", "z-10");
-            currentIndex = newIndex;
+
+            // Pasamos a la siguiente diapositiva
+            currentIndex = (currentIndex + 1) % totalSlides;
+
+            // Mostramos la nueva diapositiva
+            slides[currentIndex].classList.remove("opacity-0", "z-0");
+            slides[currentIndex].classList.add("opacity-100", "z-10");
         };
 
-        // Eventos para los botones
-        prevBtn?.addEventListener("click", () => {
-            const prevIndex =
-                (currentIndex - 1 + slides.length) % slides.length;
-            updateSlides(prevIndex);
-        });
-
-        nextBtn?.addEventListener("click", () => {
-            const nextIndex = (currentIndex + 1) % slides.length;
-            updateSlides(nextIndex);
-        });
+        // Configuramos el intervalo para cambiar cada 5 segundos
+        setInterval(changeSlide, 5000);
     });
 </script>

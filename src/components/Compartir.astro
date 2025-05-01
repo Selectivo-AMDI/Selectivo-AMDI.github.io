@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import Facebook from "@images/redes/facebook.webp";
 import Whatsapp from "@images/redes/whatsapp.png";
 import Twitter from "@images/redes/twitter.png";
-import { fade } from "astro:transitions";
 
 const { title } = Astro.props;
 const encodedTitle = encodeURIComponent(title);
@@ -35,7 +34,7 @@ const encodedHref = encodeURIComponent(href);
     aria-label="Compartir en Facebook"
     class="hover:opacity-75"
   >
-    <Image src={Facebook} alt="Facebook"/>
+    <Image src={Facebook} alt="Facebook" />
   </a>
   <!--
   Instagram (redirigir al perfil, ya que Instagram no permite compartir URLs) 
@@ -58,7 +57,7 @@ const encodedHref = encodeURIComponent(href);
     aria-label="Compartir en Twitter"
     class="hover:opacity-75"
   >
-    <Image src={Twitter} alt="Twitter"/>
+    <Image src={Twitter} alt="Twitter" />
   </a>
 
   <div class="text-center my-6">
@@ -70,12 +69,14 @@ const encodedHref = encodeURIComponent(href);
             .share({
               title: title,
               text: "Test",
-              url: "https://amdi.org.mx", 
+              url: "https://amdi.org.mx",
             })
             .then(() => console.log("Compartido con éxito"))
             .catch((error) => console.error("Error al compartir:", error));
         } else {
-          alert("La funcionalidad de compartir no está disponible en este navegador.");
+          alert(
+            "La funcionalidad de compartir no está disponible en este navegador.",
+          );
         }
       }}
     >

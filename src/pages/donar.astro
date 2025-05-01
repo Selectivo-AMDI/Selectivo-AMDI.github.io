@@ -4,7 +4,7 @@ import logo from "@images/logo.webp";
 import Layout from "@layout";
 import Mason from "@components/Mason.astro";
 
-import type { Banco } from "@types/BancosDataTypes";
+import type { Banco } from "@types/BancosTypes";
 import Bancos from "@data/bancos.json";
 
 const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta de PayPal
@@ -14,7 +14,7 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
     title="Donar a AMDI"
     description="Apoya a los jóvenes deportistas de AMDI con tu donación"
 >
-    <main class="text-center px-4 py-8 text-gray-800">
+    <main class="text-center px-4 py-8">
         <!-- Sección de introducción -->
         <section class="max-w-4xl mx-auto mb-12">
             <div class="flex flex-col items-center">
@@ -23,7 +23,7 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
                     alt="Logo de AMDI"
                     class="rounded-full w-32 h-32 mb-4"
                 />
-                <h1 class="text-4xl font-bold mb-4 text-red-700">
+                <h1 class="text-red-700">
                     ¡Apoya a AMDI!
                 </h1>
                 <p class="text-lg leading-relaxed">
@@ -41,17 +41,13 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
             </div>
         </section>
 
-        <!-- Métodos de pago -->
         <section class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 class="text-3xl font-bold mb-6 text-gray-700">
-                Métodos de Pago
-            </h2>
-            <p class="text-sm text-gray-600 mb-2">
+            <h2 class="text-white">Métodos de Pago</h2>
+            <p class="text-sm text-white mb-2">
                 Puedes realizar tu donación directamente a nuestras cuentas
                 bancarias.
             </p>
 
-            <!-- Transferencia Bancaria -->
             {
                 Bancos.map((banco: Banco) => (
                     <div class="grid lg:grid-cols-2 items-center place-items-center">
@@ -64,7 +60,7 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
                             <h3 class="text-xl font-semibold mb-2">
                                 {banco.nombre}
                             </h3>
-                            <div class="bg-gray-50 p-4 rounded-lg shadow">
+                            <div class="bg-transparent p-4 rounded-lg shadow">
                                 <p>
                                     <strong>CLABE:</strong> {banco.CLABE}
                                 </p>
@@ -80,7 +76,7 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
 
             <!-- PayPal -->
             <div>
-                <h3 class="text-xl font-semibold mb-2">PayPal</h3>
+                <h3>PayPal</h3>
                 <p class="text-sm text-gray-600 mb-2">
                     Haz tu donación de forma segura usando PayPal.
                 </p>
@@ -97,7 +93,7 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
 
         <!-- Mensaje final -->
         <section class="mt-12">
-            <h3 class="text-2xl font-bold text-red-700">
+            <h3 class="text-red-700">
                 ¡Gracias por tu apoyo!
             </h3>
             <p class="text-lg mt-4">

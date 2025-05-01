@@ -1,59 +1,24 @@
 ---
-import { Image } from "astro:assets";
-import type { NoticiaData, Content } from "@types/NoticiasStoryTypes";
-import { useStoryblokApi, renderRichText } from "@storyblok/astro";
-
-import Layout from "@layout";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
-import Compartir from "@components/Compartir.astro";
+import type { Data } from "@types/NoticiaTypes";
+import { useStoryblokApi } from "@storyblok/astro";
+import Layout from "@layout";
 
 const { slug } = Astro.params;
-const { blok } = Astro.props;
 const storyblokApi = useStoryblokApi();
-let noticia: Content;
+let noticia;
+
 try {
     const { data } = (await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
         version: import.meta.env.DEV ? "draft" : "published",
-    })) as { data: NoticiaData };
+    })) as { data: Data };
+
     noticia = data.story.content;
 } catch (error) {
     return Astro.redirect("/404");
 }
-const { Titulo, Cuerpo, Fecha_publicacion, Autor, Imagen_portada: {filename} } = noticia;
-//const renderedRichText = renderRichText(Cuerpo);
 ---
 
-<Layout
-    title={Titulo}
-    description={Titulo}
-    cover={filename}
->
-    <div class="max-w-4xl mx-auto p-8">
-        <h1 class="max-md:text-xl max-md:font-bold text-center">{Titulo}</h1>
-        <Image
-            src={filename}
-            alt={Titulo}
-            inferSize
-            class="max-w-md max-md:max-w-40 object-cover m-6"
-        />
-        <div>
-            <!--<StoryblokComponent blok={Autor[0]} /> -->
-        </div>
-        <p class="text-gray-500 mb-4 text-left">
-            Publicado el {
-                new Date(Fecha_publicacion).toLocaleDateString("es-MX", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                })
-            }
-        </p>
-
-        <!-- Renderizando el texto enriquecido con 'prose' para asegurar espaciado adecuado -->
-        <!--<div class="prose" set:html={renderedRichText} /> -->
-        {Cuerpo}
-        <br />
-        <Compartir title={Titulo} />
-    </div>
+<Layout title={noticia.titulo} description={noticia.titulo}>
+    <StoryblokComponent blok={noticia} />
 </Layout>

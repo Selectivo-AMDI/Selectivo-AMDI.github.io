@@ -6,47 +6,31 @@ import equipo from "@images/equipo.webp";
 import equipo3 from "@images/equipo3.webp";
 
 import Layout from "@layout";
-import BtnDonar from "@components/BtnDonar.astro";
 import Noticias from "@components/Noticias.astro";
 import Historia from "@components/Historia.astro";
 import MisionVision from "@components/MisionVision.astro";
-import Partidos from "@components/Partidos.astro";
 import CoverCarrousel from "@components/CoverCarrousel.astro";
+import ListaPartidos from "@components/ListaPartidos.astro";
 ---
 
 <Layout title="Selección AMDI Jalisco | Página oficial" description="Página oficial de AMDI Jalisco">
   <main class="text-center">
-
-    {/*
-       <div
-      id="presentacion"
-      class="relative bg-cover bg-[url('/donacion.jpg')] bg-center h-screen grid items-center"
-    >
-      <div class="absolute inset-0 bg-black opacity-70"></div>
-      <div class="relative z-10 p-8 text-left">
-        <h1 class="lg:text-6xl font-bold">Necesitamos tu ayuda</h1>
-        <p class="p-4 lg:text-xl text-sm">
-          Somos una asociación que busca el desarrollo de niños y niñas a través del deporte.
-        </p>
-        <BtnDonar />
-      </div>
-    </div>
-    */}
     <CoverCarrousel />
     <div id="noticias">
-      <h1 class="text-4xl font-bold">Lo más nuevo en AMDI</h2>
+      <h1>Lo más nuevo en AMDI</h1>
       <p>Mantente al tanto de lo que nuestra asociación está aportando a la sociedad</p>
-      <!--<Noticias />-->
+      <Noticias />
     </div>
     <div id="partidos">
-      <h2 class="text-4xl font-bold">Partidos en nuestras academias:</h2>
+      <h2>Partidos en nuestras academias:</h2>
       <p>No te pierdas de los nuevos partidos que nuestras academias están a punto de ganar</p>
-      <!--<Partidos />-->
+      <ListaPartidos cantidad={5}   />
+      <a href="historial-de-partidos" class="p-2 bg-red-700 clickeable">Ver todos los partidos</a>
 
     </div>
     <div id="quienes" class="p-4 mb-4 font-medium bg-[url('../bg.svg')] bg-blend-darken bg-bottom bg-no-repeat bg-cover bg-black/70">
 
-      <h2 class="text-4xl md:text-6xl sm:text-6xl p-4">#DejandoHuella</h2>
+      <h2>#DejandoHuella</h2>
       <p class="text-balance text-lg">
         Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
         de la Copa America AIFI. de diversas categorias infantiles, como 2012 o

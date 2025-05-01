@@ -1,7 +1,7 @@
 ---
 import { useStoryblokApi } from "@storyblok/astro";
-import type { Noticias } from "@types/NoticiasStoriesTypes.ts";
-import Noticia from "@components/Noticia.astro";
+import type { Data } from "@types/NoticiaTypes";
+import NoticiaCard from "@components/NoticiaCard.astro";
 
 const storyblokApi = useStoryblokApi();
 
@@ -9,21 +9,13 @@ const { data } = (await storyblokApi.get("cdn/stories", {
     starts_with: "noticias/",
     version: import.meta.env.DEV ? "draft" : "published",
     per_page: 4,
-})) as { data: Noticias };
+})) as { data: Data };
 
 const noticias = data.stories;
-
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center">
-    {
-        noticias.map(({ slug, content: {Imagen_portada, Titulo, Fecha_publicacion} }) => (
-            <Noticia
-                imagen_portada={Imagen_portada.filename}
-                titulo={Titulo}
-                slug={slug}
-                fecha_publicacion={Fecha_publicacion}
-            />
-        ))
-    }
+<div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center"
+>
+    {noticias.map((noticia) => <NoticiaCard story={noticia} />)}
 </div>

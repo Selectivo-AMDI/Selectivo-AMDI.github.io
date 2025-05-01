@@ -1,42 +1,56 @@
 ---
-import type { Story } from "@types/NoticiasStoryTypes";
+import { storyblokEditable } from "@storyblok/astro";
+import { renderRichText } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import { Image } from "astro:assets";
+import type { Content } from "@types/NoticiaTypes";
+import { useStoryblokApi } from "@storyblok/astro";
+import Compartir from "@components/Compartir.astro";
+
+export interface Props {
+  blok: Content;
+}
 
 const { blok } = Astro.props;
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get(`cdn/stories/`, {
+  starts_with: "autores/",
+  per_page: 1,
+  version: import.meta.env.DEV ? "draft" : "published",
+  by_uuids: blok.autor,
+});
+
+const autor = data.stories[0].content;
+
+const { titulo, cuerpo, fecha, portada } = blok;
+
+const html_cuerpo = renderRichText(cuerpo)
 
 ---
 
-<section class="max-w-4xl mx-auto p-8" id="noticias">
-  <h1 class="text-4xl font-bold text-center">Noticias</h1>
-  <h2>Todo lo nuevo que AMDI tiene para ti</h2>
-
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 p-4">
-    {
-      blok.map((noticia: Story) => (
-        <div class="bg-white shadow-md rounded-lg">
-          <a href={`/noticias/${noticia.slug}`}>
-            <Image
-              src={noticia.content.body[0].Imagen_portada.filename}
-              inferSize
-              alt={noticia.content.body[0].Titulo || "Noticia"}
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h2 class="text-xl font-semibold text-gray-800">
-                {noticia.content.body[0].Titulo}
-              </h2>
-              <p class="text-gray-500">
-                {new Date(
-                  noticia.content.body[0].Fecha_publicacion,
-                ).toLocaleDateString("es-MX")}
-              </p>
-            </div>
-          </a>
-        </div>
-      ))
-    }
+<div class="max-w-4xl mx-auto p-8" {...storyblokEditable(blok)}>
+  <h1 class="text-center">{titulo}</h1>
+  <Image
+    src={portada.filename}
+    alt={titulo}
+    inferSize
+    class="max-w-md max-md:max-w-40 object-cover m-6"
+  />
+  <div>
+    <StoryblokComponent blok={autor} />
   </div>
-  <a href="/noticias">
-    <p class="text-xl p-3 bg-red-700 hover:bg-red-800 rounded-xl">Ver más</p>
-  </a>
-</section>
+  <p class="text-gray-500 mb-4 text-left">
+    Publicado el {
+      new Date(fecha).toLocaleDateString("es-MX", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }
+  </p>
+  <div class="prose" set:html={html_cuerpo}></div>
+  <br />
+  <Compartir title={titulo} />
+</div>

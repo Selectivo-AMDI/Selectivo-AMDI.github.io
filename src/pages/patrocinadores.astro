@@ -1,39 +1,26 @@
 ---
-import type { Patrocinador } from "src/types/PatrocinadoresStoryTypes";
+import type { Data } from "@types/PatrocinadorTypes";
 import { useStoryblokApi } from "@storyblok/astro";
-import { Image } from "astro:assets";
-import NotaCompleta from "@components/NotaCompleta.astro";
 import Layout from "@layout";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/patrocinadores", {
-  version: "draft", // Cambiar a "published" para producción
-});
 
-const patrocinadores = data.story.content.patrocinador;
+const { data } = (await storyblokApi.get("cdn/stories/", {
+  starts_with: "patrocinadores/",
+  version: import.meta.env.DEV ? "draft" : "published",
+})) as { data: Data };
+
+const patrocinadores = data.stories;
 ---
 
 <Layout title="Patrocinadores" description="Nuestros patrocinadores">
   <section class="prose max-w-none p-8">
     <h1>Patrocinadores</h1>
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid grid-cols-3 gap-8">
       {
-        patrocinadores.map((patrocinador: Patrocinador) => (
-          <div class="flex flex-col items-center text-center">
-            <h2 class="text-lg font-semibold mt-4">
-              {patrocinador.Nombre_patrocinador}
-            </h2>
-            <Image
-              src={patrocinador.Logo_patrocinador.filename}
-              inferSize
-              alt={
-                patrocinador.Alt_image ??
-                `Imagen del logo de ${patrocinador.Nombre_patrocinador}`
-              }
-              class="w-full max-w-xs object-cover"
-            />
-            <NotaCompleta nota={patrocinador.Url_nota?.url} />
-          </div>
+        patrocinadores.map(({content}) => (
+          <StoryblokComponent blok={content} />
         ))
       }
     </div>
