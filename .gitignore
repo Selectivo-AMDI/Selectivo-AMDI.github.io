@@ -37,6 +37,7 @@ bun.lockb
 
 # Pnpm
 pnpm-workspace.yaml
+pnpm-lock.yaml
 
 # https
 localhost-key.pem
