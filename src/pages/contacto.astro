@@ -1,51 +1,52 @@
 ---
-import { CORREO, TELEFONO, DIRECCION } from "src/constants";
+import { CORREO, DIRECCION, TELEFONO } from "src/constants";
 import { Image } from "astro:assets";
-import Correo from "@icons/email.svg";
-import Celular from "@icons/celular.svg";
+import icono from "@images/logo.webp";
 import Layout from "@layout";
-import Mapa from "@icons/mapa.svg";
 
-const metodos = {
-    correo: {
-        icono: Correo,
-        titulo: "Correo",
-        contenido: CORREO,
-    },
-    telefono: {
-        icono: Celular,
-        titulo: "Teléfono",
-        contenido: TELEFONO,
-    },
-    direccion: {
-        icono: Mapa,
-        titulo: "Dirección",
-        contenido: DIRECCION
-    },
-}
+import Social from "@components/Social.astro";
 ---
 
-<Layout
-    draft={true}
-    title="Contacto"
-    description="Contacta a la Asociación Mexicana de Desarrollo Motriz Infantil"
->
-    <main class="p-10 text-center">
-        <h1>Contacto</h1>
-        <p>¿Tienes alguna duda o comentario? ¡Contáctanos!</p>
-        <div
-            id="metodos"
-            class="grid lg:grid-cols-2 grid-cols-1 *:justify-items-center *:content-center *:items-center"
-        >
-        {
-            Object.values(metodos).map(({icono, titulo, contenido}) => (
-                <div class="p-4">
-                    <Image src={icono} alt="icono de contacto" class="h-12 w-46 fill-red-700" />
-                    <h2 class="text-lg font-bold">{titulo}:</h2>
-                    <p>{contenido}</p>
-                </div>
-            ))
-        }
-        </div>
-    </main>
+<Layout title="Contáctanos" description="Ponte en contacto con AMDI para más información">
+  <main class=" py-12 px-4">
+    <section class="max-w-4xl mx-auto text-center">
+      <h1 class="mb-4 text-red-700">¡Contáctanos!</h1>
+      <p class="text-lg leading-relaxed">
+        Estamos aquí para responder tus preguntas y brindarte toda la información que necesites
+        acerca de nuestras actividades, programas y formas de colaborar con nosotros.
+      </p>
+    </section>
+
+    <!-- Información de contacto -->
+    <section class="max-w-3xl mx-auto mt-8 p-6 rounded-lg shadow-md">
+      <h2 class="text-gray-700">Información de Contacto</h2>
+
+      <!-- Teléfono -->
+      <div class="flex items-center mb-4">
+        <i class="fas fa-phone-alt text-red-700 mr-4"></i>
+        <a href={`tel:${TELEFONO}`} class="text-lg text-blue-600 hover:underline">
+          {TELEFONO}
+    </div>
+
+      <!-- Dirección -->
+      <div class="flex items-center mb-4">
+        <i class="fas fa-map-marker-alt text-red-700 mr-4"></i>
+        <p class="text-lg">{DIRECCION}</p>
+      </div>
+
+      <!-- Correo Electrónico -->
+      <div class="flex items-center mb-4">
+        <i class="fas fa-envelope text-red-700 mr-4"></i>
+        <a href={`mailto:${CORREO}`} class="text-lg text-blue-600 hover:underline">
+          {CORREO}
+        </a>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div>
+        <h3 class="text-gray-700">Síguenos en nuestras redes sociales</h3>
+        <Social />        
+      </div>
+    </section>
+  </main>
 </Layout>

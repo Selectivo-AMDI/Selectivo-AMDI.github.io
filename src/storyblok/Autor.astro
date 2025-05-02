@@ -1,17 +1,25 @@
 ---
+import { storyblokEditable } from "@storyblok/astro";
+import type { Content } from "@types/AutorTypes";
 import { Image } from "astro:assets";
+
+export interface Props {
+  blok: Content;
+}
+
 const { blok } = Astro.props;
+const { nombre, imagen } = blok;
 ---
 
-<div class="flex items-center mb-4 text-left">
+<div class="flex items-center mb-4 text-left" {...storyblokEditable(blok)} >
   <Image
-    src={blok.foto_autor.filename}
-    alt={blok.nombre_autor}
+    src={imagen.filename}
+    alt={imagen.alt}
     inferSize
     class="w-12 h-12 rounded-full mr-4"
   />
   <div>
     <p class="text-xs">Redactado por:</p>
-    <p class="text-lg font-semibold">{blok.nombre_autor}</p>
+    <p class="text-lg font-semibold">{nombre}</p>
   </div>
 </div>

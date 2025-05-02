@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import parseDate from "../utils/parseDate.ts";
+import type { BaseStory } from "@types/StoryTypes";
+
+export interface Props {
+    story: BaseStory;
+}
+
+const { story } = Astro.props;
+
+const {
+    slug,
+    content: { portada, titulo, fecha },
+} = story;
+---
+
+<article
+    class="w-64 m-4 h-96 hover:scale-105 bg-amdi-white hover:bg-amdi-black transition text-gray-800 hover:text-amdi-white duration-300 shadow-md rounded-lg overflow-hidden"
+>
+    <a href={`/noticias/${slug}`}>
+        <div class="h-1/2 w-full">
+            <Image
+                src={portada.filename}
+                inferSize
+                alt={titulo}
+                class="w-full h-full object-cover"
+            />
+        </div>
+        <div
+            class="h-1/2 flex flex-col items-center justify-center text-center p-3"
+        >
+            <h3>
+                {titulo}
+            </h3>
+            <p class="text-sm">
+                {parseDate(new Date(fecha))}
+            </p>
+        </div>
+    </a>
+</article>

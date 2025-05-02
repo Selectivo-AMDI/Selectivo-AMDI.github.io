@@ -1,0 +1,68 @@
+---
+import type { ImageMetadata } from "astro";
+
+import { Image } from "astro:assets";
+
+
+import apoyanos from "@images/apoyanos.webp";
+import copaBrasil from "@images/copa_brasil.webp";
+import equipo from "@images/equipo.webp";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/images/equipo*.webp",
+);
+
+const alts = [
+    "Niños con el entrenador",
+    "Niños preparados para competir en la Copa brasil",
+    "Niños afuera de un templo",
+    "Entrenadora enseñandole a dos niños",
+    "Dos niños compitiendo por el balón",
+    "Niños preparandose para entrenar, con camisas verdes",
+    "Niños con sus entrenadores, listos para competir",
+    "Niños en la cancha de juego, descansando en el suelo",
+    "Niño parando un balón que cae con su pie",
+    "Niño haciendo una dominada",
+    "Todos los niños aprendiendo a jugar con el balón",
+    "Niños portero detiene el balón y salva a su equipo de un gol",
+];
+---
+
+        <!--Creditos a https://tailwindflex.com/@simon-scheffer/masonry-grid -->
+        <div class="p-5 sm:p-8">
+            <div
+                class="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8"
+            >
+                <Image
+                    {...{
+                        src: apoyanos,
+                        alt: "Niños con el entrenador",
+                    }}
+                />
+
+                <Image
+                    {...{
+                        src: copaBrasil,
+                        alt: "Niños preparados para competir en la Copa brasil",
+                    }}
+                />
+
+                <Image
+                    {...{
+                        src: equipo,
+                        alt: "Niños afuera de un templo",
+                    }}
+                />
+
+                {
+                    Object.entries(images).map(([_, value], index) => (
+                        <Image
+                            {...{
+                                src: value(),
+                                alt: alts[index],
+                            }}
+                        />
+                    ))
+                }
+            </div>
+        </div>

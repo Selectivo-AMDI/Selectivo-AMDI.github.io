@@ -1,0 +1,77 @@
+---
+import type { Data } from "@types/HistorialPartidosTypes";
+import { useStoryblokApi } from "@storyblok/astro";
+import Layout from "@layout";
+import { Image } from "astro:assets";
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = (await storyblokApi.get("cdn/stories/", {
+  starts_with: "partidos/",
+  version: import.meta.env.DEV ? "draft" : "published",
+})) as { data: Data };
+
+const partidos = data.stories;
+---
+<Layout 
+  title="Historial de partidos"
+  description="Historial de partidos de la academia de futbol"
+>
+<h1 class="p-2 text-center">Todos los partidos jugados:</h1>
+{
+  partidos.map(
+    ({
+      content: {
+        nombre_local,
+        nombre_visitante,
+        fecha,
+        goles_local,
+        goles_visitante,
+        lugar,
+        enlace_partido,
+        logo_local,
+        logo_visitante,
+      },
+    }) => (
+      <div class="flex justify-between items-center p-4 border-b border-gray-200">
+        <div class="flex">
+          <Image
+            src={logo_local.filename}
+            alt={nombre_local}
+            inferSize
+            class="h-16 w-16"
+          />
+          <h2>
+            {nombre_local} vs {nombre_visitante}
+          </h2>
+          <Image
+            src={logo_visitante.filename}
+            alt={nombre_local}
+            inferSize
+            class="h-16 w-16"
+          />  
+          <p class="text-sm text-gray-500">{fecha}</p>
+        </div>
+        <div>
+
+          <p class="text-lg font-bold">
+            {goles_local} - {goles_visitante}
+          </p>
+          <p class="text-sm text-gray-500">{lugar}</p>
+        </div>
+        <div>
+          {enlace_partido.url && (
+            <a
+              href={enlace_partido.url}
+              class="text-amdi-blue hover:text-amdi-blue-dark"
+            >
+              Ver partido
+            </a>
+          )}
+        </div>
+      </div>
+    ),
+  )
+}
+
+</Layout>

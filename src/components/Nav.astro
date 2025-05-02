@@ -7,7 +7,7 @@ import Social from "./Social.astro";
 const menu = (mobile: boolean) =>
 	opciones.map(
 		({ url, nombre }) =>
-			`<li class*="mb-1"><a class="text-sm text-white hover:bg-red-800 p-3 rounded ${mobile ? "block font-semibold" : ""}" href="${url}">${nombre}</a></li>`,
+			`<li class*="mb-1"><a class="text-sm text-white clickeable lg:p-3 p-1 rounded ${mobile ? "block font-semibold" : ""}" href="${url}">${nombre}</a></li>`,
 	);
 ---
 
@@ -44,7 +44,7 @@ const menu = (mobile: boolean) =>
 		<Fragment set:html={menu(true)} />
 	</ul>
 	<div class="max-lg:hidden">
-		<Social/>
+		<Social />
 	</div>
 </nav>
 <div class="navbar-menu relative z-50 hidden">
@@ -87,46 +87,35 @@ const menu = (mobile: boolean) =>
 		</div>
 	</nav>
 </div>
-
 <script>
-	// Burger menus
 	document.addEventListener("DOMContentLoaded", function () {
-		// open
-		const burger = document.querySelectorAll(".navbar-burger");
-		const menu = document.querySelectorAll(".navbar-menu");
+		const burger = document.querySelector(".navbar-burger");
+		const menu = document.querySelector(".navbar-menu");
+		const close = document.querySelector(".navbar-close");
+		const backdrop = document.querySelector(".navbar-backdrop");
+		const menuLinks = document.querySelectorAll(".navbar-menu a");
 
-		if (burger.length && menu.length) {
-			for (var i = 0; i < burger.length; i++) {
-				burger[i].addEventListener("click", function () {
-					for (var j = 0; j < menu.length; j++) {
-						menu[j].classList.toggle("hidden");
-					}
-				});
+		function toggleMenu() {
+			menu?.classList.toggle("hidden");
+		}
+
+		// Cerrar el menú si está abierto
+		function closeMenu() {
+			if (!menu?.classList.contains("hidden")) {
+				menu?.classList.add("hidden");
 			}
 		}
 
-		// close
-		const close = document.querySelectorAll(".navbar-close");
-		const backdrop = document.querySelectorAll(".navbar-backdrop");
+		// Abrir y cerrar menú con el botón de hamburguesa
+		burger?.addEventListener("click", toggleMenu);
 
-		if (close.length) {
-			for (var i = 0; i < close.length; i++) {
-				close[i].addEventListener("click", function () {
-					for (var j = 0; j < menu.length; j++) {
-						menu[j].classList.toggle("hidden");
-					}
-				});
-			}
-		}
+		// Cerrar el menú cuando se hace clic en el botón de cerrar o en el backdrop
+		close?.addEventListener("click", closeMenu);
+		backdrop?.addEventListener("click", closeMenu);
 
-		if (backdrop.length) {
-			for (var i = 0; i < backdrop.length; i++) {
-				backdrop[i].addEventListener("click", function () {
-					for (var j = 0; j < menu.length; j++) {
-						menu[j].classList.toggle("hidden");
-					}
-				});
-			}
-		}
+		// Cerrar el menú cuando se selecciona un enlace
+		menuLinks.forEach((link) => {
+			link.addEventListener("click", closeMenu);
+		});
 	});
 </script>
