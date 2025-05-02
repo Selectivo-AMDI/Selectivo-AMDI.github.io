@@ -3,7 +3,7 @@ import Footer from "@components/Footer.astro";
 import BaseHead from "@components/BaseHead.astro";
 import Nav from "@components/Nav.astro";
 import Trabajando from "@components/Trabajando.astro";
-import "src/styles/global.css"
+import "src/styles/global.css";
 
 /**
   @param title string - Título de la página
@@ -12,10 +12,10 @@ import "src/styles/global.css"
   @param cover string? - URL de la imagen de portada
 */
 export interface Props {
-	title: string;
-	description: string;
-	cover?: string;
-	draft?: boolean;
+  title: string;
+  description: string;
+  cover?: string;
+  draft?: boolean;
 }
 
 const { title, description, draft, cover } = Astro.props;
@@ -23,18 +23,14 @@ const { title, description, draft, cover } = Astro.props;
 
 <!doctype html>
 <html lang="es-MX">
-	<head>
-		<BaseHead
-			title={title}
-			description={description}
-			cover={cover}
-		/>
-	</head>
-	<body class="bg-[#121212]">
-		<div class="py-9"></div>
-		<Nav />
-		<slot />
-		<Trabajando draft={draft} />
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={title} description={description} cover={cover} />
+  </head>
+  <body class="bg-[#121212]">
+    <div class="py-9"></div>
+    <Nav />
+    <slot />
+    <Trabajando draft={draft} />
+    <Footer />
+  </body>
 </html>

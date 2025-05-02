@@ -13,23 +13,35 @@ import CoverCarrousel from "@components/CoverCarrousel.astro";
 import ListaPartidos from "@components/ListaPartidos.astro";
 ---
 
-<Layout title="Selección AMDI Jalisco | Página oficial" description="Página oficial de AMDI Jalisco">
+<Layout
+  title="Selección AMDI Jalisco | Página oficial"
+  description="Página oficial de AMDI Jalisco"
+>
   <main class="text-center">
     <CoverCarrousel />
     <div id="noticias">
       <h1>Lo más nuevo en AMDI</h1>
-      <p>Mantente al tanto de lo que nuestra asociación está aportando a la sociedad</p>
+      <p>
+        Mantente al tanto de lo que nuestra asociación está aportando a la
+        sociedad
+      </p>
       <Noticias />
     </div>
     <div id="partidos">
       <h2>Partidos en nuestras academias:</h2>
-      <p>No te pierdas de los nuevos partidos que nuestras academias están a punto de ganar</p>
-      <ListaPartidos cantidad={5}   />
-      <a href="historial-de-partidos" class="p-2 bg-red-700 clickeable">Ver todos los partidos</a>
-
+      <p>
+        No te pierdas de los nuevos partidos que nuestras academias están a
+        punto de ganar
+      </p>
+      <ListaPartidos cantidad={5} />
+      <a href="historial-de-partidos" class="p-2 bg-red-700 clickeable"
+        >Ver todos los partidos</a
+      >
     </div>
-    <div id="quienes" class="p-4 mb-4 font-medium bg-[url('../bg.svg')] bg-blend-darken bg-bottom bg-no-repeat bg-cover bg-black/70">
-
+    <div
+      id="quienes"
+      class="p-4 mb-4 font-medium bg-[url('../bg.svg')] bg-blend-darken bg-bottom bg-no-repeat bg-cover bg-black/70"
+    >
       <h2>#DejandoHuella</h2>
       <p class="text-balance text-lg">
         Somos la Asociación Mexicana de Desarrollo Motriz Infantil. participante
@@ -62,7 +74,7 @@ import ListaPartidos from "@components/ListaPartidos.astro";
               </div>
 
               <span
-                class="relative ml-4 mb-3 inline-block text-sm  md:ml-5 md:text-lg"
+                class="relative ml-4 mb-3 inline-block text-sm md:ml-5 md:text-lg"
                 >Esfuerzo</span
               >
             </a>
@@ -84,7 +96,7 @@ import ListaPartidos from "@components/ListaPartidos.astro";
               </div>
 
               <span
-                class="relative ml-4 mb-3 inline-block text-sm  md:ml-5 md:text-lg"
+                class="relative ml-4 mb-3 inline-block text-sm md:ml-5 md:text-lg"
                 >Aprendizaje</span
               >
             </a>
@@ -106,7 +118,7 @@ import ListaPartidos from "@components/ListaPartidos.astro";
               </div>
 
               <span
-                class="relative ml-4 mb-3 inline-block text-sm  md:ml-5 md:text-lg"
+                class="relative ml-4 mb-3 inline-block text-sm md:ml-5 md:text-lg"
                 >Hermandad</span
               >
             </a>
@@ -128,7 +140,7 @@ import ListaPartidos from "@components/ListaPartidos.astro";
               </div>
 
               <span
-                class="relative ml-4 mb-3 inline-block text-sm  md:ml-5 md:text-lg"
+                class="relative ml-4 mb-3 inline-block text-sm md:ml-5 md:text-lg"
                 >Ganar</span
               >
             </a>

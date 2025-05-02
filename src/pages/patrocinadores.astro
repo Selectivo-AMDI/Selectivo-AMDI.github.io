@@ -19,7 +19,7 @@ const patrocinadores = data.stories;
     <h1>Patrocinadores</h1>
     <div class="grid grid-cols-3 gap-8">
       {
-        patrocinadores.map(({content}) => (
+        patrocinadores.map(({ content }) => (
           <StoryblokComponent blok={content} />
         ))
       }

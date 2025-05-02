@@ -6,69 +6,67 @@ import { Image } from "astro:assets";
 const storyblokApi = useStoryblokApi();
 
 const { data } = (await storyblokApi.get("cdn/stories", {
-    version: import.meta.env.DEV ? "draft" : "published",
-    starts_with: "noticias/",
-    per_page: 5,
+  version: import.meta.env.DEV ? "draft" : "published",
+  starts_with: "noticias/",
+  per_page: 5,
 })) as { data: Data };
 
 const noticias = data.stories;
 ---
 
 <section class="relative h-screen bg-gray-900 text-white overflow-hidden">
-    {/*Contenedor del carrusel*/}
-    <div id="carousel" class="relative w-full h-full">
-        {
-            noticias.map(
-                ({ content: { titulo, portada }, full_slug }, index) => (
-                    <div
-                        class={`slide absolute inset-0 transition-opacity duration-700 ${
-                            index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
-                        }`}
-                        data-index={index}
-                    >
-                        <Image
-                            src={portada.filename}
-                            inferSize
-                            alt={portada.alt ?? "Imagen de la noticia"}
-                            class="w-full h-full object-cover"
-                        />
-                        <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-6">
-                            <h1>{titulo}</h1>
-                            <a
-                                href={`/${full_slug}`}
-                                class="mt-4 px-6 py-2 bg-red-700 clickeable text-white font-semibold rounded shadow-md focus:outline-none"
-                            >
-                                Leer más...
-                            </a>
-                        </div>
-                    </div>
-                ),
-            )
-        }
-    </div>
+  {/*Contenedor del carrusel*/}
+  <div id="carousel" class="relative w-full h-full">
+    {
+      noticias.map(({ content: { titulo, portada }, full_slug }, index) => (
+        <div
+          class={`slide absolute inset-0 transition-opacity duration-700 ${
+            index === 0 ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+          data-index={index}
+        >
+          <Image
+            src={portada.filename}
+            inferSize
+            alt={portada.alt ?? "Imagen de la noticia"}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-6">
+            <h1>{titulo}</h1>
+            <a
+              href={`/${full_slug}`}
+              class="mt-4 px-6 py-2 bg-red-700 clickeable text-white font-semibold rounded shadow-md focus:outline-none"
+            >
+              Leer más...
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const slides = document.querySelectorAll(".slide");
-        let currentIndex = 0;
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide");
+    let currentIndex = 0;
 
-        const changeSlide = () => {
-            const totalSlides = slides.length;
+    const changeSlide = () => {
+      const totalSlides = slides.length;
 
-            // Ocultamos la diapositiva actual
-            slides[currentIndex].classList.remove("opacity-100", "z-10");
-            slides[currentIndex].classList.add("opacity-0", "z-0");
+      // Ocultamos la diapositiva actual
+      slides[currentIndex].classList.remove("opacity-100", "z-10");
+      slides[currentIndex].classList.add("opacity-0", "z-0");
 
-            // Pasamos a la siguiente diapositiva
-            currentIndex = (currentIndex + 1) % totalSlides;
+      // Pasamos a la siguiente diapositiva
+      currentIndex = (currentIndex + 1) % totalSlides;
 
-            // Mostramos la nueva diapositiva
-            slides[currentIndex].classList.remove("opacity-0", "z-0");
-            slides[currentIndex].classList.add("opacity-100", "z-10");
-        };
+      // Mostramos la nueva diapositiva
+      slides[currentIndex].classList.remove("opacity-0", "z-0");
+      slides[currentIndex].classList.add("opacity-100", "z-10");
+    };
 
-        // Configuramos el intervalo para cambiar cada 5 segundos
-        setInterval(changeSlide, 5000);
-    });
+    // Configuramos el intervalo para cambiar cada 5 segundos
+    setInterval(changeSlide, 5000);
+  });
 </script>

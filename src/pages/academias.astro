@@ -9,78 +9,73 @@ import proximamenteImg from "@images/equipo2.webp";
 
 // Datos de las academias
 const academias = [
-    {
-        nombre: "Gym",
-        url: "/academias/gym",
-        imagen: gymImg,
-        descripcion: "Mejora tu fuerza y resistencia en nuestro gimnasio.",
-    },
-    {
-        nombre: "Futbol",
-        url: "/academias/futbol",
-        imagen: futbolImg,
-        descripcion: "Entrena con los mejores para destacar en el campo.",
-    },
-    {
-        nombre: "Taekwondo",
-        url: "/academias/taekwondo",
-        imagen: taekwondoImg,
-        descripcion: "Disciplina, defensa personal y crecimiento personal.",
-    },
-    {
-        nombre: "Próximamente...",
-        url: "#",
-        imagen: proximamenteImg,
-        descripcion: "¡Nuevas academias estarán disponibles pronto!",
-    },
+  {
+    nombre: "Gym",
+    url: "/academias/gym",
+    imagen: gymImg,
+    descripcion: "Mejora tu fuerza y resistencia en nuestro gimnasio.",
+  },
+  {
+    nombre: "Futbol",
+    url: "/academias/futbol",
+    imagen: futbolImg,
+    descripcion: "Entrena con los mejores para destacar en el campo.",
+  },
+  {
+    nombre: "Taekwondo",
+    url: "/academias/taekwondo",
+    imagen: taekwondoImg,
+    descripcion: "Disciplina, defensa personal y crecimiento personal.",
+  },
+  {
+    nombre: "Próximamente...",
+    url: "#",
+    imagen: proximamenteImg,
+    descripcion: "¡Nuevas academias estarán disponibles pronto!",
+  },
 ];
 ---
 
 <Layout
-    title="Academias"
-    description="Descubre las academias que AMDI tiene para ti"
+  title="Academias"
+  description="Descubre las academias que AMDI tiene para ti"
 >
-    <main class="py-12 px-4">
-        <section class="max-w-5xl mx-auto text-center">
-            <h1 class="mb-6 text-red-700">
-                Nuestras Academias
-            </h1>
-            <p class="text-lg leading-relaxed mb-12">
-                Explora las academias deportivas que ofrecemos y elige la que
-                mejor se adapte a tus intereses. ¡Con AMDI, desarrollarás tu
-                máximo potencial!
-            </p>
+  <main class="py-12 px-4">
+    <section class="max-w-5xl mx-auto text-center">
+      <h1 class="mb-6 text-red-700">Nuestras Academias</h1>
+      <p class="text-lg leading-relaxed mb-12">
+        Explora las academias deportivas que ofrecemos y elige la que mejor se
+        adapte a tus intereses. ¡Con AMDI, desarrollarás tu máximo potencial!
+      </p>
 
-            <!-- Grid de Academias -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {
-                    academias.map((academia) => (
-                        <a
-                            href={academia.url}
-                            class="group relative block bg-red-950 rounded-lg shadow-md overflow-hidden hover:shadow-lg clickeable"
-                        >
-                            <Image
-                                src={academia.imagen}
-                                alt={`Imagen de la academia de ${academia.nombre}`}
-                                class="h-48 w-full object-cover"
-                            />
-                            <div class="p-4">
-                                <h2 class="text-2xl font-bold text-red-700 mb-2">
-                                    {academia.nombre}
-                                </h2>
-                                <p class="text-gray-600">
-                                    {academia.descripcion}
-                                </p>
-                            </div>
-                            {academia.url === "#" && (
-                                <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center text-white font-bold text-lg">
-                                    ¡Próximamente!
-                                </div>
-                            )}
-                        </a>
-                    ))
-                }
-            </div>
-        </section>
-    </main>
+      <!-- Grid de Academias -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {
+          academias.map((academia) => (
+            <a
+              href={academia.url}
+              class="group relative block bg-red-950 rounded-lg shadow-md overflow-hidden hover:shadow-lg clickeable"
+            >
+              <Image
+                src={academia.imagen}
+                alt={`Imagen de la academia de ${academia.nombre}`}
+                class="h-48 w-full object-cover"
+              />
+              <div class="p-4">
+                <h2 class="text-2xl font-bold text-red-700 mb-2">
+                  {academia.nombre}
+                </h2>
+                <p class="text-gray-600">{academia.descripcion}</p>
+              </div>
+              {academia.url === "#" && (
+                <div class="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center text-white font-bold text-lg">
+                  ¡Próximamente!
+                </div>
+              )}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
 </Layout>

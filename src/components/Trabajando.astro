@@ -3,32 +3,32 @@ import { Image } from "astro:assets";
 import chambeando from "@images/trabajando.jpeg";
 
 export interface Props {
-    draft?: boolean;
+  draft?: boolean;
 }
 
 const { draft } = Astro.props;
 ---
 
-{draft && (
+{
+  draft && (
     <div class=" text-center items-center border-2 border-dashed m-2 justify-center content-center">
-        <h1>Sitio en construcción</h1>
-        <p>
-            Ya mero sale esta página, falta poquito, así que no se desesperen.
-        </p>
-        <Image
-            src={chambeando}
-            class="p-4 flex-shrink-0 m-auto"
-            alt="gato chambeando"
-            height="500"
-            width="500"
-        />
-        <div class="p-8">
-            <a
-                href="/"
-                class="bg-blue-700 hover:bg-blue-800 p-4 font-medium rounded"
-            >
-                Regresar al inicio
-            </a>
-        </div>
+      <h1>Sitio en construcción</h1>
+      <p>Ya mero sale esta página, falta poquito, así que no se desesperen.</p>
+      <Image
+        src={chambeando}
+        class="p-4 flex-shrink-0 m-auto"
+        alt="gato chambeando"
+        height="500"
+        width="500"
+      />
+      <div class="p-8">
+        <a
+          href="/"
+          class="bg-blue-700 hover:bg-blue-800 p-4 font-medium rounded"
+        >
+          Regresar al inicio
+        </a>
+      </div>
     </div>
-)}
+  )
+}

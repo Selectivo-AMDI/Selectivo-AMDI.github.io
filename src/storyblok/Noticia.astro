@@ -25,8 +25,7 @@ const autor = data.stories[0].content;
 
 const { titulo, cuerpo, fecha, portada } = blok;
 
-const html_cuerpo = renderRichText(cuerpo)
-
+const html_cuerpo = renderRichText(cuerpo);
 ---
 
 <div class="max-w-4xl mx-auto p-8" {...storyblokEditable(blok)}>
@@ -50,7 +49,7 @@ const html_cuerpo = renderRichText(cuerpo)
       })
     }
   </p>
-  <div class="prose" set:html={html_cuerpo}></div>
+  <div class="prose" set:html={html_cuerpo} />
   <br />
   <Compartir title={titulo} />
 </div>

@@ -3,7 +3,7 @@
 # sudo apt install mkcert
 mkcert -install
 mkcert localhost
-# npm install -g local-ssl-proxy
+npm install -g local-ssl-proxy
 #
 # For starting https 
 

@@ -5,16 +5,16 @@
  * @param cover portada de la página (y para OpenGraph)
  */
 export interface Props {
-	title: string;
-	description: string;
-	cover?: string;
+  title: string;
+  description: string;
+  cover?: string;
 }
 
 const { title, description, cover } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const openGraphImage = new URL(
-	cover ?? "/apoyanos.webp",
-	Astro.site,
+  cover ?? "/apoyanos.webp",
+  Astro.site
 ).toString();
 ---
 

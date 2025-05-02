@@ -11,96 +11,87 @@ const paypalLink = "https://paypal.me/AMDI"; // Cambia este link al de tu cuenta
 ---
 
 <Layout
-    title="Donar a AMDI"
-    description="Apoya a los jóvenes deportistas de AMDI con tu donación"
+  title="Donar a AMDI"
+  description="Apoya a los jóvenes deportistas de AMDI con tu donación"
 >
-    <main class="text-center px-4 py-8">
-        <!-- Sección de introducción -->
-        <section class="max-w-4xl mx-auto mb-12">
-            <div class="flex flex-col items-center">
-                <Image
-                    src={logo}
-                    alt="Logo de AMDI"
-                    class="rounded-full w-32 h-32 mb-4"
-                />
-                <h1 class="text-red-700">
-                    ¡Apoya a AMDI!
-                </h1>
-                <p class="text-lg leading-relaxed">
-                    Tu donación ayudará a transformar la vida de jóvenes
-                    deportistas, proporcionándoles acceso a entrenamientos de
-                    calidad, recursos deportivos y la oportunidad de participar
-                    en competencias nacionales e internacionales.
+  <main class="text-center px-4 py-8">
+    <!-- Sección de introducción -->
+    <section class="max-w-4xl mx-auto mb-12">
+      <div class="flex flex-col items-center">
+        <Image
+          src={logo}
+          alt="Logo de AMDI"
+          class="rounded-full w-32 h-32 mb-4"
+        />
+        <h1 class="text-red-700">¡Apoya a AMDI!</h1>
+        <p class="text-lg leading-relaxed">
+          Tu donación ayudará a transformar la vida de jóvenes deportistas,
+          proporcionándoles acceso a entrenamientos de calidad, recursos
+          deportivos y la oportunidad de participar en competencias nacionales e
+          internacionales.
+        </p>
+        <p class="text-lg leading-relaxed mt-4">
+          Al contribuir, no solo apoyas el deporte infantil, sino que también
+          fomentas valores como la disciplina, el trabajo en equipo y la
+          perseverancia, creando un impacto duradero en sus vidas y comunidades.
+        </p>
+      </div>
+    </section>
+
+    <section class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md">
+      <h2 class="text-white">Métodos de Pago</h2>
+      <p class="text-sm text-white mb-2">
+        Puedes realizar tu donación directamente a nuestras cuentas bancarias.
+      </p>
+
+      {
+        Bancos.map((banco: Banco) => (
+          <div class="grid lg:grid-cols-2 items-center place-items-center">
+            <img
+              src={"/src/images/" + banco.img}
+              alt={banco.alt}
+              class="w-32 h-auto"
+            />
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-2">{banco.nombre}</h3>
+              <div class="bg-transparent p-4 rounded-lg shadow">
+                <p>
+                  <strong>CLABE:</strong> {banco.CLABE}
                 </p>
-                <p class="text-lg leading-relaxed mt-4">
-                    Al contribuir, no solo apoyas el deporte infantil, sino que
-                    también fomentas valores como la disciplina, el trabajo en
-                    equipo y la perseverancia, creando un impacto duradero en
-                    sus vidas y comunidades.
+                <p>
+                  <strong>Beneficiario:</strong> {banco.beneficiario}
                 </p>
+              </div>
             </div>
-        </section>
+          </div>
+        ))
+      }
 
-        <section class="max-w-3xl mx-auto bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 class="text-white">Métodos de Pago</h2>
-            <p class="text-sm text-white mb-2">
-                Puedes realizar tu donación directamente a nuestras cuentas
-                bancarias.
-            </p>
+      <!-- PayPal -->
+      <div>
+        <h3>PayPal</h3>
+        <p class="text-sm text-gray-600 mb-2">
+          Haz tu donación de forma segura usando PayPal.
+        </p>
+        <a
+          href={paypalLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+        >
+          Donar con PayPal
+        </a>
+      </div>
+    </section>
 
-            {
-                Bancos.map((banco: Banco) => (
-                    <div class="grid lg:grid-cols-2 items-center place-items-center">
-                        <img
-                            src={"/src/images/" + banco.img}
-                            alt={banco.alt}
-                            class="w-32 h-auto"
-                        />
-                        <div class="mb-8">
-                            <h3 class="text-xl font-semibold mb-2">
-                                {banco.nombre}
-                            </h3>
-                            <div class="bg-transparent p-4 rounded-lg shadow">
-                                <p>
-                                    <strong>CLABE:</strong> {banco.CLABE}
-                                </p>
-                                <p>
-                                    <strong>Beneficiario:</strong>{" "}
-                                    {banco.beneficiario}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                ))
-            }
-
-            <!-- PayPal -->
-            <div>
-                <h3>PayPal</h3>
-                <p class="text-sm text-gray-600 mb-2">
-                    Haz tu donación de forma segura usando PayPal.
-                </p>
-                <a
-                    href={paypalLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-block bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-                >
-                    Donar con PayPal
-                </a>
-            </div>
-        </section>
-
-        <!-- Mensaje final -->
-        <section class="mt-12">
-            <h3 class="text-red-700">
-                ¡Gracias por tu apoyo!
-            </h3>
-            <p class="text-lg mt-4">
-                Juntos podemos seguir impulsando el talento y las aspiraciones
-                de los jóvenes. Tu contribución marca la diferencia.
-            </p>
-        </section>
-        <Mason />
-    </main>
+    <!-- Mensaje final -->
+    <section class="mt-12">
+      <h3 class="text-red-700">¡Gracias por tu apoyo!</h3>
+      <p class="text-lg mt-4">
+        Juntos podemos seguir impulsando el talento y las aspiraciones de los
+        jóvenes. Tu contribución marca la diferencia.
+      </p>
+    </section>
+    <Mason />
+  </main>
 </Layout>

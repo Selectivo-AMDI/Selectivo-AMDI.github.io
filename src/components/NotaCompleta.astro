@@ -1,6 +1,6 @@
 ---
 export interface Props {
-    nota?: string;
+  nota?: string;
 }
 /**
  * @param nota link a la noticia o blog a redirigir
@@ -10,12 +10,15 @@ const { nota } = Astro.props;
 ---
 
 {
-    nota ? (
+  nota ? (
     <a
-    class={` p-1 font-medium rounded-full clickeable bg-red-700`}
-    target="_blank"
-    href={nota}
-    >Nota completa...
+      class={` p-1 font-medium rounded-full clickeable bg-red-700`}
+      target="_blank"
+      href={nota}
+    >
+      Nota completa...
     </a>
-    ) : ("")
+  ) : (
+    ""
+  )
 }

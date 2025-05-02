@@ -1,15 +1,20 @@
-import type { BaseContent, BaseStory, BaseImagen, BaseData } from "./StoryTypes";
+import type {
+  BaseContent,
+  BaseStory,
+  BaseImagen,
+  BaseData,
+} from "./StoryTypes";
 
 export interface Data extends BaseData {
-    readonly story: Story;
+  readonly story: Story;
 }
 
 export interface Story extends BaseStory {
-    readonly content: Content;
+  readonly content: Content;
 }
 
 export interface Content extends BaseContent {
-    readonly imagen: BaseImagen;
-    readonly nombre: string;
-    readonly rol:    string;
+  readonly imagen: BaseImagen;
+  readonly nombre: string;
+  readonly rol: string;
 }

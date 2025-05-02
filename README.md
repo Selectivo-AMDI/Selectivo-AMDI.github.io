@@ -2,12 +2,12 @@
 
 Equipo encargado del desarrollo:
 
-|Nombre|Rol|
-|-|-|
-|Kevin Alejandro Leal Torres|Product Owner|
-|David Eduardo Pérez Luna|Product Manager|
-|María de la Luz Farfán Martínez|Programadora frontend|
-|Francisco Tamez Vázquez|Programador backend|
+| Nombre                          | Rol                   |
+| ------------------------------- | --------------------- |
+| Kevin Alejandro Leal Torres     | Product Owner         |
+| David Eduardo Pérez Luna        | Product Manager       |
+| María de la Luz Farfán Martínez | Programadora frontend |
+| Francisco Tamez Vázquez         | Programador backend   |
 
 **Documentación creada** 16 de enero de 2025
 
@@ -21,15 +21,14 @@ Equipo encargado del desarrollo:
 4. [Tecnologías usadas](#Tecnologías-usadas)
 5. [Dependencias](#Dependencias)
 6. [Requerimientos](#Requerimientos)
-    
-    6.1. [Cómo configurar](#Cómo-configurar)
-    
-    6.2. [Scripts](#scripts)
+
+   6.1. [Cómo configurar](#Cómo-configurar)
+
+   6.2. [Scripts](#scripts)
 
 7. [Dependencias](#Dependencias)
 8. [Ramas](#ramas)
 9. [Despliegue](#despliegue)
-
 
 ## Resumen:
 
@@ -50,14 +49,13 @@ Para que la gente conozca a la institución sin tener que moverse, se proveerá 
 3. TypeScript - lenguaje de programación
 4. Bun - runtime de JS
 
-
 ## Dependencias:
 
 1. TailwindCSS - Librería de estilos de CSS
 2. Storyblok - CMS headless
 3. Vercel - hosting
 4. BasicSSL - creador de certificados SSL para conexiones seguras (HTTPS)
-5. (todas las dependencias en ```/astro.config.mjs```)
+5. (todas las dependencias en `/astro.config.mjs`)
 
 ## Requerimientos:
 
@@ -75,21 +73,21 @@ _(No se ocupa nada para instalar TypeScript, npm y bun contienen TypeScript inst
 
 ### Cómo configurar:
 
-1. clonar el código fuente a tu computadora con este comando (```git clone https://github.com/Selectivo-AMDI/amdi.github.io.git```)
-2. Ejecutar ```git pull origin main``` para no tener conflictos con nuevos cambios (esto igual hacerlo con la rama server-mode, canary y dev)
-3. Ejecutar ```npm i``` para instalar las dependencias correspondientes
-4. Ejecutar ```pnpm i``` para instalar las dependencias correspondientes
-5. Revisar y descomentar los comandos en el archivo ```/https_start.sh``` para ejecutarlo posteriormente
-6. Ejecutar ```npm run astro dev``` para correr el proyecto
-7. En ```https://localhost:4321``` se verá la previsualización
+1. clonar el código fuente a tu computadora con este comando (`git clone https://github.com/Selectivo-AMDI/amdi.github.io.git`)
+2. Ejecutar `git pull origin main` para no tener conflictos con nuevos cambios (esto igual hacerlo con la rama server-mode, canary y dev)
+3. Ejecutar `npm i` para instalar las dependencias correspondientes
+4. Ejecutar `pnpm i` para instalar las dependencias correspondientes
+5. Revisar y descomentar los comandos en el archivo `/https_start.sh` para ejecutarlo posteriormente
+6. Ejecutar `npm run astro dev` para correr el proyecto
+7. En `https://localhost:4321` se verá la previsualización
 
 ### Scripts
 
-Para automatizar mejor el tema de la conexión a Storyblok, creé el script ```/https_start.sh```. El archivo
+Para automatizar mejor el tema de la conexión a Storyblok, creé el script `/https_start.sh`. El archivo
 funciona para sistemas UNIX, si tienes Windows, busca su equivalente
 
 Para ejecutar el archivo, primero usa algún editor de texto y descomenta los comandos para instalar y configurar
-los archivos PEM. Después de que los descomentaste, ejecuta en la terminal: ```chmod +x https_start.sh; ./https_start.sh```. Y listo. ¿Por qué es necesario? Storyblok pide forzosamente conexión HTTPS.
+los archivos PEM. Después de que los descomentaste, ejecuta en la terminal: `chmod +x https_start.sh; ./https_start.sh`. Y listo. ¿Por qué es necesario? Storyblok pide forzosamente conexión HTTPS.
 
 ## Ramas:
 
@@ -97,25 +95,26 @@ los archivos PEM. Después de que los descomentaste, ejecuta en la terminal: ```
 
 **dev**: Son los cambios que van a ser probados y puestos a revisión
 
-~~**canary**~~: (**deprecated**: ya que esta rama pertenecía para lanzar previews a GH Pages. Actualmente se trabaja con Vercel y se cambió a la rama **server-mode**) Son los hotfix o cualquier cambio hecho en el proyecto, esté probado o no, para ir guardando en el origin cualquier cambio hecho y después mandarlo a ```dev``` para su revisión
+~~**canary**~~: (**deprecated**: ya que esta rama pertenecía para lanzar previews a GH Pages. Actualmente se trabaja con Vercel y se cambió a la rama **server-mode**) Son los hotfix o cualquier cambio hecho en el proyecto, esté probado o no, para ir guardando en el origin cualquier cambio hecho y después mandarlo a `dev` para su revisión
 
 **server-mode**: Rama que soporta SSR por medio de un conector a Vercel. Con la misma misión de la rama canary, en este se programan las nuevas funcionalidades experimentales y hotfix para ser probados en dev.
 
-Los cambios deberían de ser: 
+Los cambios deberían de ser:
 
 server-mode -> dev -> main
 
 ## Configuración
 
-1. Tú tienes un archivo llamado ```.env.example```, es un template del archivo ```.env``` (**el archivo ```.env``` no se debe exportar a GH porque contiene claves secretas**). Debes acceder a la página Storybloks e ir a la API para conseguir la llave de PREVIEW para los blogs y ponerlo en la única variable que existe.
+1. Tú tienes un archivo llamado `.env.example`, es un template del archivo `.env` (**el archivo `.env` no se debe exportar a GH porque contiene claves secretas**). Debes acceder a la página Storybloks e ir a la API para conseguir la llave de PREVIEW para los blogs y ponerlo en la única variable que existe.
 
-2. Si no lo has hecho, usa los comandos ```npm i``` y ```pnpm i``` para instalar automatiecamente las dependencias.
+2. Si no lo has hecho, usa los comandos `npm i` y `pnpm i` para instalar automatiecamente las dependencias.
 
-3. si no lo has hecho, configura el certificado SSL con el archivo ```./https_start.sh```. (¿Por qué? Porque Storybloks sólo acepta solicitudes HTTPS, y ninguno de los manejadores de paquetes o runtimes soporta conexiones seguras nativas)
+3. si no lo has hecho, configura el certificado SSL con el archivo `./https_start.sh`. (¿Por qué? Porque Storybloks sólo acepta solicitudes HTTPS, y ninguno de los manejadores de paquetes o runtimes soporta conexiones seguras nativas)
 
-4. 
+4.
 
 ## Despliegue
+
 Actualmente las previews se hacen con Vercel (GH queda _deprecated_ por no soportar SSR), la cual apunta a la rama **server-mode**.
 
 ## Uso
@@ -128,11 +127,11 @@ Estos pocos consejos aplican a ambos:
 
 ### Usuario final:
 
-Está página se caracteriza por cargarse automaticamente cada que se escribe un blog en Storybloks, es rapido y eficiente. Por lo que 
+Está página se caracteriza por cargarse automaticamente cada que se escribe un blog en Storybloks, es rapido y eficiente. Por lo que
 
 ### Administrador:
 
-Astro es un framework nuevo, y a la vez inestable, por lo que siempre mantente al tanto de los nuevos cambios del framework en su página web, al igual que en storybloks porque cambian la API. La API está documentada en la carpeta ```/src/types/```, pero Storybloks a veces cambia la API, así que normal que tengas que cambiarla de vez en cuando.
+Astro es un framework nuevo, y a la vez inestable, por lo que siempre mantente al tanto de los nuevos cambios del framework en su página web, al igual que en storybloks porque cambian la API. La API está documentada en la carpeta `/src/types/`, pero Storybloks a veces cambia la API, así que normal que tengas que cambiarla de vez en cuando.
 
 ## Contribución
 

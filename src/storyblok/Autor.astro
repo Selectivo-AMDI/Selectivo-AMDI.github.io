@@ -11,7 +11,7 @@ const { blok } = Astro.props;
 const { nombre, imagen } = blok;
 ---
 
-<div class="flex items-center mb-4 text-left" {...storyblokEditable(blok)} >
+<div class="flex items-center mb-4 text-left" {...storyblokEditable(blok)}>
   <Image
     src={imagen.filename}
     alt={imagen.alt}

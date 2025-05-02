@@ -9,16 +9,16 @@ const storyblokApi = useStoryblokApi();
 let noticia;
 
 try {
-    const { data } = (await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
-        version: import.meta.env.DEV ? "draft" : "published",
-    })) as { data: Data };
+  const { data } = (await storyblokApi.get(`cdn/stories/noticias/${slug}`, {
+    version: import.meta.env.DEV ? "draft" : "published",
+  })) as { data: Data };
 
-    noticia = data.story.content;
+  noticia = data.story.content;
 } catch (error) {
-    return Astro.redirect("/404");
+  return Astro.redirect("/404");
 }
 ---
 
 <Layout title={noticia.titulo} description={noticia.titulo}>
-    <StoryblokComponent blok={noticia} />
+  <StoryblokComponent blok={noticia} />
 </Layout>

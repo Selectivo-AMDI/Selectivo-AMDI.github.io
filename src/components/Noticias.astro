@@ -6,16 +6,16 @@ import NoticiaCard from "@components/NoticiaCard.astro";
 const storyblokApi = useStoryblokApi();
 
 const { data } = (await storyblokApi.get("cdn/stories", {
-    starts_with: "noticias/",
-    version: import.meta.env.DEV ? "draft" : "published",
-    per_page: 4,
+  starts_with: "noticias/",
+  version: import.meta.env.DEV ? "draft" : "published",
+  per_page: 4,
 })) as { data: Data };
 
 const noticias = data.stories;
 ---
 
 <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center"
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center"
 >
-    {noticias.map((noticia) => <NoticiaCard story={noticia} />)}
+  {noticias.map((noticia) => <NoticiaCard story={noticia} />)}
 </div>

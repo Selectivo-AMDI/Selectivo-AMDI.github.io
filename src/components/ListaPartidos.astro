@@ -4,7 +4,7 @@ import { useStoryblokApi } from "@storyblok/astro";
 import { Image } from "astro:assets";
 
 export interface Props {
-    cantidad?: number | "all";
+  cantidad?: number | "all";
 }
 
 const { cantidad } = Astro.props;
@@ -12,99 +12,84 @@ const { cantidad } = Astro.props;
 const storyblokApi = useStoryblokApi();
 
 const { data } = (await storyblokApi.get("cdn/stories", {
-    version: import.meta.env.DEV ? "draft" : "published",
-    starts_with: "partidos/",
-    per_page: cantidad == "all" ? undefined : cantidad,
+  version: import.meta.env.DEV ? "draft" : "published",
+  starts_with: "partidos/",
+  per_page: cantidad == "all" ? undefined : cantidad,
 })) as { data: Data };
 
 const partidos = data.stories;
 ---
 
 <table class="w-full table-auto border-collapse border border-gray-200">
-    <thead>
-        <tr>
-            <th
-                class="p-4 border border-gray-200 text-left text-lg font-semibold"
-                >Equipo Local</th
-            >
-            <th
-                class="p-4 border border-gray-200 text-center text-lg font-semibold"
-                >Marcador</th
-            >
-            <th
-                class="p-4 border border-gray-200 text-center text-lg font-semibold"
-                >Equipo Visitante</th
-            >
-            <th
-                class="p-4 border border-gray-200 text-left text-lg font-semibold max-md:hidden"
-                >Academia</th
-            >
-            <th
-                class="p-4 border border-gray-200 text-left text-lg font-semibold max-md:hidden"
-                >Fecha</th
-            >
-        </tr>
-    </thead>
-    <tbody>
-        {
-            partidos.map(
-                ({
-                    content: {
-                        nombre_local,
-                        nombre_visitante,
-                        logo_local,
-                        logo_visitante,
-                        academia,
-                        fecha,
-                        goles_local,
-                        goles_visitante,
-                    },
-                }) => (
-                    <tr class="border-b border-gray-200">
-                        <td class="p-4 flex items-center">
-                            <Image
-                                src={logo_local.filename}
-                                inferSize
-                                alt={logo_local.alt}
-                                class="size-8"
-                            />
-                            <span class="text-lg font-semibold">
-                                {nombre_local}
-                            </span>
-                        </td>
-                        <td class="p-4 text-center">
-                            <span class="text-lg font-semibold">
-                                {goles_local}
-                            </span>
-                            <span class="text-lg font-semibold mx-2">-</span>
-                            <span class="text-lg font-semibold">
-                                {goles_visitante}
-                            </span>
-                        </td>
-                        <td class="p-4 flex items-center justify-end space-x-4">
-                            <span class="text-lg font-semibold">
-                                {nombre_visitante}
-                            </span>
-                            <Image
-                                src={logo_visitante.filename}
-                                inferSize
-                                alt={logo_visitante.alt}
-                                class="size-8"
-                            />
-                        </td>
-                        <td class="p-4 text-left max-md:hidden">
-                            <span class="text-lg font-semibold">
-                                {academia}
-                            </span>
-                        </td>
-                        <td class="p-4 text-left max-md:hidden">
-                            <span class="text-lg font-semibold">
-                                {fecha}
-                            </span>
-                        </td>
-                    </tr>
-                ),
-            )
-        }
-    </tbody>
+  <thead>
+    <tr>
+      <th class="p-4 border border-gray-200 text-left text-lg font-semibold"
+        >Equipo Local</th
+      >
+      <th class="p-4 border border-gray-200 text-center text-lg font-semibold"
+        >Marcador</th
+      >
+      <th class="p-4 border border-gray-200 text-center text-lg font-semibold"
+        >Equipo Visitante</th
+      >
+      <th
+        class="p-4 border border-gray-200 text-left text-lg font-semibold max-md:hidden"
+        >Academia</th
+      >
+      <th
+        class="p-4 border border-gray-200 text-left text-lg font-semibold max-md:hidden"
+        >Fecha</th
+      >
+    </tr>
+  </thead>
+  <tbody>
+    {
+      partidos.map(
+        ({
+          content: {
+            nombre_local,
+            nombre_visitante,
+            logo_local,
+            logo_visitante,
+            academia,
+            fecha,
+            goles_local,
+            goles_visitante,
+          },
+        }) => (
+          <tr class="border-b border-gray-200">
+            <td class="p-4 flex items-center">
+              <Image
+                src={logo_local.filename}
+                inferSize
+                alt={logo_local.alt}
+                class="size-8"
+              />
+              <span class="text-lg font-semibold">{nombre_local}</span>
+            </td>
+            <td class="p-4 text-center">
+              <span class="text-lg font-semibold">{goles_local}</span>
+              <span class="text-lg font-semibold mx-2">-</span>
+              <span class="text-lg font-semibold">{goles_visitante}</span>
+            </td>
+            <td class="p-4 flex items-center justify-end space-x-4">
+              <span class="text-lg font-semibold">{nombre_visitante}</span>
+              <Image
+                src={logo_visitante.filename}
+                inferSize
+                alt={logo_visitante.alt}
+                class="size-8"
+              />
+            </td>
+            <td class="p-4 text-left max-md:hidden">
+              <span class="text-lg font-semibold">{academia}</span>
+            </td>
+            <td class="p-4 text-left max-md:hidden">
+              <span class="text-lg font-semibold">{fecha}</span>
+            </td>
+          </tr>
+        )
+      )
+    }
+  </tbody>
 </table>
