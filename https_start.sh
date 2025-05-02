@@ -1,8 +1,8 @@
 #!/bin/bash
 # >>> For installing mkcert
 # sudo apt install mkcert
-# mkcert -install
-# mkcert localhost
+mkcert -install
+mkcert localhost
 # npm install -g local-ssl-proxy
 #
 # For starting https 
